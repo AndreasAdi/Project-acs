@@ -19,6 +19,7 @@ namespace Proyek_ACS
 
         private void Button1_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("ya allah jalan");
             Form_Main main = new Form_Main();
             this.Hide();
             main.ShowDialog();
