@@ -94,6 +94,12 @@
     <Compile Include="listorder.Designer.cs">
       <DependentUpon>listorder.cs</DependentUpon>
     </Compile>
+    <Compile Include="List_Barang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="List_Barang.Designer.cs">
+      <DependentUpon>List_Barang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Order.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="listorder.resx">
       <DependentUpon>listorder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="List_Barang.resx">
+      <DependentUpon>List_Barang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Order.resx">
       <DependentUpon>Order.cs</DependentUpon>
