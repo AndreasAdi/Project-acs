@@ -206,6 +206,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "listorder";
             this.Text = "listorder";
+            this.Load += new System.EventHandler(this.Listorder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

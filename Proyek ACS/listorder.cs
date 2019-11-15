@@ -16,5 +16,10 @@ namespace Proyek_ACS
         {
             InitializeComponent();
         }
+
+        private void Listorder_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
