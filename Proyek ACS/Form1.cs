@@ -19,10 +19,17 @@ namespace Proyek_ACS
 
         private void Button1_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("ya allah jalan");
+            MessageBox.Show("Test");
             Form_Main main = new Form_Main();
             this.Hide();
             main.ShowDialog();
             this.Close();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Database db = new Database("xe","proyekacs","123");
         }
     }
 }
