@@ -38,6 +38,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(13, 57);
             this.dataGridView1.Name = "dataGridView1";
@@ -52,6 +53,7 @@
             this.button2.TabIndex = 8;
             this.button2.Text = "Search";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // button1
             // 
@@ -89,6 +91,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "Inventory";
             this.Text = "Inventory";
+            this.Load += new System.EventHandler(this.Inventory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

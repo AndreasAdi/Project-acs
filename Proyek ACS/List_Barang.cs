@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Oracle.DataAccess.Client;
 
 namespace Proyek_ACS
 {
@@ -15,6 +16,11 @@ namespace Proyek_ACS
         public List_Barang()
         {
             InitializeComponent();
+        }
+
+        private void List_Barang_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

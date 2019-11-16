@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Oracle.DataAccess.Client;
 
 namespace Proyek_ACS
 {
@@ -26,6 +27,11 @@ namespace Proyek_ACS
         private void Button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Detail_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -31,28 +31,28 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.ID_PO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Request_Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Vendor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.City = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Post_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Order_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Deliverydate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Billed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1197, 90);
+            this.button1.Location = new System.Drawing.Point(898, 73);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(84, 31);
+            this.button1.Size = new System.Drawing.Size(63, 25);
             this.button1.TabIndex = 7;
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = true;
@@ -60,9 +60,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(51, 23);
+            this.label1.Location = new System.Drawing.Point(38, 19);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 17);
+            this.label1.Size = new System.Drawing.Size(114, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "List of purchase orders";
             // 
@@ -80,18 +81,61 @@
             this.Request_Author,
             this.Vendor,
             this.City,
-            this.Post_Code,
             this.Order_date,
             this.Deliverydate,
             this.Tax,
             this.Status,
             this.Billed});
-            this.dataGridView1.Location = new System.Drawing.Point(38, 170);
+            this.dataGridView1.Location = new System.Drawing.Point(28, 138);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1264, 469);
+            this.dataGridView1.Size = new System.Drawing.Size(948, 381);
             this.dataGridView1.TabIndex = 4;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(582, 76);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(85, 21);
+            this.comboBox1.TabIndex = 8;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "ID_PO",
+            "Request_Author",
+            "City",
+            "Post Code",
+            "Order date",
+            "Date of Delivery",
+            "Tax",
+            "Status"});
+            this.comboBox2.Location = new System.Drawing.Point(494, 76);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(85, 21);
+            this.comboBox2.TabIndex = 9;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(677, 76);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(188, 20);
+            this.textBox1.TabIndex = 10;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(28, 73);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(181, 20);
+            this.dateTimePicker1.TabIndex = 11;
             // 
             // ID_PO
             // 
@@ -116,12 +160,6 @@
             this.City.HeaderText = "City";
             this.City.MinimumWidth = 6;
             this.City.Name = "City";
-            // 
-            // Post_Code
-            // 
-            this.Post_Code.HeaderText = "Post_Code";
-            this.Post_Code.MinimumWidth = 6;
-            this.Post_Code.Name = "Post_Code";
             // 
             // Order_date
             // 
@@ -153,50 +191,11 @@
             this.Billed.MinimumWidth = 6;
             this.Billed.Name = "Billed";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(776, 93);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(112, 24);
-            this.comboBox1.TabIndex = 8;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "ID_PO",
-            "Request_Author",
-            "City",
-            "Post Code",
-            "Order date",
-            "Date of Delivery",
-            "Tax",
-            "Status"});
-            this.comboBox2.Location = new System.Drawing.Point(658, 93);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(112, 24);
-            this.comboBox2.TabIndex = 9;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(903, 94);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(250, 22);
-            this.textBox1.TabIndex = 10;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(38, 90);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(240, 22);
-            this.dateTimePicker1.TabIndex = 11;
-            // 
             // listorder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1376, 693);
+            this.ClientSize = new System.Drawing.Size(1032, 563);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox2);
@@ -204,6 +203,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "listorder";
             this.Text = "listorder";
             this.Load += new System.EventHandler(this.Listorder_Load);
@@ -218,19 +218,18 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID_PO;
         private System.Windows.Forms.DataGridViewTextBoxColumn Request_Author;
         private System.Windows.Forms.DataGridViewTextBoxColumn Vendor;
         private System.Windows.Forms.DataGridViewTextBoxColumn City;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Post_Code;
         private System.Windows.Forms.DataGridViewTextBoxColumn Order_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Deliverydate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tax;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn Billed;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
