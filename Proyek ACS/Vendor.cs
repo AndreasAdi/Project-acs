@@ -16,5 +16,10 @@ namespace Proyek_ACS
         {
             InitializeComponent();
         }
+        Database db = new Database("xe", "proyekacs", "123");
+        private void Vendor_Load(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource= db.executeDataTable("Select * From Distributor");
+        }
     }
 }

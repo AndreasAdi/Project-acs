@@ -28,7 +28,7 @@ namespace Proyek_ACS
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Database db = new Database("xe","praktikum","123");
+            Database db = new Database("xe","proyekacs","123");
         }
     }
 }
