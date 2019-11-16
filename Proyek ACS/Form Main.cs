@@ -54,5 +54,10 @@ namespace Proyek_ACS
             Assign asgn = new Assign();
             asgn.Show();
         }
+
+        private void Form_Main_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

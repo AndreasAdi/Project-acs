@@ -25,5 +25,10 @@ namespace Proyek_ACS
             main.ShowDialog();
             this.Close();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Database db = new Database("xe","praktikum","123");
+        }
     }
 }
