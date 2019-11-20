@@ -149,18 +149,20 @@ insert into Transaksi values('BRG0005','Sinar Dunia F4 80gsm',48000,'DIS00',to_d
 
 create table Order_Header
 (
-    Id_Order            varchar2(8) primary key,
-    Id_Distributor      varchar2(8) not null references distributor(Id_Distributor),
-    Tanggal_Order       date        not null,
-    Pajak               number(15)  ,
-    Subtotal            number(15)  not null,
-    Status_Order        varchar2(1) not null check(Status_Order in ('0' ,'1','2','3','4','5'))
+    Id_Order                varchar2(8) primary key,
+    Id_Distributor          varchar2(8) not null references distributor(Id_Distributor),
+    Tanggal_Order           date        not null,
+    Plan_Date_Delivery      date        ,
+    Pajak                   number(15)  ,
+    Subtotal                number(15)  not null,    
+    Status_Order            varchar2(1) not null check(Status_Order in ('0' ,'1','2','3','4','5')),
+    Id_Pegawai              varchar2(8) references Pegawai(Id_Pegawai)
 );
-insert into Order_Header values('PO001','DIS001',to_date('10/11/2019','dd/mm/yyyy'),10,100000,'5');
-insert into Order_Header values('PO002','DIS002',to_date('12/11/2019','dd/mm/yyyy'),10,150000,'5');
-insert into Order_Header values('PO003','DIS003',to_date('13/11/2019','dd/mm/yyyy'),15,300000,'4');
-insert into Order_Header values('PO004','DIS001',to_date('15/11/2019','dd/mm/yyyy'),10,400000,'2');
-insert into Order_Header values('PO005','DIS001',to_date('16/11/2019','dd/mm/yyyy'),20,2500000,'1');
+insert into Order_Header values('PO001','DIS001',to_date('10/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),10,100000,'5','PEG004');
+insert into Order_Header values('PO002','DIS002',to_date('12/11/2019','dd/mm/yyyy'),to_date('23/12/2019','dd/mm/yyyy'),10,150000,'5','PEG004');
+insert into Order_Header values('PO003','DIS003',to_date('13/11/2019','dd/mm/yyyy'),to_date('22/12/2019','dd/mm/yyyy'),15,300000,'4','PEG005');
+insert into Order_Header values('PO004','DIS001',to_date('15/11/2019','dd/mm/yyyy'),to_date('18/12/2019','dd/mm/yyyy'),10,400000,'2','PEG006');
+insert into Order_Header values('PO005','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'1','PEG006');
 ---insert into Order_Header values('PO006','DIS004',to_date('18/11/2019','dd/mm/yyyy'),10,600000,'3');
 ---insert into Order_Header values('PO007','DIS005',to_date('07/12/2019','dd/mm/yyyy'),10,1000000,'1');
 
@@ -181,3 +183,4 @@ insert into Order_Detail values('PO005','BRG0015','Krisbow Paper Shedder S290',1
 
 
 
+commit;

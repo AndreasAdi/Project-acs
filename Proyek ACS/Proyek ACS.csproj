@@ -93,6 +93,12 @@
     <Compile Include="Inventory.Designer.cs">
       <DependentUpon>Inventory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kotak_Vendor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kotak_Vendor.Designer.cs">
+      <DependentUpon>Kotak_Vendor.cs</DependentUpon>
+    </Compile>
     <Compile Include="listorder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory.resx">
       <DependentUpon>Inventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kotak_Vendor.resx">
+      <DependentUpon>Kotak_Vendor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="listorder.resx">
       <DependentUpon>listorder.cs</DependentUpon>
