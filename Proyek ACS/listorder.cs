@@ -33,7 +33,7 @@ namespace Proyek_ACS
         private void Listorder_Load(object sender, EventArgs e)
         {
             load_dgv_listorder(perintahlistpo);
-            comboBox1.Enabled = false;
+            comboBox_status.Enabled = false;
         }
 
         private void load_dgv_listorder(string perintahlistpo)
@@ -46,18 +46,21 @@ namespace Proyek_ACS
 
         private void ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {            
-            if (comboBox2.SelectedIndex == 6 )
+            if (comboBox_kategori.SelectedIndex == 6 )
             {
-                comboBox1.Enabled = true;
+                comboBox_status.Enabled = true;
             }
-            else if (comboBox2.SelectedIndex <6 || comboBox2.SelectedIndex >6)
+            else if (comboBox_kategori.SelectedIndex <6 || comboBox_kategori.SelectedIndex >6)
             {
-                comboBox1.Enabled = false;
+                comboBox_status.Enabled = false;
             }
         }
 
         private void Button_reset_Click(object sender, EventArgs e)
         {
+            comboBox_tanggal.SelectedIndex = 0;
+            comboBox_kategori.SelectedIndex = 0;
+            comboBox_status.SelectedIndex = 0;
             load_dgv_listorder(perintahlistpo);
         }
 
@@ -68,10 +71,34 @@ namespace Proyek_ACS
                 MessageBox.Show("Masukkan isian search");
             }
             String keyword = textBox1.Text;
-            if (true)
+            string search = "";
+            if (comboBox_tanggal.SelectedIndex < 0 || 
+                comboBox_kategori.SelectedIndex < 0 || 
+                comboBox_status.SelectedIndex <0)
             {
-
+                search = perintahlistpo + " and (" +
+                    "order_header.Id_Order like '%" + keyword + "%' or " +
+                    "pegawai.Nama_Pegawai like '%" + keyword + "%' or " +
+                    "Distributor.Nama_Distributor like '%" + keyword + "%' or " +
+                    "Distributor.Alamat_Distributor like '%" + keyword + "%' or " +
+                    "Order_Header.Pajak like '%" + keyword + "%' or " +
+                    "Order_Header.Subtotal like '%" + keyword + "%' or " +
+                    "Order_Header.Status_Order like '%" + keyword + "%'  " +
+                    ")";
             }
+            else if (comboBox_tanggal.SelectedIndex > 0 ||
+                comboBox_kategori.SelectedIndex > 0 ||
+                comboBox_status.SelectedIndex > 0)
+            {
+                string filtertanggal = comboBox_tanggal.SelectedItem.ToString();
+                string filterkategori = comboBox_kategori.SelectedItem.ToString();
+                string filterstatus = Convert.ToString(comboBox_status.SelectedIndex);
+
+                search = perintahlistpo + " and (" +
+                    "" +
+                    ")";
+            }
+            load_dgv_listorder(search);
         }
     }
 }
