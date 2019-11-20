@@ -77,6 +77,9 @@ namespace Proyek_ACS
                 {
                     fm.assignPrevilegeToolStripMenuItem.Enabled = true;
                 }
+                else if (idakses == "HA005") {
+                    fm.makeOrderToolStripMenuItem.Enabled = true;
+                }
                 fm.ShowDialog();
                 this.Close();
             }
