@@ -46,11 +46,5 @@ namespace Proyek_ACS
             main.ShowDialog();
             this.Close();
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            koneksi();
-            //Database db = new Database("xe","proyekacs","123");
-        }
     }
 }

@@ -125,9 +125,13 @@ create table Hak_Akses
 (
     Id_Pegawai      varchar2(8) references Pegawai(Id_Pegawai),
     Id_Hak_Akses    varchar2(8),
-    Nama_Akses      varchar2(15),
+    Nama_Akses      varchar2(150),
     constraint PK_HA primary key(Id_Pegawai,Id_Hak_Akses)
 );
+insert into Hak_Akses Values ('PEG001','HA001','Akses Lihat Inventory');
+insert into Hak_Akses Values ('PEG002','HA002','Edit Inventory');
+insert into Hak_Akses Values ('PEG003','HA003','Akses Approve dan Batal');
+insert into Hak_Akses Values ('PEG004','HA004','Granter');
 
 create table Transaksi
 (
