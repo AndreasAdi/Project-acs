@@ -9,6 +9,8 @@ drop table Kontak_Distributor cascade constraint purge;
 drop table Hak_Akses cascade constraint purge;
 drop table Order_Header cascade constraint purge;
 drop table Order_Detail cascade constraint purge;
+drop table list_hak_akses cascade constraint purge;
+
 
 create table Branch
 (
@@ -120,18 +122,26 @@ insert into Kontak_Distributor values('DIS007','021 4566547','po@sanjayaabadi.co
 insert into Kontak_Distributor values('DIS008','021 5678876','mahkotamakmur@yahoo.com');
 insert into Kontak_Distributor values('DIS009','021 8907898','purchaseorder@global.indonesia.com');
 
-
+create table list_hak_akses (
+    Id_Hak_Akses varchar(8) Primary key,
+    Nama_Akses   varchar2(150) not null
+);
+insert into list_hak_akses Values ('HA001','Akses Lihat Kontak');
+insert into list_hak_akses Values ('HA002','Edit Kontak');
+insert into list_hak_akses Values ('HA003','Akses Approve dan Batal');
+insert into list_hak_akses Values ('HA004','Granter');
+insert into list_hak_akses values ('HA005','Make Order');
 create table Hak_Akses
 (
     Id_Pegawai      varchar2(8) references Pegawai(Id_Pegawai),
-    Id_Hak_Akses    varchar2(8),
-    Nama_Akses      varchar2(150),
+    Id_Hak_Akses    varchar2(8) references list_hak_akses(Id_Hak_Akses),
     constraint PK_HA primary key(Id_Pegawai,Id_Hak_Akses)
 );
-insert into Hak_Akses Values ('PEG001','HA001','Akses Lihat Inventory');
-insert into Hak_Akses Values ('PEG002','HA002','Edit Inventory');
-insert into Hak_Akses Values ('PEG003','HA003','Akses Approve dan Batal');
-insert into Hak_Akses Values ('PEG004','HA004','Granter');
+insert into Hak_Akses Values ('PEG001','HA001');
+insert into Hak_Akses Values ('PEG002','HA002');
+insert into Hak_Akses Values ('PEG003','HA003');
+insert into Hak_Akses Values ('PEG004','HA004');
+insert into Hak_Akses Values ('PEG005','HA005');
 
 create table Transaksi
 (

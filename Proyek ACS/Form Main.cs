@@ -26,8 +26,7 @@ namespace Proyek_ACS
 
         private void ApproveOrderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Approve a = new Approve();
-            a.Show();
+  
         }
 
         private void LihatOrderToolStripMenuItem_Click(object sender, EventArgs e)
@@ -59,6 +58,12 @@ namespace Proyek_ACS
         private void Form_Main_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void ApproveOrderToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Approve a = new Approve();
+            a.Show();
         }
     }
 }
