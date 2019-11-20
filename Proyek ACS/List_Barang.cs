@@ -11,24 +11,14 @@ using Oracle.DataAccess.Client;
 
 namespace Proyek_ACS
 {
-    public partial class Approve : Form
+    public partial class List_Barang : Form
     {
-        public Approve()
+        public List_Barang()
         {
             InitializeComponent();
         }
 
-        private void Label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void Approve_Load(object sender, EventArgs e)
+        private void List_Barang_Load(object sender, EventArgs e)
         {
 
         }
