@@ -29,16 +29,32 @@ namespace Proyek_ACS
         {
 
         }
+        private void koneksi()
+        {
+            try
+            {
+                oc.Open();
+                MessageBox.Show("Sukses Login");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error di : " + ex.Message);
+            }
+        }
+        void cek_login(string user) {
+            Form_Main fm = new Form_Main();
+            
+        }
         private void Button1_Click(object sender, EventArgs e)
         {
             oc.Open();
-            Form_Main fm = new Form_Main();
             string ceklog = "select count(id_pegawai) from pegawai where password='" + textBox2.Text + "' and id_pegawai='"+textBox1.Text+"'";
             OracleCommand cmd = new OracleCommand(ceklog, oc);
             cmd.ExecuteNonQuery();
             int cek = Convert.ToInt32(cmd.ExecuteScalar());
             if (cek >= 1)
             {
+                Form_Main fm = new Form_Main();
                 this.Hide();
                 string cekakses = "select id_Hak_Akses from Hak_Akses where id_Pegawai='" + textBox1.Text + "'";
                 OracleCommand cm = new OracleCommand(cekakses, oc);
@@ -64,25 +80,12 @@ namespace Proyek_ACS
                 else if (idakses == "HA005") {
                     fm.makeOrderToolStripMenuItem.Enabled = true;
                 }
-                
                 fm.ShowDialog();
                 this.Close();
             }
-            else if (textBox1.Text=="master" && textBox2.Text=="master") {
-                fm.lihatKontakToolStripMenuItem.Enabled = true;
-                fm.approveOrderToolStripMenuItem.Enabled = true;
-                fm.lihatOrderToolStripMenuItem.Enabled = true;
-                fm.makeOrderToolStripMenuItem.Enabled = true;
-                fm.makeOrderToolStripMenuItem.Enabled = true;
-                fm.lihatInventoryToolStripMenuItem.Enabled = true;
-                fm.assignPrevilegeToolStripMenuItem.Enabled = true;
-                fm.ShowDialog();
-                this.Close();
-            }
-            else{
+            else {
                 MessageBox.Show("Gagal Login password atau username salah");
             }
-            oc.Close();
         }
     }
 }

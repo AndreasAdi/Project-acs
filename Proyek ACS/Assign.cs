@@ -14,7 +14,7 @@ namespace Proyek_ACS
     public partial class Assign : Form
     {
         DataTable dthakakses;
-        string loaddgv = "Select id_Hak_Akses,Nama_akses from list_hak_akses";
+        
         public Assign()
         {
             InitializeComponent();
@@ -28,10 +28,12 @@ namespace Proyek_ACS
             //loadcbrevoke();
         }
         void loaddgassign() {
+            string loaddgv = "Select id_Hak_Akses,Nama_akses from list_hak_akses";
             dgassign.DataSource = null;
             dthakakses = new DataTable();
             OracleDataAdapter adapakses = new OracleDataAdapter(loaddgv, Form1.oc);
             adapakses.Fill(dthakakses);
+            dgassign.DataSource = dthakakses;
         }
         void loadcb() {
             string sql = "select Nama_pegawai,Id_pegawai from Pegawai";
