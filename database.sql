@@ -130,7 +130,11 @@ insert into list_hak_akses Values ('HA001','Akses Lihat Kontak');
 insert into list_hak_akses Values ('HA002','Edit Kontak');
 insert into list_hak_akses Values ('HA003','Akses Approve dan Batal');
 insert into list_hak_akses Values ('HA004','Granter');
-insert into list_hak_akses values ('HA005','Make Order');
+insert into list_hak_akses Values ('HA005','Inventory');
+insert into list_hak_akses values ('HA006','Master');
+insert into list_hak_akses values ('HA007','Lihat Laporan');
+insert into list_hak_akses values ('HA008','Make Order');
+
 create table Hak_Akses
 (
     Id_Pegawai      varchar2(8) references Pegawai(Id_Pegawai),
@@ -138,10 +142,11 @@ create table Hak_Akses
     constraint PK_HA primary key(Id_Pegawai,Id_Hak_Akses)
 );
 insert into Hak_Akses Values ('PEG001','HA001');
+insert into Hak_Akses values ('PEG001','HA008');
 insert into Hak_Akses Values ('PEG002','HA002');
 insert into Hak_Akses Values ('PEG003','HA003');
 insert into Hak_Akses Values ('PEG004','HA004');
-insert into Hak_Akses Values ('PEG005','HA005');
+insert into Hak_Akses Values ('PEG006','HA006');
 
 create table Transaksi
 (
