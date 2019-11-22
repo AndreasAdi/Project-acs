@@ -31,18 +31,16 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox_status = new System.Windows.Forms.ComboBox();
-            this.comboBox_kategori = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button_reset = new System.Windows.Forms.Button();
             this.comboBox_tanggal = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1149, 90);
+            this.button1.Location = new System.Drawing.Point(692, 88);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 31);
@@ -79,48 +77,6 @@
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             // 
-            // comboBox_status
-            // 
-            this.comboBox_status.FormattingEnabled = true;
-            this.comboBox_status.Items.AddRange(new object[] {
-            "Not yet approved",
-            "Approved",
-            "Dibatalkan",
-            "Diterima Sebagian",
-            "Diterima Penuh",
-            "Order Closed"});
-            this.comboBox_status.Location = new System.Drawing.Point(776, 94);
-            this.comboBox_status.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox_status.Name = "comboBox_status";
-            this.comboBox_status.Size = new System.Drawing.Size(112, 24);
-            this.comboBox_status.TabIndex = 8;
-            // 
-            // comboBox_kategori
-            // 
-            this.comboBox_kategori.FormattingEnabled = true;
-            this.comboBox_kategori.Items.AddRange(new object[] {
-            "Id_Order",
-            "Nama_Pegawai",
-            "Nama_Distributor",
-            "Alamat_Distributor",
-            "Pajak",
-            "Subtotal",
-            "Status"});
-            this.comboBox_kategori.Location = new System.Drawing.Point(659, 94);
-            this.comboBox_kategori.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox_kategori.Name = "comboBox_kategori";
-            this.comboBox_kategori.Size = new System.Drawing.Size(112, 24);
-            this.comboBox_kategori.TabIndex = 9;
-            this.comboBox_kategori.SelectedIndexChanged += new System.EventHandler(this.ComboBox2_SelectedIndexChanged);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(894, 94);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(249, 22);
-            this.textBox1.TabIndex = 10;
-            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(175, 97);
@@ -131,7 +87,7 @@
             // 
             // button_reset
             // 
-            this.button_reset.Location = new System.Drawing.Point(1239, 90);
+            this.button_reset.Location = new System.Drawing.Point(782, 88);
             this.button_reset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_reset.Name = "button_reset";
             this.button_reset.Size = new System.Drawing.Size(84, 31);
@@ -151,17 +107,23 @@
             this.comboBox_tanggal.Size = new System.Drawing.Size(121, 24);
             this.comboBox_tanggal.TabIndex = 13;
             // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(431, 97);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(240, 22);
+            this.dateTimePicker2.TabIndex = 14;
+            // 
             // listorder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1376, 693);
+            this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.comboBox_tanggal);
             this.Controls.Add(this.button_reset);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox_kategori);
-            this.Controls.Add(this.comboBox_status);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
@@ -180,11 +142,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ComboBox comboBox_status;
-        private System.Windows.Forms.ComboBox comboBox_kategori;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button button_reset;
         private System.Windows.Forms.ComboBox comboBox_tanggal;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }
