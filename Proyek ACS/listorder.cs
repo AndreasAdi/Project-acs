@@ -103,14 +103,12 @@ namespace Proyek_ACS
 
         public string status;
         string id_order;
-        string id_pegawai;
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex>-1)
             {
                 status = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
                 id_order = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-                //id_pegawai = dataGridView1.
                 Approved_Draft A = new Approved_Draft();
                 A.status = status;
                 A.id_order = id_order;

@@ -20,7 +20,7 @@ namespace Proyek_ACS
          * Aku pakai orcl soalnya terlanjur instal enterprise
          */
         //public static OracleConnection oc = new OracleConnection("User id = projectacs ; password = projectacs ; data source = orcl");
-        public static OracleConnection oc = new OracleConnection("User id = latihan ; password = lat ; data source = xe");
+        public static OracleConnection oc = new OracleConnection("User id = proyekacs ; password = 123 ; data source = xe");
         public Form1()
         {
             InitializeComponent();            
@@ -30,11 +30,12 @@ namespace Proyek_ACS
         {
 
         }
+        public static string id_pegawai;
         private void Button1_Click(object sender, EventArgs e)
         {
             oc.Open();
             Form_Main fm = new Form_Main();
-          
+          id_pegawai   = textBox1.Text;
             string ceklog = "select count(id_pegawai) from pegawai where password='" + textBox2.Text + "' and id_pegawai='"+textBox1.Text+"'";
             OracleCommand cmd = new OracleCommand(ceklog, oc);
             cmd.ExecuteNonQuery();
