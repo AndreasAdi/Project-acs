@@ -24,7 +24,7 @@ namespace Proyek_ACS
         public string status;
         public string query;
         public string id_order;
-        public string id_pegawai;
+        public string id_pegawai = Form1.id_pegawai;
         private void Approved_Draft_Load(object sender, EventArgs e)
         {
             label12.Text = status;
@@ -40,11 +40,20 @@ namespace Proyek_ACS
             {
                 conn.Close();
                 conn.Open();
-                query = "select count(id_pegawai) from hak_akses where id_pegawai = '"+id_pegawai+"' ";
+                query = "select count(id_pegawai) from hak_akses where id_pegawai = '"+id_pegawai+"' and hak_akses = HA003 OR hak_akses = HA006";
+                OracleCommand cmd = new OracleCommand(query,conn);
+                int bolehapprove = int.Parse(cmd.ExecuteScalar().ToString());
+                if (bolehapprove > 0)
+                {
+                    query = "Update order_header set status_order = 1  where id_order = '" + id_order + "' ";
+                    cmd = new OracleCommand(query, conn);
+                    cmd.ExecuteNonQuery();
+                }
+                else {
+                    MessageBox.Show("Tidak Memiliki Akses");
+                }
 
-                query = "Update order_header set status_order = 1  where id_order = '"+id_order+"' ";
-                OracleCommand cmd = new OracleCommand(query, conn);
-                cmd.ExecuteNonQuery();
+
             }
         }
     }
