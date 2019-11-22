@@ -40,19 +40,17 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(17, 70);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(13, 57);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1136, 469);
+            this.dataGridView1.Size = new System.Drawing.Size(852, 381);
             this.dataGridView1.TabIndex = 0;
             // 
             // button_search
             // 
-            this.button_search.Location = new System.Drawing.Point(945, 37);
-            this.button_search.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_search.Location = new System.Drawing.Point(709, 30);
             this.button_search.Name = "button_search";
-            this.button_search.Size = new System.Drawing.Size(100, 27);
+            this.button_search.Size = new System.Drawing.Size(75, 22);
             this.button_search.TabIndex = 8;
             this.button_search.Text = "Search";
             this.button_search.UseVisualStyleBackColor = true;
@@ -60,10 +58,9 @@
             // 
             // button_reset
             // 
-            this.button_reset.Location = new System.Drawing.Point(1053, 35);
-            this.button_reset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_reset.Location = new System.Drawing.Point(790, 31);
             this.button_reset.Name = "button_reset";
-            this.button_reset.Size = new System.Drawing.Size(100, 26);
+            this.button_reset.Size = new System.Drawing.Size(75, 21);
             this.button_reset.TabIndex = 7;
             this.button_reset.Text = "Reset";
             this.button_reset.UseVisualStyleBackColor = true;
@@ -71,10 +68,9 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(313, 37);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Location = new System.Drawing.Point(235, 30);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(624, 22);
+            this.textBox1.Size = new System.Drawing.Size(469, 20);
             this.textBox1.TabIndex = 6;
             // 
             // comboBox1
@@ -86,23 +82,21 @@
             "Deskripsi",
             "Jumlah_Stok",
             "Tanggal_Masuk"});
-            this.comboBox1.Location = new System.Drawing.Point(17, 35);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Location = new System.Drawing.Point(13, 28);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(288, 24);
+            this.comboBox1.Size = new System.Drawing.Size(217, 21);
             this.comboBox1.TabIndex = 5;
             // 
             // Inventory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1166, 562);
+            this.ClientSize = new System.Drawing.Size(874, 457);
             this.Controls.Add(this.button_search);
             this.Controls.Add(this.button_reset);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Inventory";
             this.Text = "Inventory";
             this.Load += new System.EventHandler(this.Inventory_Load);

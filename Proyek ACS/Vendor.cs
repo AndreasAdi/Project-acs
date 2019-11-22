@@ -26,7 +26,7 @@ namespace Proyek_ACS
             load_dgv_vendor(loaddgv);
         }
 
-        private void load_dgv_vendor(String perintah)
+        private void load_dgv_vendor(string perintah)
         {
             dtvendor = new DataTable();
             OracleDataAdapter adapvendor = new OracleDataAdapter(perintah, Form1.oc);
