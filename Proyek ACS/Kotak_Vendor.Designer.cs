@@ -74,7 +74,7 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(22, 133);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -104,15 +104,16 @@
             // textBox_parsing_alamatdist
             // 
             this.textBox_parsing_alamatdist.Location = new System.Drawing.Point(124, 96);
-            this.textBox_parsing_alamatdist.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_parsing_alamatdist.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_parsing_alamatdist.Name = "textBox_parsing_alamatdist";
             this.textBox_parsing_alamatdist.Size = new System.Drawing.Size(452, 20);
             this.textBox_parsing_alamatdist.TabIndex = 7;
             // 
             // button_Update
             // 
+            this.button_Update.Enabled = false;
             this.button_Update.Location = new System.Drawing.Point(505, 315);
-            this.button_Update.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_Update.Margin = new System.Windows.Forms.Padding(2);
             this.button_Update.Name = "button_Update";
             this.button_Update.Size = new System.Drawing.Size(70, 28);
             this.button_Update.TabIndex = 8;
@@ -132,7 +133,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Kotak_Vendor";
             this.Text = "Kotak_Vendor";
             this.Load += new System.EventHandler(this.Kotak_Vendor_Load);
@@ -151,6 +152,6 @@
         public System.Windows.Forms.Label label_parsing_namadist;
         public System.Windows.Forms.DataGridView dataGridView1;
         public System.Windows.Forms.TextBox textBox_parsing_alamatdist;
-        private System.Windows.Forms.Button button_Update;
+        public System.Windows.Forms.Button button_Update;
     }
 }

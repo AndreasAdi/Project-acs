@@ -25,7 +25,6 @@ namespace Proyek_ACS
             loaddgassign();
             loadcb();
             loadcb3();
-            //loadcbrevoke();
         }
         void loaddgassign() {
             string loaddgv = "Select id_Hak_Akses,Nama_akses from list_hak_akses";
@@ -43,7 +42,6 @@ namespace Proyek_ACS
             comboBox1.DataSource = dtcb;
             comboBox1.ValueMember = "id_pegawai";
             comboBox1.DisplayMember = "Nama_pegawai";
-            //Form1.oc.Close();
         }
         void loadcb3()
         {
@@ -78,6 +76,7 @@ namespace Proyek_ACS
         {
             textBox1.Text = "";
             textBox1.Text = comboBox1.SelectedValue.ToString();
+            loadaksespegawai();
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -125,6 +124,16 @@ namespace Proyek_ACS
         private void ComboBox3_MouseClick(object sender, MouseEventArgs e)
         {
             
+        }
+        void loadaksespegawai() {
+            comboBox4.DataSource = null;
+            string cbakses = "Select l.id_Hak_Akses,l.Nama_akses from list_hak_akses l,hak_akses h where h.id_pegawai='" + comboBox1.SelectedValue.ToString() + "' and h.id_hak_akses=l.id_hak_akses";
+            DataTable dtcb = new DataTable();
+            OracleDataAdapter adapcb = new OracleDataAdapter(cbakses, Form1.oc);
+            adapcb.Fill(dtcb);
+            comboBox4.DataSource = dtcb;
+            comboBox4.ValueMember = "id_Hak_Akses";
+            comboBox4.DisplayMember = "Nama_Akses";
         }
     }
 }
