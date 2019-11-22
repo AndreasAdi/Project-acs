@@ -14,7 +14,7 @@ namespace Proyek_ACS
     public partial class listorder : Form
     {
         DataTable dtlistpo;
-        string perintahlistpo = "select oh.Id_Order, p.Nama_Pegawai, d.Nama_Distributor, d.Alamat_Distributor, oh.Tanggal_Order, oh.Plan_Date_Delivery, oh.Pajak , oh.Subtotal, " +
+       public string perintahlistpo = "select oh.Id_Order, p.Nama_Pegawai, d.Nama_Distributor, d.Alamat_Distributor, oh.Tanggal_Order, oh.Plan_Date_Delivery, oh.Pajak , oh.Subtotal, " +
             "Case when oh.Status_Order = '0' then 'Draft' " +
                 "when oh.Status_Order = '1' then 'Approved' " +
                 "when oh.Status_Order = '2' then 'Dibatalkan' " +
@@ -36,7 +36,7 @@ namespace Proyek_ACS
             comboBox_status.Enabled = false;
         }
 
-        private void load_dgv_listorder(string perintahlistpo)
+        public void load_dgv_listorder(string perintahlistpo)
         {
             dtlistpo = new DataTable();
             OracleDataAdapter adaplistpo = new OracleDataAdapter(perintahlistpo, Form1.oc);
@@ -103,14 +103,12 @@ namespace Proyek_ACS
 
         public string status;
         string id_order;
-        string id_pegawai;
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex>-1)
             {
                 status = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
                 id_order = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-                //id_pegawai = dataGridView1.
                 Approved_Draft A = new Approved_Draft();
                 A.status = status;
                 A.id_order = id_order;
