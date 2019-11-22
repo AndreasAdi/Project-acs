@@ -80,11 +80,11 @@ namespace Proyek_ACS
                     }
                     else if (akses == "HA007")
                     {
-                        fm.makeOrderToolStripMenuItem.Enabled = true;
+                        //fm.makeOrderToolStripMenuItem.Enabled = true;
                     }
-                    else if (akses == "HA007")
+                    else if (akses == "HA008")
                     {
-                        fm.makeOrderToolStripMenuItem.Enabled = true;
+                        fm.lihatOrderToolStripMenuItem.Enabled = true;
                     }
                 }
                 read.Close();
