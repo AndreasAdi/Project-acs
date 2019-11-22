@@ -20,7 +20,7 @@ namespace Proyek_ACS
         {
             InitializeComponent();
         }
-
+       
         public string status;
         public string query;
         public string id_order;
@@ -40,14 +40,20 @@ namespace Proyek_ACS
             {
                 conn.Close();
                 conn.Open();
-                query = "select count(id_pegawai) from hak_akses where id_pegawai = '"+id_pegawai+"' and hak_akses = HA003 OR hak_akses = HA006";
+                query = "select count(id_pegawai) from hak_akses where id_pegawai = '"+id_pegawai+"' and id_hak_akses = 'HA003'";
                 OracleCommand cmd = new OracleCommand(query,conn);
                 int bolehapprove = int.Parse(cmd.ExecuteScalar().ToString());
+
+                query = "select count(id_pegawai) from hak_akses where id_pegawai = '" + id_pegawai + "' and id_hak_akses = 'HA006'";
+                cmd = new OracleCommand(query, conn);
+                bolehapprove += int.Parse(cmd.ExecuteScalar().ToString());
                 if (bolehapprove > 0)
                 {
                     query = "Update order_header set status_order = 1  where id_order = '" + id_order + "' ";
                     cmd = new OracleCommand(query, conn);
                     cmd.ExecuteNonQuery();
+                    listorder lo = new listorder();
+                    lo.Show();
                 }
                 else {
                     MessageBox.Show("Tidak Memiliki Akses");
