@@ -20,7 +20,7 @@ namespace Proyek_ACS
          * Aku pakai orcl soalnya terlanjur instal enterprise
          */
         //public static OracleConnection oc = new OracleConnection("User id = projectacs ; password = projectacs ; data source = orcl");
-        public static OracleConnection oc = new OracleConnection("User id = latihan ; password = lat ; data source = xe");
+        public static OracleConnection oc = new OracleConnection("User id = proyekacs ; password = 123 ; data source = xe");
         public Form1()
         {
             InitializeComponent();            
@@ -54,7 +54,7 @@ namespace Proyek_ACS
                 }
                 else if (idakses == "HA003")
                 {
-                    fm.approveOrderToolStripMenuItem.Enabled = true;
+                    //fm.approveOrderToolStripMenuItem.Enabled = true;
                     fm.lihatOrderToolStripMenuItem.Enabled = true;
                 }
                 else if (idakses == "HA004")
@@ -70,7 +70,7 @@ namespace Proyek_ACS
             }
             else if (textBox1.Text=="master" && textBox2.Text=="master") {
                 fm.lihatKontakToolStripMenuItem.Enabled = true;
-                fm.approveOrderToolStripMenuItem.Enabled = true;
+                //fm.approveOrderToolStripMenuItem.Enabled = true;
                 fm.lihatOrderToolStripMenuItem.Enabled = true;
                 fm.makeOrderToolStripMenuItem.Enabled = true;
                 fm.makeOrderToolStripMenuItem.Enabled = true;

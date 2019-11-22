@@ -15,7 +15,7 @@ namespace Proyek_ACS
     {
         DataTable dtlistpo;
         string perintahlistpo = "select oh.Id_Order, p.Nama_Pegawai, d.Nama_Distributor, d.Alamat_Distributor, oh.Tanggal_Order, oh.Plan_Date_Delivery, oh.Pajak , oh.Subtotal, " +
-            "Case when oh.Status_Order = '0' then 'Not yet approved' " +
+            "Case when oh.Status_Order = '0' then 'Draft' " +
                 "when oh.Status_Order = '1' then 'Approved' " +
                 "when oh.Status_Order = '2' then 'Dibatalkan' " +
                 "when oh.Status_Order = '3' then 'Diterima Sebagian' " +
@@ -99,6 +99,29 @@ namespace Proyek_ACS
                     ")";
             }
             load_dgv_listorder(search);
+        }
+
+        public string status;
+        string id_order;
+        string id_pegawai;
+        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex>-1)
+            {
+                status = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+                id_order = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                //id_pegawai = dataGridView1.
+                Approved_Draft A = new Approved_Draft();
+                A.status = status;
+                A.id_order = id_order;
+                A.Show();
+
+            }
+        }
+
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

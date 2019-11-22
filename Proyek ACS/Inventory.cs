@@ -67,5 +67,10 @@ namespace Proyek_ACS
             textBox1.Text = "";
             load_dgv_inventory(perintahinventory);
         }
+
+        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

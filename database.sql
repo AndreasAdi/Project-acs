@@ -175,6 +175,7 @@ insert into Order_Header values('PO004','DIS001',to_date('15/11/2019','dd/mm/yyy
 insert into Order_Header values('PO005','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'1','PEG006');
 ---insert into Order_Header values('PO006','DIS004',to_date('18/11/2019','dd/mm/yyyy'),10,600000,'3');
 ---insert into Order_Header values('PO007','DIS005',to_date('07/12/2019','dd/mm/yyyy'),10,1000000,'1');
+insert into Order_Header values('PO006','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'0','PEG006');
 
 create table Order_Detail
 (
@@ -190,6 +191,7 @@ insert into Order_Detail values('PO002','BRG0006','Sinar Dunia A4 70gsm',5,75000
 insert into Order_Detail values('PO003','BRG0012','Tinta Blueprint Epson 70ml',10,30000);
 insert into Order_Detail values('PO004','BRG0013','Tinta Blueprint Canon 70ml',10,40000);
 insert into Order_Detail values('PO005','BRG0015','Krisbow Paper Shedder S290',1,2500000);
+insert into Order_Detail values('PO006','BRG0015','Krisbow Paper Shedder S290',1,2500000);
 
 
 
