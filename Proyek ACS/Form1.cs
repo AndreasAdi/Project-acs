@@ -59,7 +59,6 @@ namespace Proyek_ACS
                     }
                     else if (akses == "HA003")
                     {
-                        fm.approveOrderToolStripMenuItem.Enabled = true;
                         fm.lihatOrderToolStripMenuItem.Enabled = true;
                     }
                     else if (akses == "HA004")
@@ -72,7 +71,6 @@ namespace Proyek_ACS
                     else if (akses == "HA006")
                     {
                         fm.lihatKontakToolStripMenuItem.Enabled = true;
-                        fm.approveOrderToolStripMenuItem.Enabled = true;
                         fm.lihatOrderToolStripMenuItem.Enabled = true;
                         fm.makeOrderToolStripMenuItem.Enabled = true;
                         fm.makeOrderToolStripMenuItem.Enabled = true;
