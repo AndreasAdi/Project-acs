@@ -35,6 +35,7 @@
             this.button_reset = new System.Windows.Forms.Button();
             this.comboBox_tanggal = new System.Windows.Forms.ComboBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,11 +116,22 @@
             this.dateTimePicker2.Size = new System.Drawing.Size(240, 22);
             this.dateTimePicker2.TabIndex = 14;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1204, 83);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(119, 40);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "ADD";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            // 
             // listorder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1376, 693);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.comboBox_tanggal);
             this.Controls.Add(this.button_reset);
@@ -146,5 +158,6 @@
         private System.Windows.Forms.Button button_reset;
         private System.Windows.Forms.ComboBox comboBox_tanggal;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Button button2;
     }
 }

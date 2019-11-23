@@ -99,5 +99,11 @@ namespace Proyek_ACS
         {
 
         }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            Purchase_Order p = new Purchase_Order();
+            p.Show();
+        }
     }
 }
