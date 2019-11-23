@@ -65,5 +65,11 @@ namespace Proyek_ACS
             Approve a = new Approve();
             a.Show();
         }
+
+        private void LaporanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Laporan l = new Laporan();
+            l.Show();
+        }
     }
 }
