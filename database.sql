@@ -175,15 +175,15 @@ create table Order_Header
     Id_Pegawai              varchar2(8) references Pegawai(Id_Pegawai),
     id_Payment_Term         varchar2(5) references id_Payment_Term(id_Payment_Term)
 );
-insert into Order_Header values('PO001','DIS001',to_date('10/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),10,100000,'5','PEG004');
-insert into Order_Header values('PO002','DIS002',to_date('12/11/2019','dd/mm/yyyy'),to_date('23/12/2019','dd/mm/yyyy'),10,150000,'5','PEG004');
-insert into Order_Header values('PO003','DIS003',to_date('13/11/2019','dd/mm/yyyy'),to_date('22/12/2019','dd/mm/yyyy'),15,300000,'4','PEG005');
-insert into Order_Header values('PO004','DIS001',to_date('15/11/2019','dd/mm/yyyy'),to_date('18/12/2019','dd/mm/yyyy'),10,400000,'2','PEG006');
-insert into Order_Header values('PO005','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'1','PEG006');
+insert into Order_Header values('PO001','DIS001',to_date('10/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),10,100000,'5','PEG004','PT001');
+insert into Order_Header values('PO002','DIS002',to_date('12/11/2019','dd/mm/yyyy'),to_date('23/12/2019','dd/mm/yyyy'),10,150000,'5','PEG004','PT002');
+insert into Order_Header values('PO003','DIS003',to_date('13/11/2019','dd/mm/yyyy'),to_date('22/12/2019','dd/mm/yyyy'),15,300000,'4','PEG005','PT004');
+insert into Order_Header values('PO004','DIS001',to_date('15/11/2019','dd/mm/yyyy'),to_date('18/12/2019','dd/mm/yyyy'),10,400000,'2','PEG006','PT005');
+insert into Order_Header values('PO005','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'1','PEG006','PT006');
 ---insert into Order_Header values('PO006','DIS004',to_date('18/11/2019','dd/mm/yyyy'),10,600000,'3');
 ---insert into Order_Header values('PO007','DIS005',to_date('07/12/2019','dd/mm/yyyy'),10,1000000,'1');
-insert into Order_Header values('PO006','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'0','PEG006');
-insert into Order_Header values('PO008','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'0','PEG006');
+insert into Order_Header values('PO006','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'0','PEG006','PT002');
+insert into Order_Header values('PO008','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'0','PEG006','PT004');
 
 create table Order_Detail
 (
