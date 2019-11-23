@@ -19,8 +19,8 @@ namespace Proyek_ACS
          * Lalu ganti data source ke XE kalau pakai EXPRESS
          * Aku pakai orcl soalnya terlanjur instal enterprise
          */
-        //public static OracleConnection oc = new OracleConnection("User id = projectacs ; password = projectacs ; data source = orcl");
-        public static OracleConnection oc = new OracleConnection("User id = proyekacs ; password = 123 ; data source = xe");
+        public static OracleConnection oc = new OracleConnection("User id = latihan ; password = latihan ; data source = orcl");
+        //public static OracleConnection oc = new OracleConnection("User id = latihan ; password = lat ; data source = xe");
         public Form1()
         {
             InitializeComponent();            
@@ -35,7 +35,7 @@ namespace Proyek_ACS
         {
             oc.Open();
             Form_Main fm = new Form_Main();
-          id_pegawai   = textBox1.Text;
+            id_pegawai   = textBox1.Text;
             string ceklog = "select count(id_pegawai) from pegawai where password='" + textBox2.Text + "' and id_pegawai='"+textBox1.Text+"'";
             OracleCommand cmd = new OracleCommand(ceklog, oc);
             cmd.ExecuteNonQuery();
@@ -89,11 +89,6 @@ namespace Proyek_ACS
                     }
                 }
                 read.Close();
-                fm.ShowDialog();
-                this.Close();
-            }
-            else if (textBox1.Text=="master" && textBox2.Text=="master") {
-               
                 fm.ShowDialog();
                 this.Close();
             }
