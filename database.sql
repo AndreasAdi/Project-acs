@@ -172,7 +172,8 @@ create table Order_Header
     Pajak                   number(15)  ,
     Subtotal                number(15)  not null,    
     Status_Order            varchar2(1) not null check(Status_Order in ('0' ,'1','2','3','4','5')),
-    Id_Pegawai              varchar2(8) references Pegawai(Id_Pegawai)
+    Id_Pegawai              varchar2(8) references Pegawai(Id_Pegawai),
+    id_Payment_Term         varchar2(5) references id_Payment_Term(id_Payment_Term)
 );
 insert into Order_Header values('PO001','DIS001',to_date('10/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),10,100000,'5','PEG004');
 insert into Order_Header values('PO002','DIS002',to_date('12/11/2019','dd/mm/yyyy'),to_date('23/12/2019','dd/mm/yyyy'),10,150000,'5','PEG004');
@@ -200,6 +201,21 @@ insert into Order_Detail values('PO004','BRG0013','Tinta Blueprint Canon 70ml',1
 insert into Order_Detail values('PO005','BRG0015','Krisbow Paper Shedder S290',1,2500000);
 insert into Order_Detail values('PO006','BRG0015','Krisbow Paper Shedder S290',1,2500000);
 
+Create table Payment_Terms
+(
+    id_Payment_Term varchar2 (5) primary key,
+    nama varchar2 (5) primary key;
+
+);
+
+insert into Payment_Terms('PT001','Due Upon Receipt');
+insert into Payment_Terms('PT002','30 days');
+insert into Payment_Terms('PT003','30 days Of month end');
+insert into Payment_Terms('PT004','60 days');
+insert into Payment_Terms('PT005','50-50');
+insert into Payment_Terms('PT006','Order');
+insert into Payment_Terms('PT007','Delivery');
+insert into Payment_Terms('PT008','10 days');  
 
 
 commit;
