@@ -213,6 +213,8 @@ insert into Order_Header values('PO005','DIS001',to_date('16/11/2019','dd/mm/yyy
 ---insert into Order_Header values('PO007','DIS005',to_date('07/12/2019','dd/mm/yyyy'),10,1000000,'1');
 insert into Order_Header values('PO006','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'0','PEG006','PT002','TP003');
 insert into Order_Header values('PO008','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'0','PEG006','PT004','TP001');
+insert into Order_Header values('PO007','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'0','PEG006','PT004','TP001');
+
 
 create table Order_Detail
 (
@@ -231,5 +233,22 @@ insert into Order_Detail values('PO005','BRG0015','Krisbow Paper Shedder S290',1
 insert into Order_Detail values('PO006','BRG0015','Krisbow Paper Shedder S290',1,2500000);
  
 
+
+Create Or Replace Function AUTOGEN_ID RETURN varchar2
+
+IS
+depan varchar2(2);
+URUT NUMBER;
+KODE varchar2(8);
+begin
+  depan := 'PO';
+
+  SELECT COUNT (ID_ORDER)+1 INTO URUT FROM Order_Header;
+
+  KODE := depan ||LPAD(URUT,3,'0');
+
+  RETURN KODE;
+end;
+/
 
 commit;

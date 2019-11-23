@@ -39,7 +39,7 @@ namespace Proyek_ACS
         void load() {
             conn.Close();
             conn.Open();
-            string query = "Select * id_distributor , nama_distributor from distributor";
+            string query = "Select id_distributor , nama_distributor from distributor";
             comboBox4.DataSource = null;
             OracleDataAdapter adap = new OracleDataAdapter(query, conn);
             DataTable dt = new DataTable();
@@ -47,6 +47,27 @@ namespace Proyek_ACS
             comboBox4.DataSource = dt;
             comboBox4.ValueMember = "id_distributor";
             comboBox4.DisplayMember = "nama_distributor";
+
+
+            query = "Select id_payment_term , nama from payment_terms";
+            comboBox2.DataSource = null;
+            adap = new OracleDataAdapter(query, conn);
+            dt = new DataTable();
+            adap.Fill(dt);
+            comboBox2.DataSource = dt;
+            comboBox2.ValueMember = "id_payment_term";
+            comboBox2.DisplayMember = "nama";
+
+
+
+            query = "Select id_payment_type, nama from payment_type";
+            comboBox1.DataSource = null;
+            adap = new OracleDataAdapter(query, conn);
+            dt = new DataTable();
+            adap.Fill(dt);
+            comboBox1.DataSource = dt;
+            comboBox1.ValueMember = "id_payment_type";
+            comboBox1.DisplayMember = "nama";
         }
     }
 }
