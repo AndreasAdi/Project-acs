@@ -11,9 +11,9 @@ namespace Proyek_ACS
     class Database
     {
         OracleConnection conn;
-        public Database(String datasource, String user, String pwd)
+        public Database(OracleConnection oc)
         {
-            conn = new OracleConnection($"Data Source = {datasource}; User ID = {user}; Password = {pwd};");
+            conn = oc;
         }
 
         public List<Object> executeQuery(string query)

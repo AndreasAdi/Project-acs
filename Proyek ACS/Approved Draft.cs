@@ -74,14 +74,17 @@ namespace Proyek_ACS
             conn.Close();
             conn.Open();
 
+          
             query = "Select ID_BARANG,NAMA_BARANG,JUMLAH_ORDER,HARGA  from order_detail where id_order = '"+id_order+"'";
-            cmd = new OracleCommand(query, conn);
-            OracleDataAdapter adap = new OracleDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            adap.Fill(dt);
+            //cmd = new OracleCommand(query, conn);
+            //OracleDataAdapter adap = new OracleDataAdapter(cmd);
+            //DataTable dt = new DataTable();
+            //adap.Fill(dt);
 
-            dataGridView1.DataSource = dt;
-            
+            //dataGridView1.DataSource = dt;
+            Database ds = new Database(conn);
+            dataGridView1.DataSource = ds.executeDataTable(query);
+
         }
     }
 }

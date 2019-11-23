@@ -47,8 +47,6 @@ namespace Proyek_ACS
             comboBox4.DataSource = dt;
             comboBox4.ValueMember = "id_distributor";
             comboBox4.DisplayMember = "nama_distributor";
-
-            //comboBox1
         }
     }
 }
