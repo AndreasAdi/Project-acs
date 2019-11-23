@@ -10,7 +10,37 @@ drop table Hak_Akses cascade constraint purge;
 drop table Order_Header cascade constraint purge;
 drop table Order_Detail cascade constraint purge;
 drop table list_hak_akses cascade constraint purge;
+drop table Payment_Terms cascade constraint purge;
+drop table Payment_Type cascade constraint purge;
 
+Create table Payment_Terms
+(
+    id_Payment_Term varchar2 (5) primary key,
+    nama varchar2 (5) primary key
+
+);
+
+insert into Payment_Terms('PT001','Due Upon Receipt');
+insert into Payment_Terms('PT002','30 days');
+insert into Payment_Terms('PT003','30 days Of month end');
+insert into Payment_Terms('PT004','60 days');
+insert into Payment_Terms('PT005','50-50');
+insert into Payment_Terms('PT006','Order');
+insert into Payment_Terms('PT007','Delivery');
+insert into Payment_Terms('PT008','10 days');  
+
+Create table Payment_Type
+(
+    id_Payment_type varchar2 (5) primary key,
+    nama varchar2 (5) primary key
+
+);
+
+insert into Payment_Type('TP001','Cash');
+insert into Payment_Type('TP002','Bank Transfer');
+insert into Payment_Type('TP003','Cheque');
+insert into Payment_Type('TP004','Credit Card');
+insert into Payment_Type('TP005','Debit Payment Order');
 
 create table Branch
 (
@@ -173,17 +203,18 @@ create table Order_Header
     Subtotal                number(15)  not null,    
     Status_Order            varchar2(1) not null check(Status_Order in ('0' ,'1','2','3','4','5')),
     Id_Pegawai              varchar2(8) references Pegawai(Id_Pegawai),
-    id_Payment_Term         varchar2(5) references id_Payment_Term(id_Payment_Term)
+    id_Payment_Term         varchar2(5) references Payment_Term(id_Payment_Term),
+    id_Payment_Type         varchar2(5) references Payment_Type(id_Payment_Type)
 );
-insert into Order_Header values('PO001','DIS001',to_date('10/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),10,100000,'5','PEG004','PT001');
-insert into Order_Header values('PO002','DIS002',to_date('12/11/2019','dd/mm/yyyy'),to_date('23/12/2019','dd/mm/yyyy'),10,150000,'5','PEG004','PT002');
-insert into Order_Header values('PO003','DIS003',to_date('13/11/2019','dd/mm/yyyy'),to_date('22/12/2019','dd/mm/yyyy'),15,300000,'4','PEG005','PT004');
-insert into Order_Header values('PO004','DIS001',to_date('15/11/2019','dd/mm/yyyy'),to_date('18/12/2019','dd/mm/yyyy'),10,400000,'2','PEG006','PT005');
-insert into Order_Header values('PO005','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'1','PEG006','PT006');
+insert into Order_Header values('PO001','DIS001',to_date('10/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),10,100000,'5','PEG004','PT001','TP001');
+insert into Order_Header values('PO002','DIS002',to_date('12/11/2019','dd/mm/yyyy'),to_date('23/12/2019','dd/mm/yyyy'),10,150000,'5','PEG004','PT002','TP003');
+insert into Order_Header values('PO003','DIS003',to_date('13/11/2019','dd/mm/yyyy'),to_date('22/12/2019','dd/mm/yyyy'),15,300000,'4','PEG005','PT004','TP004');
+insert into Order_Header values('PO004','DIS001',to_date('15/11/2019','dd/mm/yyyy'),to_date('18/12/2019','dd/mm/yyyy'),10,400000,'2','PEG006','PT005','TP001');
+insert into Order_Header values('PO005','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'1','PEG006','PT006','TP002');
 ---insert into Order_Header values('PO006','DIS004',to_date('18/11/2019','dd/mm/yyyy'),10,600000,'3');
 ---insert into Order_Header values('PO007','DIS005',to_date('07/12/2019','dd/mm/yyyy'),10,1000000,'1');
-insert into Order_Header values('PO006','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'0','PEG006','PT002');
-insert into Order_Header values('PO008','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'0','PEG006','PT004');
+insert into Order_Header values('PO006','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'0','PEG006','PT002','TP003');
+insert into Order_Header values('PO008','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'0','PEG006','PT004','TP001');
 
 create table Order_Detail
 (
@@ -200,22 +231,7 @@ insert into Order_Detail values('PO003','BRG0012','Tinta Blueprint Epson 70ml',1
 insert into Order_Detail values('PO004','BRG0013','Tinta Blueprint Canon 70ml',10,40000);
 insert into Order_Detail values('PO005','BRG0015','Krisbow Paper Shedder S290',1,2500000);
 insert into Order_Detail values('PO006','BRG0015','Krisbow Paper Shedder S290',1,2500000);
-
-Create table Payment_Terms
-(
-    id_Payment_Term varchar2 (5) primary key,
-    nama varchar2 (5) primary key;
-
-);
-
-insert into Payment_Terms('PT001','Due Upon Receipt');
-insert into Payment_Terms('PT002','30 days');
-insert into Payment_Terms('PT003','30 days Of month end');
-insert into Payment_Terms('PT004','60 days');
-insert into Payment_Terms('PT005','50-50');
-insert into Payment_Terms('PT006','Order');
-insert into Payment_Terms('PT007','Delivery');
-insert into Payment_Terms('PT008','10 days');  
+ 
 
 
 commit;
