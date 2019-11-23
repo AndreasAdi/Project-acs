@@ -10,7 +10,35 @@ drop table Hak_Akses cascade constraint purge;
 drop table Order_Header cascade constraint purge;
 drop table Order_Detail cascade constraint purge;
 drop table list_hak_akses cascade constraint purge;
+drop table Payment_Terms cascade constraint purge;
+drop table Payment_Type cascade constraint purge;
 
+Create table Payment_Terms
+(
+    id_Payment_Term varchar2(5)primary key,
+    nama varchar2(100)
+);
+
+insert into Payment_Terms values ('PT001','Due Upon Receipt');
+insert into Payment_Terms values ('PT002','30 days');
+insert into Payment_Terms values ('PT003','30 days Of month end');
+insert into Payment_Terms values ('PT004','60 days');
+insert into Payment_Terms values ('PT005','50-50');
+insert into Payment_Terms values ('PT006','Order');
+insert into Payment_Terms values ('PT007','Delivery');
+insert into Payment_Terms values ('PT008','10 days');  
+
+Create table Payment_Type
+(
+    id_Payment_type varchar2 (5) primary key,
+    nama varchar2 (100)
+);
+
+insert into Payment_Type values ('TP001','Cash');
+insert into Payment_Type values ('TP002','Bank Transfer');
+insert into Payment_Type values ('TP003','Cheque');
+insert into Payment_Type values ('TP004','Credit Card');
+insert into Payment_Type values ('TP005','Debit Payment Order');
 
 create table Branch
 (
@@ -105,22 +133,23 @@ create table Kontak_Distributor
 (
     Id_Distributor      varchar2(8)     references Distributor(Id_Distributor),
     No_Telp             varchar2(15)    not null,
+    Staff               varchar(30)     not null,
     Email               varchar2(35)
 );
-insert into Kontak_Distributor values('DIS001','031 7892346','po@sinarmakmur.com');
-insert into Kontak_Distributor values('DIS001','031 3456345','po@sinarmakmur.com');
-insert into Kontak_Distributor values('DIS001','031 2536457','po@sinarmakmur.com');
-insert into Kontak_Distributor values('DIS002','031 3450234','hamidah@po.cahmen.com');
-insert into Kontak_Distributor values('DIS003','031 3345087','jayasentosa@gmail.com');
-insert into Kontak_Distributor values('DIS004','031 8594001','ptberliansedaya@gmail.com');
-insert into Kontak_Distributor values('DIS005','031 3550087','primaplastindo@gmail.com');
-insert into Kontak_Distributor values('DIS006','031 8574898','celina@po.bungapermata.com');
-insert into Kontak_Distributor values('DIS006','031 3455435','mahfud@po.bungapermata.com');
-insert into Kontak_Distributor values('DIS006','021 5677656','retha@po.bungapermata.com');
-insert into Kontak_Distributor values('DIS007','021 4566546','po@sanjayaabadi.com');
-insert into Kontak_Distributor values('DIS007','021 4566547','po@sanjayaabadi.com');
-insert into Kontak_Distributor values('DIS008','021 5678876','mahkotamakmur@yahoo.com');
-insert into Kontak_Distributor values('DIS009','021 8907898','purchaseorder@global.indonesia.com');
+insert into Kontak_Distributor values('DIS001','031 7892346','Agatha','po@sinarmakmur.com');
+insert into Kontak_Distributor values('DIS001','031 3456345','Budi','po@sinarmakmur.com');
+insert into Kontak_Distributor values('DIS001','031 2536457','Cassandra','po@sinarmakmur.com');
+insert into Kontak_Distributor values('DIS002','031 3450234','Hamidah','hamidah@po.cahmen.com');
+insert into Kontak_Distributor values('DIS003','031 3345087','Jaya Sentosa','jayasentosa@gmail.com');
+insert into Kontak_Distributor values('DIS004','031 8594001','Lilik','ptberliansedaya@gmail.com');
+insert into Kontak_Distributor values('DIS005','031 3550087','Rini','primaplastindo@gmail.com');
+insert into Kontak_Distributor values('DIS006','031 8574898','Celina','celina@po.bungapermata.com');
+insert into Kontak_Distributor values('DIS006','031 3455435','Mahfud','mahfud@po.bungapermata.com');
+insert into Kontak_Distributor values('DIS006','021 5677656','Retha','retha@po.bungapermata.com');
+insert into Kontak_Distributor values('DIS007','021 4566546','Xaverius','po@sanjayaabadi.com');
+insert into Kontak_Distributor values('DIS007','021 4566547','Vincentius','po@sanjayaabadi.com');
+insert into Kontak_Distributor values('DIS008','021 5678876','Sutoyo','mahkotamakmur@yahoo.com');
+insert into Kontak_Distributor values('DIS009','021 8907898','Edwin','purchaseorder@global.indonesia.com');
 
 create table list_hak_akses (
     Id_Hak_Akses varchar(8) Primary key,
@@ -171,17 +200,21 @@ create table Order_Header
     Pajak                   number(15)  ,
     Subtotal                number(15)  not null,    
     Status_Order            varchar2(1) not null check(Status_Order in ('0' ,'1','2','3','4','5')),
-    Id_Pegawai              varchar2(8) references Pegawai(Id_Pegawai)
+    Id_Pegawai              varchar2(8) references Pegawai(Id_Pegawai),
+    id_Payment_Term         varchar2(5) references Payment_Terms(id_Payment_Term),
+    id_Payment_Type         varchar2(5) references Payment_Type(id_Payment_Type)
 );
-insert into Order_Header values('PO001','DIS001',to_date('10/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),10,100000,'5','PEG004');
-insert into Order_Header values('PO002','DIS002',to_date('12/11/2019','dd/mm/yyyy'),to_date('23/12/2019','dd/mm/yyyy'),10,150000,'5','PEG004');
-insert into Order_Header values('PO003','DIS003',to_date('13/11/2019','dd/mm/yyyy'),to_date('22/12/2019','dd/mm/yyyy'),15,300000,'4','PEG005');
-insert into Order_Header values('PO004','DIS001',to_date('15/11/2019','dd/mm/yyyy'),to_date('18/12/2019','dd/mm/yyyy'),10,400000,'2','PEG006');
-insert into Order_Header values('PO005','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'1','PEG006');
+insert into Order_Header values('PO001','DIS001',to_date('10/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),10,100000,'5','PEG004','PT001','TP001');
+insert into Order_Header values('PO002','DIS002',to_date('12/11/2019','dd/mm/yyyy'),to_date('23/12/2019','dd/mm/yyyy'),10,150000,'5','PEG004','PT002','TP003');
+insert into Order_Header values('PO003','DIS003',to_date('13/11/2019','dd/mm/yyyy'),to_date('22/12/2019','dd/mm/yyyy'),15,300000,'4','PEG005','PT004','TP004');
+insert into Order_Header values('PO004','DIS001',to_date('15/11/2019','dd/mm/yyyy'),to_date('18/12/2019','dd/mm/yyyy'),10,400000,'2','PEG006','PT005','TP001');
+insert into Order_Header values('PO005','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'1','PEG006','PT006','TP002');
 ---insert into Order_Header values('PO006','DIS004',to_date('18/11/2019','dd/mm/yyyy'),10,600000,'3');
 ---insert into Order_Header values('PO007','DIS005',to_date('07/12/2019','dd/mm/yyyy'),10,1000000,'1');
-insert into Order_Header values('PO006','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'0','PEG006');
-insert into Order_Header values('PO008','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'0','PEG006');
+insert into Order_Header values('PO006','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'0','PEG006','PT002','TP003');
+insert into Order_Header values('PO008','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'0','PEG006','PT004','TP001');
+insert into Order_Header values('PO007','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'0','PEG006','PT004','TP001');
+
 
 create table Order_Detail
 (
@@ -198,7 +231,24 @@ insert into Order_Detail values('PO003','BRG0012','Tinta Blueprint Epson 70ml',1
 insert into Order_Detail values('PO004','BRG0013','Tinta Blueprint Canon 70ml',10,40000);
 insert into Order_Detail values('PO005','BRG0015','Krisbow Paper Shedder S290',1,2500000);
 insert into Order_Detail values('PO006','BRG0015','Krisbow Paper Shedder S290',1,2500000);
+ 
 
 
+Create Or Replace Function AUTOGEN_ID RETURN varchar2
+
+IS
+depan varchar2(2);
+URUT NUMBER;
+KODE varchar2(8);
+begin
+  depan := 'PO';
+
+  SELECT COUNT (ID_ORDER)+1 INTO URUT FROM Order_Header;
+
+  KODE := depan ||LPAD(URUT,3,'0');
+
+  RETURN KODE;
+end;
+/
 
 commit;

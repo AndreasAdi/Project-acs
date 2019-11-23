@@ -24,7 +24,7 @@ namespace Proyek_ACS
                 "end as Status " +
             "from Order_Header oh, Distributor d, Pegawai p " +
             "where oh.id_distributor = d.id_distributor " +
-            "and oh.Id_Pegawai = p.Id_Pegawai";
+            "and oh.Id_Pegawai = p.Id_Pegawai ";
         public listorder()
         {
             InitializeComponent();
@@ -33,7 +33,6 @@ namespace Proyek_ACS
         private void Listorder_Load(object sender, EventArgs e)
         {
             load_dgv_listorder(perintahlistpo);
-            comboBox_status.Enabled = false;
         }
 
         public void load_dgv_listorder(string perintahlistpo)
@@ -44,83 +43,67 @@ namespace Proyek_ACS
             dataGridView1.DataSource = dtlistpo;
         }
 
-        private void ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {            
-            if (comboBox_kategori.SelectedIndex == 6 )
-            {
-                comboBox_status.Enabled = true;
-            }
-            else if (comboBox_kategori.SelectedIndex <6 || comboBox_kategori.SelectedIndex >6)
-            {
-                comboBox_status.Enabled = false;
-            }
-        }
 
         private void Button_reset_Click(object sender, EventArgs e)
         {
             comboBox_tanggal.SelectedIndex = 0;
-            comboBox_kategori.SelectedIndex = 0;
-            comboBox_status.SelectedIndex = 0;
             load_dgv_listorder(perintahlistpo);
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "")
+            if (comboBox_tanggal.SelectedIndex > -1)
             {
-                MessageBox.Show("Masukkan isian search");
-            }
-            String keyword = textBox1.Text;
-            string search = "";
-            if (comboBox_tanggal.SelectedIndex < 0 || 
-                comboBox_kategori.SelectedIndex < 0 || 
-                comboBox_status.SelectedIndex <0)
-            {
-                search = perintahlistpo + " and (" +
-                    "order_header.Id_Order like '%" + keyword + "%' or " +
-                    "pegawai.Nama_Pegawai like '%" + keyword + "%' or " +
-                    "Distributor.Nama_Distributor like '%" + keyword + "%' or " +
-                    "Distributor.Alamat_Distributor like '%" + keyword + "%' or " +
-                    "Order_Header.Pajak like '%" + keyword + "%' or " +
-                    "Order_Header.Subtotal like '%" + keyword + "%' or " +
-                    "Order_Header.Status_Order like '%" + keyword + "%'  " +
-                    ")";
-            }
-            else if (comboBox_tanggal.SelectedIndex > 0 ||
-                comboBox_kategori.SelectedIndex > 0 ||
-                comboBox_status.SelectedIndex > 0)
-            {
-                string filtertanggal = comboBox_tanggal.SelectedItem.ToString();
-                string filterkategori = comboBox_kategori.SelectedItem.ToString();
-                string filterstatus = Convert.ToString(comboBox_status.SelectedIndex);
+                string berdasarkan = comboBox_tanggal.SelectedItem.ToString();
+                string startday = dateTimePicker1.Value.ToString("yyyy/MM/dd");
+                string endday = dateTimePicker2.Value.ToString("yyyy/MM/dd");
+                string search = "";
 
-                search = perintahlistpo + " and (" +
-                    "" +
-                    ")";
+                search = perintahlistpo +
+                        " and ( to_char(oh." + berdasarkan + ",'yyyy/mm/dd') >= '" + startday + "' )" +
+                         " and ( to_char(oh." + berdasarkan + ",'yyyy/mm/dd') <= '" + endday + "' )";
+                load_dgv_listorder(search);
             }
-            load_dgv_listorder(search);
+            else
+            {
+                MessageBox.Show("Pilih search berdasarkan Tanggal Purchase atau Tanggal Plan Delivery");
+            }
+
         }
 
         public string status;
         string id_order;
+        string namapegawai;
+        string date;
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex>-1)
             {
                 status = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
                 id_order = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                namapegawai = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                date = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[5].Value).ToString("dd/MM/yyyy");
+
                 Approved_Draft A = new Approved_Draft();
                 A.status = status;
                 A.id_order = id_order;
-                this.Hide();
+                A.author = namapegawai;
+                A.date = date;
+                Hide();
                 A.Show();
-                this.Close();
+                Close();
             }
         }
 
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            Purchase_Order p = new Purchase_Order();
+            p.Show();
         }
     }
 }

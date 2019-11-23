@@ -45,7 +45,7 @@ namespace Proyek_ACS
                 formvendor.textBox_parsing_alamatdist.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
 
                 DataTable dtkontakdistributor = new DataTable();
-                OracleDataAdapter adapkontakdist = new OracleDataAdapter("Select Kontak_Distributor.No_Telp, Kontak_Distributor.Email " +
+                OracleDataAdapter adapkontakdist = new OracleDataAdapter("Select Kontak_Distributor.No_Telp, Kontak_Distributor.Staff, Kontak_Distributor.Email " +
                     "from Kontak_Distributor, Distributor " +
                     "where Distributor.Id_Distributor = Kontak_Distributor.Id_Distributor " +
                     "and Distributor.Id_Distributor = '"+ formvendor.label_parsing_id.Text +"'",Form1.oc);
