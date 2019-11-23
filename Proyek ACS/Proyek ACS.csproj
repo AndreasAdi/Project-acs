@@ -99,6 +99,12 @@
     <Compile Include="Kotak_Vendor.Designer.cs">
       <DependentUpon>Kotak_Vendor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Laporan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Laporan.Designer.cs">
+      <DependentUpon>Laporan.cs</DependentUpon>
+    </Compile>
     <Compile Include="listorder.cs">
       <SubType>Form</SubType>
     </Compile>
