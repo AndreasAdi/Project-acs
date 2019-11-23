@@ -15,32 +15,30 @@ drop table Payment_Type cascade constraint purge;
 
 Create table Payment_Terms
 (
-    id_Payment_Term varchar2 (5) primary key,
-    nama varchar2 (5) primary key
-
+    id_Payment_Term varchar2(5)primary key,
+    nama varchar2(100)
 );
 
-insert into Payment_Terms('PT001','Due Upon Receipt');
-insert into Payment_Terms('PT002','30 days');
-insert into Payment_Terms('PT003','30 days Of month end');
-insert into Payment_Terms('PT004','60 days');
-insert into Payment_Terms('PT005','50-50');
-insert into Payment_Terms('PT006','Order');
-insert into Payment_Terms('PT007','Delivery');
-insert into Payment_Terms('PT008','10 days');  
+insert into Payment_Terms values ('PT001','Due Upon Receipt');
+insert into Payment_Terms values ('PT002','30 days');
+insert into Payment_Terms values ('PT003','30 days Of month end');
+insert into Payment_Terms values ('PT004','60 days');
+insert into Payment_Terms values ('PT005','50-50');
+insert into Payment_Terms values ('PT006','Order');
+insert into Payment_Terms values ('PT007','Delivery');
+insert into Payment_Terms values ('PT008','10 days');  
 
 Create table Payment_Type
 (
     id_Payment_type varchar2 (5) primary key,
-    nama varchar2 (5) primary key
-
+    nama varchar2 (100)
 );
 
-insert into Payment_Type('TP001','Cash');
-insert into Payment_Type('TP002','Bank Transfer');
-insert into Payment_Type('TP003','Cheque');
-insert into Payment_Type('TP004','Credit Card');
-insert into Payment_Type('TP005','Debit Payment Order');
+insert into Payment_Type values ('TP001','Cash');
+insert into Payment_Type values ('TP002','Bank Transfer');
+insert into Payment_Type values ('TP003','Cheque');
+insert into Payment_Type values ('TP004','Credit Card');
+insert into Payment_Type values ('TP005','Debit Payment Order');
 
 create table Branch
 (
@@ -203,7 +201,7 @@ create table Order_Header
     Subtotal                number(15)  not null,    
     Status_Order            varchar2(1) not null check(Status_Order in ('0' ,'1','2','3','4','5')),
     Id_Pegawai              varchar2(8) references Pegawai(Id_Pegawai),
-    id_Payment_Term         varchar2(5) references Payment_Term(id_Payment_Term),
+    id_Payment_Term         varchar2(5) references Payment_Terms(id_Payment_Term),
     id_Payment_Type         varchar2(5) references Payment_Type(id_Payment_Type)
 );
 insert into Order_Header values('PO001','DIS001',to_date('10/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),10,100000,'5','PEG004','PT001','TP001');
