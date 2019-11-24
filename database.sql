@@ -235,7 +235,6 @@ insert into Order_Detail values('PO006','BRG0015','Krisbow Paper Shedder S290',1
 
 
 Create Or Replace Function AUTOGEN_ID RETURN varchar2
-
 IS
 depan varchar2(2);
 URUT NUMBER;

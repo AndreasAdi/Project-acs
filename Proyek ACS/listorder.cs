@@ -13,7 +13,7 @@ namespace Proyek_ACS
 {
     public partial class listorder : Form
     {
-        DataTable dtlistpo;
+       DataTable dtlistpo;
        public string perintahlistpo = "select oh.Id_Order, p.Nama_Pegawai, d.Nama_Distributor, d.Alamat_Distributor, oh.Tanggal_Order, oh.Plan_Date_Delivery, oh.Pajak , oh.Subtotal, " +
             "Case when oh.Status_Order = '0' then 'Draft' " +
                 "when oh.Status_Order = '1' then 'Approved' " +
@@ -103,7 +103,9 @@ namespace Proyek_ACS
         private void Button2_Click(object sender, EventArgs e)
         {
             Purchase_Order p = new Purchase_Order();
-            p.Show();
+            this.Hide();
+            p.ShowDialog();
+            this.Close();
         }
     }
 }

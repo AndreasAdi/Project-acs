@@ -32,8 +32,22 @@ namespace Proyek_ACS
 
         private void Button2_Click_1(object sender, EventArgs e)
         {
-            Detail d = new Detail();
-            d.Show();
+            conn.Close();
+            conn.Open();
+            //Detail d = new Detail();
+            //d.Show();
+            string idpeg = Form1.id_pegawai;
+            OracleCommand id = new OracleCommand("select AUTOGEN_ID from dual",conn);
+            string idheader = id.ExecuteScalar().ToString();
+            string idpayterm = comboBox2.SelectedValue.ToString();
+            string idpaytype = comboBox1.SelectedValue.ToString();
+            OracleCommand cmd = new OracleCommand("insert into order_header values('"+idheader+"','"+comboBox4.SelectedValue.ToString()+ "',to_date('" + dateTimePicker1.Value.ToString("dd/MM/yyyy") + "','DD/MM/YYYY'),to_date('" + DateTime.Now.ToString("dd/MM/yyyy")+"','DD/MM/YYYY'),0,0,'0','"+idpeg+"','"+idpayterm+"','"+idpaytype+"')",conn);
+            cmd.ExecuteNonQuery();
+            listorder l = new listorder();
+            this.Hide();
+            l.ShowDialog();
+            this.Close();
+            conn.Close();
         }
 
         void load() {
@@ -68,6 +82,7 @@ namespace Proyek_ACS
             comboBox1.DataSource = dt;
             comboBox1.ValueMember = "id_payment_type";
             comboBox1.DisplayMember = "nama";
+            conn.Close();
         }
     }
 }

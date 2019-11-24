@@ -19,8 +19,8 @@ namespace Proyek_ACS
          * Lalu ganti data source ke XE kalau pakai EXPRESS
          * Aku pakai orcl soalnya terlanjur instal enterprise
          */
-        //public static OracleConnection oc = new OracleConnection("User id = latihan ; password = latihan ; data source = orcl");
-       public static OracleConnection oc = new OracleConnection("User id = proyekacs ; password = 123 ; data source = xe");
+        public static OracleConnection oc = new OracleConnection("User id = latihan ; password = lat ; data source = xe");
+       //public static OracleConnection oc = new OracleConnection("User id = proyekacs ; password = 123 ; data source = xe");
         public Form1()
         {
             InitializeComponent();            
@@ -89,6 +89,7 @@ namespace Proyek_ACS
                     }
                 }
                 read.Close();
+                id_pegawai = textBox1.Text;
                 fm.ShowDialog();
                 this.Close();
             }
