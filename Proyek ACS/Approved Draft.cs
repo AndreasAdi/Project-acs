@@ -87,5 +87,12 @@ namespace Proyek_ACS
             //  dataGridView1.DataSource = ds.executeDataTable(query);
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Laporan l = new Laporan();
+            l.idorder = id_order;
+            l.Show();
+        }
     }
 }
