@@ -94,5 +94,15 @@ namespace Proyek_ACS
             l.idorder = id_order;
             l.Show();
         }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+
+            List_Barang l = new List_Barang();
+            l.id_order = label1.Text;
+            Hide();
+            l.ShowDialog();
+            Close();
+        }
     }
 }
