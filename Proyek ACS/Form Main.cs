@@ -68,8 +68,8 @@ namespace Proyek_ACS
 
         private void LaporanToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Laporan l = new Laporan();
-            l.Show();
+            Statistics s = new Statistics();
+            s.Show();
         }
     }
 }

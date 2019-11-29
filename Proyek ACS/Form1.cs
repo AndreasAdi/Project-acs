@@ -19,7 +19,7 @@ namespace Proyek_ACS
          * Lalu ganti data source ke XE kalau pakai EXPRESS
          * Aku pakai orcl soalnya terlanjur instal enterprise
          */
-        public static OracleConnection oc = new OracleConnection("User id = proyek ; password = 123 ; data source = xe");
+        public static OracleConnection oc = new OracleConnection("User id = proyek ; password = proyek ; data source = xe");
        //public static OracleConnection oc = new OracleConnection("User id = proyekacs ; password = 123 ; data source = xe");
         public Form1()
         {
