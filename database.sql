@@ -251,15 +251,25 @@ end;
 /
 
 
-CREATE OR REPLACE TRIGGER Subtotal BEFORE UPDATE ON order_detail
-FOR EACH ROW
-DECLARE
-tsub number;
-BEGIN
-tsub := :NEW.HARGA * :NEW.JUMLAH_order;
-    UPDATE order_header SET SUBTOTAL= SUBTOTAL+ tsub WHERE ID_ORDER = :NEW.ID_ORDER;
-END;
-/   
+-- CREATE OR REPLACE TRIGGER Subtotal BEFORE UPDATE ON order_detail
+-- FOR EACH ROW
+-- DECLARE
+-- tsub number;
+-- BEGIN
+-- tsub := :NEW.HARGA * :NEW.JUMLAH_order;
+--     UPDATE order_header SET SUBTOTAL= SUBTOTAL+ tsub WHERE ID_ORDER = :NEW.ID_ORDER;
+-- END;
+-- /   
+
+-- CREATE OR REPLACE TRIGGER pajak BEFORE UPDATE ON order_header
+-- FOR EACH ROW
+-- DECLARE
+-- BEGIN
+--     UPDATE order_header SET SUBTOTAL= SUBTOTAL - (:new.pajak * Subtotal /100) WHERE ID_ORDER = :NEW.ID_ORDER;
+-- END;
+-- /     
+
+
 commit;
 
 

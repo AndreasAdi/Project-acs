@@ -77,7 +77,25 @@ namespace Proyek_ACS
         string date;
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex>-1)
+
+        }
+
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            Purchase_Order p = new Purchase_Order();
+            this.Hide();
+            p.ShowDialog();
+            this.Close();
+        }
+
+        private void DataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
             {
                 status = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
                 id_order = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
@@ -95,17 +113,16 @@ namespace Proyek_ACS
             }
         }
 
-        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            Form1.oc.Close();
+            Form1.oc.Open();
 
-        }
+            string query = "Update ORDER_HEADER set pajak = "+int.Parse(dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString())+" where id_order = '"+dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()+"' ";
+            OracleCommand cmd = new OracleCommand(query,Form1.oc);
+            cmd.ExecuteNonQuery();
 
-        private void Button2_Click(object sender, EventArgs e)
-        {
-            Purchase_Order p = new Purchase_Order();
-            this.Hide();
-            p.ShowDialog();
-            this.Close();
+            Form1.oc.Close();
         }
     }
 }

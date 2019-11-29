@@ -118,6 +118,16 @@ namespace Proyek_ACS
                 cmd = new OracleCommand(query, conn);
                 cmd.ExecuteNonQuery();
             }
+            query = "update order_header set subtotal = 0  where id_order ='" + id_order + "'";
+            cmd = new OracleCommand(query, conn);
+            cmd.ExecuteNonQuery();
+
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                query = "update order_header set subtotal = subtotal+" + dataGridView1.Rows[i].Cells[3].Value.ToString() + " * "+dataGridView1.Rows[i].Cells[2].Value.ToString()+"   where id_order ='" + id_order + "'";
+                cmd = new OracleCommand(query, conn);
+                cmd.ExecuteNonQuery();
+            }
             MessageBox.Show("Berhasil Update");
             load_barang();
             conn.Close();

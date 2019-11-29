@@ -97,6 +97,11 @@ namespace Proyek_ACS
                 OracleCommand cmd = new OracleCommand(query,conn);
                 cmd.ExecuteNonQuery();
             }
+            listorder l = new listorder();
+            Hide();
+            l.ShowDialog();
+            Close();
+            
             conn.Close();
 
 
