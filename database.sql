@@ -215,6 +215,7 @@ insert into Order_Header values('PO006','DIS001',to_date('16/11/2019','dd/mm/yyy
 insert into Order_Header values('PO008','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'0','PEG006','PT004','TP001');
 insert into Order_Header values('PO007','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'0','PEG006','PT004','TP001');
 
+
 create table Order_Detail
 (
     Id_Order        varchar2(8)     references Order_Header(Id_Order) , 
@@ -249,4 +250,16 @@ begin
 end;
 /
 
+
+CREATE OR REPLACE TRIGGER Subtotal BEFORE UPDATE ON order_detail
+FOR EACH ROW
+DECLARE
+tsub number;
+BEGIN
+tsub := :NEW.HARGA * :NEW.JUMLAH_order;
+    UPDATE order_header SET SUBTOTAL= SUBTOTAL+ tsub WHERE ID_ORDER = :NEW.ID_ORDER;
+END;
+/   
 commit;
+
+
