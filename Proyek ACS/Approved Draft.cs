@@ -48,6 +48,8 @@ namespace Proyek_ACS
             {
                 conn.Close();
                 conn.Open();
+     
+
                 query = "select count(id_pegawai) from hak_akses where id_pegawai = '"+id_pegawai+"' and id_hak_akses = 'HA003'";
                 cmd = new OracleCommand(query,conn);
                 int bolehapprove = int.Parse(cmd.ExecuteScalar().ToString());
@@ -67,7 +69,7 @@ namespace Proyek_ACS
                     MessageBox.Show("Tidak Memiliki Akses");
                 }
 
-
+                conn.Close();
             }
         }
         void load_barang() {
@@ -85,6 +87,7 @@ namespace Proyek_ACS
 
             //   Database ds = new Database(conn);
             //  dataGridView1.DataSource = ds.executeDataTable(query);
+            conn.Close();
 
         }
 
@@ -103,6 +106,23 @@ namespace Proyek_ACS
             Hide();
             l.ShowDialog();
             Close();
+        }
+
+        private void Button5_Click(object sender, EventArgs e)
+        {
+            conn.Close();
+            conn.Open();
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                query = "update order_detail set harga = "+dataGridView1.Rows[i].Cells[3].Value.ToString()+" where id_barang = '"+dataGridView1.Rows[i].Cells[0].Value.ToString()+"' and id_order ='"+id_order+"'";
+                cmd = new OracleCommand(query, conn);
+                cmd.ExecuteNonQuery();
+            }
+            MessageBox.Show("Berhasil Update");
+            load_barang();
+            conn.Close();
+
+
         }
     }
 }

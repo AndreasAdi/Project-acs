@@ -262,6 +262,7 @@
             this.button5.TabIndex = 93;
             this.button5.Text = "Update";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.Button5_Click);
             // 
             // Approved_Draft
             // 

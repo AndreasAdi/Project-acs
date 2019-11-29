@@ -88,6 +88,8 @@ namespace Proyek_ACS
 
         private void Button2_Click(object sender, EventArgs e)
         {
+            conn.Close();
+            conn.Open();
             for (int i = 0; i < dataGridView2.Rows.Count; i++)
             {
                string query = "insert into order_detail values('"+id_order+"', '"+dataGridView2.Rows[i].Cells[0].Value.ToString()+"', '"+dataGridView2.Rows[i].Cells[1].Value.ToString()+"', "+dataGridView2.Rows[i].Cells[3].Value.ToString()+" , 0) ";
@@ -95,6 +97,7 @@ namespace Proyek_ACS
                 OracleCommand cmd = new OracleCommand(query,conn);
                 cmd.ExecuteNonQuery();
             }
+            conn.Close();
 
 
         }
