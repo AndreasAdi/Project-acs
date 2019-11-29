@@ -215,7 +215,6 @@ insert into Order_Header values('PO006','DIS001',to_date('16/11/2019','dd/mm/yyy
 insert into Order_Header values('PO008','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'0','PEG006','PT004','TP001');
 insert into Order_Header values('PO007','DIS001',to_date('16/11/2019','dd/mm/yyyy'),to_date('21/12/2019','dd/mm/yyyy'),20,2500000,'0','PEG006','PT004','TP001');
 
-
 create table Order_Detail
 (
     Id_Order        varchar2(8)     references Order_Header(Id_Order) , 
