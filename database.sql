@@ -176,6 +176,7 @@ insert into Hak_Akses Values ('PEG002','HA002');
 insert into Hak_Akses Values ('PEG003','HA003');
 insert into Hak_Akses Values ('PEG004','HA004');
 insert into Hak_Akses Values ('PEG006','HA006');
+insert into Hak_Akses Values ('PEG002','HA007');
 
 create table Transaksi
 (
@@ -220,7 +221,7 @@ create table Order_Detail
 (
     Id_Order        varchar2(8)     references Order_Header(Id_Order) , 
     Id_Barang       varchar2(8)     not null references Barang(Id_Barang) ,
-    Nama_Barang     varchar2(30)    not null,
+    Nama_Barang     varchar2(100)    not null,
     Jumlah_Order    number(10)      not null,
     Harga           number(15)      not null
 );

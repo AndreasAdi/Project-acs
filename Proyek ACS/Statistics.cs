@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Oracle.DataAccess.Client;
 namespace Proyek_ACS
 {
     public partial class Statistics : Form
@@ -32,7 +32,7 @@ namespace Proyek_ACS
             CrystalReport2 crpt = new CrystalReport2();
             try
             {
-                crpt.SetDatabaseLogon("proyek", "proyek");
+                crpt.SetDatabaseLogon("latihan", "lat");
             }
             catch (Exception)
             {
@@ -42,6 +42,12 @@ namespace Proyek_ACS
             crystalReportViewer1.ReportSource = crpt;
             crpt.SetParameterValue("Tanggal_Awal", dateTimePicker1.Value);
             crpt.SetParameterValue("Tanggal Akhir", dateTimePicker2.Value);
+        }
+
+        private void Statistics_Load(object sender, EventArgs e)
+        {
+            OracleConnection conn = new OracleConnection("data source=xe;user id=latihan;password=lat");
+            conn.Open();
         }
     }
 }

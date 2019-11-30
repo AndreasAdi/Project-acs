@@ -28,7 +28,6 @@ namespace Proyek_ACS
 
         private void List_Barang_Load(object sender, EventArgs e)
         {
-
             load_dgv_inventory(perintahinventory);
         }
 
@@ -58,7 +57,6 @@ namespace Proyek_ACS
                         idx_sama = i;
                         ctr++;
                     }
-                 
                 }
                 if (ctr ==0)
                 {
@@ -68,14 +66,11 @@ namespace Proyek_ACS
                 {
                     dataGridView2.Rows[idx_sama].Cells[3].Value = Convert.ToString(Convert.ToInt32(dataGridView2.Rows[idx_sama].Cells[3].Value.ToString()) + numericUpDown1.Value);
                 }
-
-
             }
             else
             {
                 MessageBox.Show("Jumlah Barang Harus Lebih besar Dari 0");
             }
-
         }
 
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -103,8 +98,6 @@ namespace Proyek_ACS
             Close();
             
             conn.Close();
-
-
         }
     }
 }

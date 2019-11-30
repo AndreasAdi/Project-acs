@@ -98,6 +98,7 @@
             // 
             // laporanToolStripMenuItem
             // 
+            this.laporanToolStripMenuItem.Enabled = false;
             this.laporanToolStripMenuItem.Name = "laporanToolStripMenuItem";
             this.laporanToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.laporanToolStripMenuItem.Text = "Laporan";
@@ -127,6 +128,6 @@
         public System.Windows.Forms.ToolStripMenuItem lihatInventoryToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem lihatOrderToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem assignPrevilegeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem laporanToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem laporanToolStripMenuItem;
     }
 }
