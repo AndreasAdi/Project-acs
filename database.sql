@@ -226,13 +226,13 @@ create table Order_Detail
     Pajak  number(10) not null,
     Harga           number(15)      not null
 );
-insert into Order_Detail values('PO001','BRG0001','Bantex Insert Ring Binder 25mm',10,0,10000);
-insert into Order_Detail values('PO002','BRG0004','Sinar Dunia F4 70gsm',5,0,75000);
-insert into Order_Detail values('PO002','BRG0006','Sinar Dunia A4 70gsm',5,0,75000);
-insert into Order_Detail values('PO003','BRG0012','Tinta Blueprint Epson 70ml',10,0,30000);
-insert into Order_Detail values('PO004','BRG0013','Tinta Blueprint Canon 70ml',10,0,40000);
-insert into Order_Detail values('PO005','BRG0015','Krisbow Paper Shedder S290',1,0,2500000);
-insert into Order_Detail values('PO006','BRG0015','Krisbow Paper Shedder S290',1,0,2500000);
+insert into Order_Detail values('PO001','BRG0001','Bantex Insert Ring Binder 25mm',10,10,10000);
+insert into Order_Detail values('PO002','BRG0004','Sinar Dunia F4 70gsm',5,10,75000);
+insert into Order_Detail values('PO002','BRG0006','Sinar Dunia A4 70gsm',5,5,75000);
+insert into Order_Detail values('PO003','BRG0012','Tinta Blueprint Epson 70ml',10,10,30000);
+insert into Order_Detail values('PO004','BRG0013','Tinta Blueprint Canon 70ml',10,5,40000);
+insert into Order_Detail values('PO005','BRG0015','Krisbow Paper Shedder S290',1,5,2500000);
+insert into Order_Detail values('PO006','BRG0015','Krisbow Paper Shedder S290',1,10,2500000);
  
 
 
