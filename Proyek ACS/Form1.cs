@@ -45,7 +45,6 @@ namespace Proyek_ACS
             OracleCommand cmd = new OracleCommand(ceklog, oc);
             cmd.ExecuteNonQuery();
             int cek = Convert.ToInt32(cmd.ExecuteScalar());
-            MessageBox.Show(cek + "");
             if (cek >= 1)
             {
                 this.Hide();
