@@ -72,7 +72,7 @@ namespace Proyek_ACS
         private void LaporanToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Statistics s = new Statistics();
-            s.Show();
+            s.ShowDialog();
         }
 
         private void PictureBox1_Click(object sender, EventArgs e)

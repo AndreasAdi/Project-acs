@@ -46,8 +46,10 @@ namespace Proyek_ACS
 
         private void Statistics_Load(object sender, EventArgs e)
         {
+            /*
             OracleConnection conn = new OracleConnection("data source=xe;user id=latihan;password=lat");
             conn.Open();
+            */
         }
     }
 }
