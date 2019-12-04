@@ -41,7 +41,7 @@ namespace Proyek_ACS
             string idheader = id.ExecuteScalar().ToString();
             string idpayterm = comboBox2.SelectedValue.ToString();
             string idpaytype = comboBox1.SelectedValue.ToString();
-            OracleCommand cmd = new OracleCommand("insert into order_header values('"+idheader+"','"+comboBox4.SelectedValue.ToString()+ "',to_date('" + dateTimePicker1.Value.ToString("dd/MM/yyyy") + "','DD/MM/YYYY'),to_date('" + DateTime.Now.ToString("dd/MM/yyyy")+"','DD/MM/YYYY'),0,0,'0','"+idpeg+"','"+idpayterm+"','"+idpaytype+"')",conn);
+            OracleCommand cmd = new OracleCommand("insert into order_header values('"+idheader+"','"+comboBox4.SelectedValue.ToString()+ "',to_date('" + dateTimePicker1.Value.ToString("dd/MM/yyyy") + "','DD/MM/YYYY'),to_date('" + DateTime.Now.ToString("dd/MM/yyyy")+"','DD/MM/YYYY'),0,'0','"+idpeg+"','"+idpayterm+"','"+idpaytype+"')",conn);
             cmd.ExecuteNonQuery();
             listorder l = new listorder();
             this.Hide();

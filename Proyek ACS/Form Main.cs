@@ -57,7 +57,10 @@ namespace Proyek_ACS
 
         private void Form_Main_Load(object sender, EventArgs e)
         {
-
+            string query = "Select Nama_pegawai from pegawai where id_pegawai =  '"+Form1.id_pegawai+"' ";
+            OracleCommand cmd = new OracleCommand(query,Form1.oc);
+            
+            label3.Text = cmd.ExecuteScalar().ToString();
         }
 
         private void ApproveOrderToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -70,6 +73,31 @@ namespace Proyek_ACS
         {
             Statistics s = new Statistics();
             s.Show();
+        }
+
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+            listorder l = new listorder();
+            l.Show();
+        }
+
+        private void PictureBox1_Click_1(object sender, EventArgs e)
+        {
+            listorder l = new listorder();
+            l.Show();
+        }
+
+        private void Label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label4_Click(object sender, EventArgs e)
+        {
+            Form1 f = new Form1();
+            Hide();
+            f.ShowDialog();
+            Close();
         }
     }
 }

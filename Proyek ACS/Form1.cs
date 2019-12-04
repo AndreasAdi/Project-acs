@@ -20,8 +20,8 @@ namespace Proyek_ACS
          * Aku pakai orcl soalnya terlanjur instal enterprise
          */ 
 
-        public static OracleConnection oc = new OracleConnection("User id = latihan ; password = latihan ; data source = Orcl");
-        //public static OracleConnection oc = new OracleConnection("User id = proyek ; password = 123 ; data source = xe");
+       // public static OracleConnection oc = new OracleConnection("User id = latihan ; password = latihan ; data source = Orcl");
+        public static OracleConnection oc = new OracleConnection("User id = proyek ; password = 123 ; data source = xe");
         //public static OracleConnection oc = new OracleConnection("User id = latihan ; password = latihan ; data source = xe");
         public Form1()
         {
@@ -45,7 +45,7 @@ namespace Proyek_ACS
             OracleCommand cmd = new OracleCommand(ceklog, oc);
             cmd.ExecuteNonQuery();
             int cek = Convert.ToInt32(cmd.ExecuteScalar());
-            MessageBox.Show(cek + "");
+            //MessageBox.Show(cek + "");
             if (cek >= 1)
             {
                 this.Hide();
@@ -73,14 +73,13 @@ namespace Proyek_ACS
                         fm.assignPrevilegeToolStripMenuItem.Enabled = true;
                     }
                     else if (akses == "HA005") {
-                        fm.makeOrderToolStripMenuItem.Enabled = true;
+        
                     }
                     else if (akses == "HA006")
                     {
                         fm.lihatKontakToolStripMenuItem.Enabled = true;
                         fm.lihatOrderToolStripMenuItem.Enabled = true;
-                        fm.makeOrderToolStripMenuItem.Enabled = true;
-                        fm.makeOrderToolStripMenuItem.Enabled = true;
+
                         fm.lihatInventoryToolStripMenuItem.Enabled = true;
                         fm.assignPrevilegeToolStripMenuItem.Enabled = true;
                         fm.laporanToolStripMenuItem.Enabled = true;
@@ -104,6 +103,40 @@ namespace Proyek_ACS
                 MessageBox.Show("Gagal Login password atau username salah");
             }
             oc.Close();
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label2_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        private void Form1_MouseDown_1(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
         }
     }
 }

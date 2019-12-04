@@ -28,6 +28,8 @@ namespace Proyek_ACS
         public string distributor;
         public string author;
         public string date;
+        public string payment_terms;
+        public string payment_type;
         OracleCommand cmd;
         private void Approved_Draft_Load(object sender, EventArgs e)
         {
@@ -35,9 +37,21 @@ namespace Proyek_ACS
             label1.Text = id_order;
             lblauthor.Text = author;
             label10.Text = date;
+            label2.Text = distributor;
+            label9.Text = payment_terms;
+            label8.Text = payment_type;
             if (status =="Draft")
             {
                 button2.Text = "Approve";
+            }
+            else if (status == "Ordered")
+            {
+                button2.Text = "Receive";
+            }
+            if(status!="Draft")
+            {
+                button5.Enabled = false;
+                button4.Enabled = false;
             }
             load_barang();
         }
@@ -71,13 +85,44 @@ namespace Proyek_ACS
 
                 conn.Close();
             }
+            else if (button2.Text == "Make Order")
+            {
+                conn.Close();
+                conn.Open();
+
+
+                    query = "Update order_header set status_order = 6  where id_order = '" + id_order + "' ";
+                    cmd = new OracleCommand(query, conn);
+                    cmd.ExecuteNonQuery();
+                    listorder lo = new listorder();
+                    lo.Show();
+  
+
+                conn.Close();
+          
+            }
+            else if (button2.Text== "Receive")
+            {
+                conn.Close();
+                conn.Open();
+
+
+                query = "Update order_header set status_order = 4  where id_order = '" + id_order + "' ";
+                cmd = new OracleCommand(query, conn);
+                cmd.ExecuteNonQuery();
+                listorder lo = new listorder();
+                lo.Show();
+
+
+                conn.Close();
+            }
         }
         void load_barang() {
             conn.Close();
             conn.Open();
 
           
-            query = "Select ID_BARANG,NAMA_BARANG,JUMLAH_ORDER,HARGA  from order_detail where id_order = '"+id_order+"'";
+            query = "Select ID_BARANG,NAMA_BARANG,JUMLAH_ORDER,HARGA,pajak from order_detail where id_order = '"+id_order+"'";
             cmd = new OracleCommand(query, conn);
             OracleDataAdapter adap = new OracleDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -124,7 +169,15 @@ namespace Proyek_ACS
 
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                query = "update order_header set subtotal = subtotal+" + dataGridView1.Rows[i].Cells[3].Value.ToString() + " * "+dataGridView1.Rows[i].Cells[2].Value.ToString()+"   where id_order ='" + id_order + "'";
+                query = "update order_header set subtotal = subtotal+" + dataGridView1.Rows[i].Cells[3].Value.ToString() + " * "+dataGridView1.Rows[i].Cells[2].Value.ToString()+ "*( 100 - "+dataGridView1.Rows[i].Cells[4].Value.ToString()+")/100 where id_order ='" + id_order + "'";
+                cmd = new OracleCommand(query, conn);
+                cmd.ExecuteNonQuery();
+            }
+
+
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                query = "update order_detail set pajak = " +dataGridView1.Rows[i].Cells[4].Value.ToString();
                 cmd = new OracleCommand(query, conn);
                 cmd.ExecuteNonQuery();
             }
@@ -132,6 +185,11 @@ namespace Proyek_ACS
             load_barang();
             conn.Close();
 
+
+        }
+
+        private void Label9_Click(object sender, EventArgs e)
+        {
 
         }
     }
