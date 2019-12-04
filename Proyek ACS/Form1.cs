@@ -19,8 +19,10 @@ namespace Proyek_ACS
          * Lalu ganti data source ke XE kalau pakai EXPRESS
          * Aku pakai orcl soalnya terlanjur instal enterprise
          */
+
+        public static OracleConnection oc = new OracleConnection("User id = latihan ; password = latihan ; data source = Orcl");
         //public static OracleConnection oc = new OracleConnection("User id = proyek ; password = 123 ; data source = xe");
-       public static OracleConnection oc = new OracleConnection("User id = latihan ; password = lat ; data source = xe");
+        //public static OracleConnection oc = new OracleConnection("User id = latihan ; password = latihan ; data source = xe");
         public Form1()
         {
             InitializeComponent();            
@@ -36,10 +38,14 @@ namespace Proyek_ACS
             oc.Open();
             Form_Main fm = new Form_Main();
             id_pegawai   = textBox1.Text;
-            string ceklog = "select count(id_pegawai) from pegawai where password='" + textBox2.Text + "' and id_pegawai='"+textBox1.Text+"'";
+
+            //string ceklog = "select count(id_pegawai) from pegawai where password='" + textBox2.Text + "' and id_pegawai='"+textBox1.Text+"'";
+            string ceklog = "select count(*) from Pegawai where pegawai.id_pegawai ='"+textBox1.Text+"' and(select my_decrypt(Password, 'aplikasi client server') from Pegawai where pegawai.id_pegawai ='"+textBox1.Text+"') = '"+textBox2.Text+"'";
+
             OracleCommand cmd = new OracleCommand(ceklog, oc);
             cmd.ExecuteNonQuery();
             int cek = Convert.ToInt32(cmd.ExecuteScalar());
+            MessageBox.Show(cek + "");
             if (cek >= 1)
             {
                 this.Hide();
