@@ -18,7 +18,7 @@ namespace Proyek_ACS
          * Jangan lupa remove connection di references lalu add lagi
          * Lalu ganti data source ke XE kalau pakai EXPRESS
          * Aku pakai orcl soalnya terlanjur instal enterprise
-         */
+         */ 
 
         public static OracleConnection oc = new OracleConnection("User id = latihan ; password = latihan ; data source = Orcl");
         //public static OracleConnection oc = new OracleConnection("User id = proyek ; password = 123 ; data source = xe");
