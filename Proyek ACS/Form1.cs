@@ -18,18 +18,34 @@ namespace Proyek_ACS
          * Jangan lupa remove connection di references lalu add lagi
          * Lalu ganti data source ke XE kalau pakai EXPRESS
          * Aku pakai orcl soalnya terlanjur instal enterprise
-         */ 
+         */
 
-       // public static OracleConnection oc = new OracleConnection("User id = latihan ; password = latihan ; data source = Orcl");
-        public static OracleConnection oc = new OracleConnection("User id = proyek ; password = proyek ; data source = xe");
-        //public static OracleConnection oc = new OracleConnection("User id = latihan ; password = latihan ; data source = xe");
-        public Form1()
+        // public static OracleConnection oc = new OracleConnection("User id = latihan ; password = latihan ; data source = Orcl");
+        public static OracleConnection oc;
+        
+//public static OracleConnection oc = new OracleConnection("User id = latihan ; password = latihan ; data source = xe");
+public Form1()
         {
             InitializeComponent();            
         }
         public static bool en = false;
         private void Form1_Load(object sender, EventArgs e)
         {
+            try
+            {
+                oc = new OracleConnection("Data Source=" +
+                    "(DESCRIPTION=" +
+                    "(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)" +
+                    "(HOST=192.168.43.188)(PORT=1521)))" +
+                    "(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=xe)));" +
+                    "user id=proyek;password=proyek");
+                oc.Open();
+                oc.Close();
+            }
+            catch (OracleException)
+            {
+                throw;
+            }
 
         }
         public static string id_pegawai;

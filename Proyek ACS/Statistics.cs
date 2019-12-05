@@ -32,7 +32,7 @@ namespace Proyek_ACS
             CrystalReport2 crpt = new CrystalReport2();
             try
             {
-                crpt.SetDatabaseLogon("latihan", "lat");
+                crpt.SetDatabaseLogon("proyek", "proyek");
             }
             catch (Exception)
             {

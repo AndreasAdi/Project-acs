@@ -21,10 +21,7 @@ namespace Proyek_ACS
         private void Kotak_Vendor_Load(object sender, EventArgs e)
         {
            
-            if (Form1.en == true) {
-                button_Update.Enabled = true;
-            }
-            
+                        
         }
     }
 }

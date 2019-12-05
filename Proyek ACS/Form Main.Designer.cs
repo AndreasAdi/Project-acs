@@ -60,7 +60,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 116);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-            this.menuStrip1.Size = new System.Drawing.Size(1187, 36);
+            this.menuStrip1.Size = new System.Drawing.Size(1345, 36);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -68,7 +68,7 @@
             // 
             this.lihatOrderToolStripMenuItem.Enabled = false;
             this.lihatOrderToolStripMenuItem.Name = "lihatOrderToolStripMenuItem";
-            this.lihatOrderToolStripMenuItem.Size = new System.Drawing.Size(148, 36);
+            this.lihatOrderToolStripMenuItem.Size = new System.Drawing.Size(146, 36);
             this.lihatOrderToolStripMenuItem.Text = "Lihat Order";
             this.lihatOrderToolStripMenuItem.Click += new System.EventHandler(this.LihatOrderToolStripMenuItem_Click);
             // 
@@ -76,7 +76,7 @@
             // 
             this.lihatKontakToolStripMenuItem.Enabled = false;
             this.lihatKontakToolStripMenuItem.Name = "lihatKontakToolStripMenuItem";
-            this.lihatKontakToolStripMenuItem.Size = new System.Drawing.Size(160, 36);
+            this.lihatKontakToolStripMenuItem.Size = new System.Drawing.Size(158, 36);
             this.lihatKontakToolStripMenuItem.Text = "Lihat Kontak";
             this.lihatKontakToolStripMenuItem.Click += new System.EventHandler(this.LihatKontakToolStripMenuItem_Click);
             // 
@@ -84,7 +84,7 @@
             // 
             this.lihatInventoryToolStripMenuItem.Enabled = false;
             this.lihatInventoryToolStripMenuItem.Name = "lihatInventoryToolStripMenuItem";
-            this.lihatInventoryToolStripMenuItem.Size = new System.Drawing.Size(188, 36);
+            this.lihatInventoryToolStripMenuItem.Size = new System.Drawing.Size(186, 36);
             this.lihatInventoryToolStripMenuItem.Text = "Lihat Inventory";
             this.lihatInventoryToolStripMenuItem.Click += new System.EventHandler(this.LihatInventoryToolStripMenuItem_Click);
             // 
@@ -92,7 +92,7 @@
             // 
             this.assignPrevilegeToolStripMenuItem.Enabled = false;
             this.assignPrevilegeToolStripMenuItem.Name = "assignPrevilegeToolStripMenuItem";
-            this.assignPrevilegeToolStripMenuItem.Size = new System.Drawing.Size(203, 36);
+            this.assignPrevilegeToolStripMenuItem.Size = new System.Drawing.Size(201, 36);
             this.assignPrevilegeToolStripMenuItem.Text = "Assign Previlege";
             this.assignPrevilegeToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.assignPrevilegeToolStripMenuItem.Click += new System.EventHandler(this.AssignPrevilegeToolStripMenuItem_Click);
@@ -101,7 +101,7 @@
             // 
             this.laporanToolStripMenuItem.Enabled = false;
             this.laporanToolStripMenuItem.Name = "laporanToolStripMenuItem";
-            this.laporanToolStripMenuItem.Size = new System.Drawing.Size(114, 36);
+            this.laporanToolStripMenuItem.Size = new System.Drawing.Size(112, 36);
             this.laporanToolStripMenuItem.Text = "Laporan";
             this.laporanToolStripMenuItem.Click += new System.EventHandler(this.LaporanToolStripMenuItem_Click);
             // 
@@ -120,16 +120,17 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1187, 152);
+            this.panel1.Size = new System.Drawing.Size(1345, 152);
             this.panel1.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(1116, 61);
+            this.label4.Location = new System.Drawing.Point(1175, 66);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 17);
+            this.label4.Size = new System.Drawing.Size(58, 18);
             this.label4.TabIndex = 6;
             this.label4.Text = "Log out";
             this.label4.Click += new System.EventHandler(this.Label4_Click);
@@ -139,22 +140,23 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(1045, 21);
+            this.label3.Location = new System.Drawing.Point(1131, 32);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(102, 25);
             this.label3.TabIndex = 5;
             this.label3.Text = "Username";
+            this.label3.Click += new System.EventHandler(this.label3_Click_1);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(935, 21);
+            this.label2.Location = new System.Drawing.Point(1034, 32);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 25);
+            this.label2.Size = new System.Drawing.Size(100, 25);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Wellcome,";
+            this.label2.Text = "Welcome,";
             // 
             // textBox2
             // 
@@ -166,18 +168,18 @@
             this.textBox2.Location = new System.Drawing.Point(0, 116);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(1184, 1);
+            this.textBox2.Size = new System.Drawing.Size(1342, 1);
             this.textBox2.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Open Sans SemiBold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(24, 32);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(199, 45);
+            this.label1.Size = new System.Drawing.Size(186, 38);
             this.label1.TabIndex = 0;
             this.label1.Text = "Main Menu";
             // 
@@ -191,7 +193,7 @@
             this.textBox1.Location = new System.Drawing.Point(0, 155);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1184, 1);
+            this.textBox1.Size = new System.Drawing.Size(1342, 1);
             this.textBox1.TabIndex = 2;
             // 
             // Form_Main
@@ -199,7 +201,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1184, 552);
+            this.ClientSize = new System.Drawing.Size(1342, 552);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.panel1);
             this.MainMenuStrip = this.menuStrip1;
