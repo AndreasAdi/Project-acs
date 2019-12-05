@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -45,7 +44,7 @@
             this.label1.Location = new System.Drawing.Point(177, 199);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 60);
+            this.label1.Size = new System.Drawing.Size(141, 59);
             this.label1.TabIndex = 0;
             this.label1.Text = "Log In";
             this.label1.Click += new System.EventHandler(this.Label1_Click);
@@ -89,7 +88,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::Proyek_ACS.Properties.Resources.user_icon_image_21;
             this.pictureBox1.Location = new System.Drawing.Point(187, 101);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(132, 95);

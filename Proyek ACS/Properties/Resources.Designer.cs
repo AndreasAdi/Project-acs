@@ -59,5 +59,15 @@ namespace Proyek_ACS.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_icon_image_21 {
+            get {
+                object obj = ResourceManager.GetObject("user-icon-image-21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
