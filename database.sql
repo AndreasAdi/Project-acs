@@ -220,9 +220,9 @@ create table Order_Detail
 (
     Id_Order        varchar2(8)     references Order_Header(Id_Order) , 
     Id_Barang       varchar2(8)     not null references Barang(Id_Barang) ,
-    Nama_Barang     varchar2(100)    not null,
+    Nama_Barang     varchar2(100)   not null,
     Jumlah_Order    number(10)      not null,
-    Pajak  number(10) not null,
+    Pajak           number(10)      not null,
     Harga           number(15)      not null
 );
 insert into Order_Detail values('PO001','BRG0001','Bantex Insert Ring Binder 25mm',10,10,10000);

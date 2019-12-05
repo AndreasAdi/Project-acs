@@ -35,6 +35,7 @@ namespace Proyek_ACS
         public static string id_pegawai;
         private void Button1_Click(object sender, EventArgs e)
         {
+            oc.Close();
             oc.Open();
             Form_Main fm = new Form_Main();
             id_pegawai   = textBox1.Text;
