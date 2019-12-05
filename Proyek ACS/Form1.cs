@@ -21,7 +21,7 @@ namespace Proyek_ACS
          */ 
 
        // public static OracleConnection oc = new OracleConnection("User id = latihan ; password = latihan ; data source = Orcl");
-        public static OracleConnection oc = new OracleConnection("User id = proyek ; password = 123 ; data source = xe");
+        public static OracleConnection oc = new OracleConnection("User id = proyek ; password = proyek ; data source = xe");
         //public static OracleConnection oc = new OracleConnection("User id = latihan ; password = latihan ; data source = xe");
         public Form1()
         {
