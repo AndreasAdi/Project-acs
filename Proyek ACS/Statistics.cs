@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.DataAccess.Client;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+
 namespace Proyek_ACS
 {
     public partial class Statistics : Form
@@ -32,6 +35,21 @@ namespace Proyek_ACS
             CrystalReport2 crpt = new CrystalReport2();
             try
             {
+                foreach (CrystalDecisions.CrystalReports.Engine.Table table in crpt.Database.Tables)
+                {
+                    TableLogOnInfo ci = new TableLogOnInfo();
+                    /** 
+                     * @notes Ini itterate di masing-masing tabel pada RPT yang dibuat, sehingga koneksi berubah jadi ini
+                     * Database itu dikosongi agar databasenya tetap seperti sebelumnya
+                     * @see https://stackoverflow.com/q/17914605 
+                     * @see https://stackoverflow.com/questions/4864169/crystal-report-and-problem-with-connection
+                     */
+                    ci.ConnectionInfo.DatabaseName = "";
+                    ci.ConnectionInfo.ServerName = "192.168.43.188";
+                    ci.ConnectionInfo.UserID = "proyek";
+                    ci.ConnectionInfo.Password = "proyek";
+                    table.ApplyLogOnInfo(ci);
+                }
                 crpt.SetDatabaseLogon("proyek", "proyek");
             }
             catch (Exception)
@@ -42,6 +60,7 @@ namespace Proyek_ACS
             crystalReportViewer1.ReportSource = crpt;
             crpt.SetParameterValue("Tanggal_Awal", dateTimePicker1.Value);
             crpt.SetParameterValue("Tanggal Akhir", dateTimePicker2.Value);
+            crystalReportViewer1.Refresh();
         }
 
         private void Statistics_Load(object sender, EventArgs e)
