@@ -163,6 +163,7 @@ insert into list_hak_akses Values ('HA005','Inventory');
 insert into list_hak_akses values ('HA006','Master');
 insert into list_hak_akses values ('HA007','Lihat Laporan');
 insert into list_hak_akses values ('HA008','Make Order');
+insert into list_hak_akses values ('HA009','Edit Pegawai');
 
 create table Hak_Akses
 (
@@ -177,6 +178,7 @@ insert into Hak_Akses Values ('PEG003','HA003');
 insert into Hak_Akses Values ('PEG004','HA004');
 insert into Hak_Akses Values ('PEG006','HA006');
 insert into Hak_Akses Values ('PEG002','HA007');
+insert into Hak_Akses Values ('PEG003','HA009');
 
 create table Transaksi
 (
