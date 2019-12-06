@@ -33,9 +33,9 @@ namespace Proyek_ACS
         private void button1_Click(object sender, EventArgs e)
         {
             CrystalReport2 crpt = new CrystalReport2();
-            crpt.SetDatabaseLogon("proyek", "123");
-            crpt.SetParameterValue("Tanggal_Awal", dateTimePicker1.Value);
-            crpt.SetParameterValue("Tanggal Akhir", dateTimePicker2.Value);
+           crpt.SetDatabaseLogon("proyek", "proyek");
+           crpt.SetParameterValue("Tanggal_Awal", dateTimePicker1.Value);
+           crpt.SetParameterValue("Tanggal Akhir", dateTimePicker2.Value);
             crystalReportViewer1.ReportSource = crpt;
             try
             {
@@ -54,13 +54,16 @@ namespace Proyek_ACS
                     ci.ConnectionInfo.Password = "proyek";
                     table.ApplyLogOnInfo(ci);
                 }
+
             }
             catch (Exception)
             {
 
                 throw;
             }
-          
+
+             crpt.Refresh();
+
         }
 
         private void Statistics_Load(object sender, EventArgs e)
