@@ -22,7 +22,8 @@ namespace Proyek_ACS
 
         // public static OracleConnection oc = new OracleConnection("User id = latihan ; password = latihan ; data source = Orcl");
         public static OracleConnection oc;
-        
+        public static string idbranch;
+        public static string idb;
 //public static OracleConnection oc = new OracleConnection("User id = latihan ; password = latihan ; data source = xe");
 public Form1()
         {
@@ -67,8 +68,10 @@ public Form1()
             {
                 this.Hide();
                 string cekakses = "select id_Hak_Akses from Hak_Akses where id_Pegawai='" + textBox1.Text + "'";
+                idbranch = "select id_branch from pegawai where id_Pegawai='" + textBox1.Text + "'";
+                OracleCommand cari_id_branch = new OracleCommand(idbranch, oc);
+                idb = cari_id_branch.ExecuteScalar().ToString();
                 OracleCommand cm = new OracleCommand(cekakses, oc);
-               
                 OracleDataReader read = cm.ExecuteReader() ;
                while (read.Read()) {
                     string akses = read.GetString(0);
@@ -90,7 +93,7 @@ public Form1()
                         fm.assignPrevilegeToolStripMenuItem.Enabled = true;
                     }
                     else if (akses == "HA005") {
-        
+                        fm.lihatInventoryToolStripMenuItem.Enabled = true;
                     }
                     else if (akses == "HA006")
                     {
