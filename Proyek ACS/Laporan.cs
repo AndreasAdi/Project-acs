@@ -41,7 +41,7 @@ namespace Proyek_ACS
                      * @see https://stackoverflow.com/questions/4864169/crystal-report-and-problem-with-connection
                      */
                     ci.ConnectionInfo.DatabaseName = "";
-                    ci.ConnectionInfo.ServerName = "192.168.1.5"; //ganti ipnya
+                    ci.ConnectionInfo.ServerName = "139.194.240.143"; //ganti ipnya
                     ci.ConnectionInfo.UserID = "proyek";
                     ci.ConnectionInfo.Password = "proyek";
                     table.ApplyLogOnInfo(ci);
