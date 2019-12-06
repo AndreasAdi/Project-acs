@@ -205,6 +205,7 @@
             // 
             // tambahUserToolStripMenuItem
             // 
+            this.tambahUserToolStripMenuItem.Enabled = false;
             this.tambahUserToolStripMenuItem.Name = "tambahUserToolStripMenuItem";
             this.tambahUserToolStripMenuItem.Size = new System.Drawing.Size(131, 29);
             this.tambahUserToolStripMenuItem.Text = "Tambah user";
@@ -247,6 +248,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ToolStripMenuItem tambahUserToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem tambahUserToolStripMenuItem;
     }
 }

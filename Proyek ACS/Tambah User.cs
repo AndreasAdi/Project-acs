@@ -38,7 +38,7 @@ namespace Proyek_ACS
         void loaddgvpegawai() {
             dt = new DataTable();
             dataGridView1.DataSource = null;
-            string query = "select Id_Pegawai,nama_Pegawai from pegawai";
+            string query = "select Id_Pegawai,nama_Pegawai,id_branch,manager from pegawai";
             OracleDataAdapter adpt = new OracleDataAdapter(query, Form1.oc);
             adpt.Fill(dt);
             dataGridView1.DataSource = dt;
@@ -83,6 +83,12 @@ namespace Proyek_ACS
             OracleCommand cmdupdate = new OracleCommand(qupdate, Form1.oc);
             cmdupdate.ExecuteNonQuery();
         }
+        void delete_pegawai(string id)
+        {
+            string qdelete = "delete from pegawai where id_pegawai='" + id + "'";
+            OracleCommand cmddelete = new OracleCommand(qdelete,Form1.oc);
+            cmddelete.ExecuteNonQuery();
+        }
         private void Button1_Click(object sender, EventArgs e)
         {
             insert_pegawai(tbid.Text,tbnama.Text,tbpass.Text,comboBox1.SelectedValue.ToString(),Convert.ToInt32(idmanager.Text));
@@ -95,7 +101,29 @@ namespace Proyek_ACS
 
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            tbid.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            tbnama.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            idmanager.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            update_pegawai(tbid.Text, tbnama.Text, tbpass.Text, comboBox1.SelectedValue.ToString(), Convert.ToInt32(idmanager.Text));
+            loaddgvpegawai();
+            tbid.Text = autogen_id_Pegawai();
+            tbnama.Text = "";
+            tbpass.Text = "";
+            idmanager.Text = "";
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            delete_pegawai(tbid.Text);
+            loaddgvpegawai();
+            tbid.Text = autogen_id_Pegawai();
+            tbnama.Text = "";
+            tbpass.Text = "";
+            idmanager.Text = "";
         }
     }
 }

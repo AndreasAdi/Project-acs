@@ -25,6 +25,15 @@ namespace Proyek_ACS
             loaddgassign();
             loadcb();
             loadcb3();
+            if (radioButton1.Checked)
+            {
+                groupBox1.Enabled = true;
+                groupBox2.Enabled = false;
+            }
+            else if (radioButton2.Checked) {
+                groupBox1.Enabled = false;
+                groupBox2.Enabled = true;
+            }
         }
         void loaddgassign() {
             string loaddgv = "Select id_Hak_Akses,Nama_akses from list_hak_akses";

@@ -158,6 +158,7 @@
             this.button2.TabIndex = 13;
             this.button2.Text = "Update";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // button3
             // 
@@ -167,6 +168,7 @@
             this.button3.TabIndex = 14;
             this.button3.Text = "Delete";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // Tambah_User
             // 

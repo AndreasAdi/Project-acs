@@ -96,7 +96,7 @@ public Form1()
                     {
                         fm.lihatKontakToolStripMenuItem.Enabled = true;
                         fm.lihatOrderToolStripMenuItem.Enabled = true;
-
+                        fm.tambahUserToolStripMenuItem.Enabled = true;
                         fm.lihatInventoryToolStripMenuItem.Enabled = true;
                         fm.assignPrevilegeToolStripMenuItem.Enabled = true;
                         fm.laporanToolStripMenuItem.Enabled = true;
@@ -109,6 +109,10 @@ public Form1()
                     else if (akses == "HA008")
                     {
                         fm.lihatOrderToolStripMenuItem.Enabled = true;
+                    }
+                    else if (akses == "HA009")
+                    {
+                        fm.tambahUserToolStripMenuItem.Enabled = true;
                     }
                 }
                 read.Close();
