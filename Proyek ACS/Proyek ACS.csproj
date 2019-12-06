@@ -161,6 +161,12 @@
     <Compile Include="Statistics.Designer.cs">
       <DependentUpon>Statistics.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tambah User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tambah User.Designer.cs">
+      <DependentUpon>Tambah User.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vendor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Statistics.resx">
       <DependentUpon>Statistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tambah User.resx">
+      <DependentUpon>Tambah User.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vendor.resx">
       <DependentUpon>Vendor.cs</DependentUpon>

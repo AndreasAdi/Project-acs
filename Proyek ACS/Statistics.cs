@@ -33,6 +33,10 @@ namespace Proyek_ACS
         private void button1_Click(object sender, EventArgs e)
         {
             CrystalReport2 crpt = new CrystalReport2();
+            crpt.SetDatabaseLogon("proyek", "123");
+            crpt.SetParameterValue("Tanggal_Awal", dateTimePicker1.Value);
+            crpt.SetParameterValue("Tanggal Akhir", dateTimePicker2.Value);
+            crystalReportViewer1.ReportSource = crpt;
             try
             {
                 foreach (CrystalDecisions.CrystalReports.Engine.Table table in crpt.Database.Tables)
@@ -45,22 +49,18 @@ namespace Proyek_ACS
                      * @see https://stackoverflow.com/questions/4864169/crystal-report-and-problem-with-connection
                      */
                     ci.ConnectionInfo.DatabaseName = "";
-                    ci.ConnectionInfo.ServerName = "192.168.43.188";
+                    ci.ConnectionInfo.ServerName = "192.168.1.21"; //ganti ipnya
                     ci.ConnectionInfo.UserID = "proyek";
                     ci.ConnectionInfo.Password = "proyek";
                     table.ApplyLogOnInfo(ci);
                 }
-                crpt.SetDatabaseLogon("proyek", "proyek");
             }
             catch (Exception)
             {
 
                 throw;
             }
-            crystalReportViewer1.ReportSource = crpt;
-            crpt.SetParameterValue("Tanggal_Awal", dateTimePicker1.Value);
-            crpt.SetParameterValue("Tanggal Akhir", dateTimePicker2.Value);
-            crystalReportViewer1.Refresh();
+          
         }
 
         private void Statistics_Load(object sender, EventArgs e)
