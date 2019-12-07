@@ -19,10 +19,56 @@ namespace Proyek_ACS
         {
             InitializeComponent();
         }
-        List<string> connstring;
+        string connstring;
         private void SettingConnection_Load(object sender, EventArgs e)
         {
-            connstring = new List<string>();
+
+            //connstring = "";
+            //try
+            //{
+            //    // Create an instance of StreamReader to read from a file.
+            //    // The using statement also closes the StreamReader.
+            //    using (StreamReader sr = new StreamReader(Application.StartupPath + "//conn.txt"))
+            //    {
+            //        string line;
+
+            //        // Read and display lines from the file until 
+            //        // the end of the file is reached. 
+            //        while ((line = sr.ReadLine()) != null)
+            //        {
+            //            connstring = connstring + "\n" +line; 
+            //        }
+            //    }
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    // Let the user know what went wrong.
+            //    Console.WriteLine("The file could not be read:");
+            //    Console.WriteLine(ex.Message);
+            //}
+            load();
+
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+
+
+            File.Create(Application.StartupPath+"//conn.txt").Close();
+            connstring = textBox1.Text + "\n" + textBox2.Text + "\n" + textBox3.Text + "\n"+ textBox4.Text + "\n";
+
+            System.IO.File.WriteAllText(@"conn.txt", connstring);
+
+            Form1 f = new Form1();
+            f.Show();
+  
+
+        }
+
+        void load() {
+
+            List<string> connstring = new List<string>();
             try
             {
                 // Create an instance of StreamReader to read from a file.
@@ -37,13 +83,9 @@ namespace Proyek_ACS
                     {
                         connstring.Add(line);
                     }
-                }
 
-                MessageBox.Show(connstring[0].ToString());
-                textBox1.Text = connstring[0].ToString();
-                textBox2.Text = connstring[1].ToString();
-                textBox3.Text = connstring[2].ToString();
-                textBox4.Text = connstring[3].ToString();
+
+                }
             }
             catch (Exception ex)
             {
@@ -52,26 +94,10 @@ namespace Proyek_ACS
                 Console.WriteLine(ex.Message);
             }
 
-
-        }
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            
-            connstring.Add(textBox1.Text);
-            connstring.Add(textBox2.Text);
-            connstring.Add(textBox3.Text);
-            connstring.Add(textBox4.Text);
-
-            using (StreamWriter sw = new StreamWriter("conn.txt"))
-            {
-
-                foreach (string s in connstring)
-                {
-                    sw.WriteLine(s);
-                }
-            }
-            MessageBox.Show("Berhasil");
+            textBox1.Text = connstring[0].ToString();
+            textBox2.Text = connstring[1].ToString();
+            textBox3.Text = connstring[2].ToString();
+            textBox4.Text = connstring[3].ToString();
         }
     }
 
