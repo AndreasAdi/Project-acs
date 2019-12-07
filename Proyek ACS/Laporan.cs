@@ -33,6 +33,7 @@ namespace Proyek_ACS
             {
                 foreach (CrystalDecisions.CrystalReports.Engine.Table table in crpt.Database.Tables)
                 {
+                    
                     TableLogOnInfo ci = new TableLogOnInfo();
                     /** 
                      * @notes Ini itterate di masing-masing tabel pada RPT yang dibuat, sehingga koneksi berubah jadi ini
@@ -41,13 +42,11 @@ namespace Proyek_ACS
                      * @see https://stackoverflow.com/questions/4864169/crystal-report-and-problem-with-connection
                      */
                     ci.ConnectionInfo.DatabaseName = "";
-                    ci.ConnectionInfo.ServerName = "192.168.1.5"; //ganti ipnya
+                    ci.ConnectionInfo.ServerName = "192.168.1.21"; //ganti ipnya
                     ci.ConnectionInfo.UserID = "proyek";
                     ci.ConnectionInfo.Password = "proyek";
                     table.ApplyLogOnInfo(ci);
                 }
-                
-                
             }
             catch (Exception)
             {
