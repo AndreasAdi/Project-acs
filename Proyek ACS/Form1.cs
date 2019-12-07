@@ -37,7 +37,7 @@ public Form1()
                 oc = new OracleConnection("Data Source=" +
                     "(DESCRIPTION=" +
                     "(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)" +
-                    "(HOST=192.168.1.21)(PORT=1521)))" + //host ipnya ganti
+                    "(HOST=10.11.238.40)(PORT=1521)))" + //host ipnya ganti
                     "(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=xe)));" +
                     "user id=proyek;password=proyek");
                 oc.Open();
@@ -119,6 +119,7 @@ public Form1()
                     }
                 }
                 read.Close();
+
                 id_pegawai = textBox1.Text;
                 fm.ShowDialog();
                 this.Close();

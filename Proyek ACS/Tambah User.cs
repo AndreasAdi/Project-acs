@@ -83,12 +83,6 @@ namespace Proyek_ACS
             OracleCommand cmdupdate = new OracleCommand(qupdate, Form1.oc);
             cmdupdate.ExecuteNonQuery();
         }
-        void delete_pegawai(string id)
-        {
-            string qdelete = "delete from pegawai where id_pegawai='" + id + "'";
-            OracleCommand cmddelete = new OracleCommand(qdelete,Form1.oc);
-            cmddelete.ExecuteNonQuery();
-        }
         private void Button1_Click(object sender, EventArgs e)
         {
             insert_pegawai(tbid.Text,tbnama.Text,tbpass.Text,comboBox1.SelectedValue.ToString(),Convert.ToInt32(idmanager.Text));
@@ -109,16 +103,6 @@ namespace Proyek_ACS
         private void Button2_Click(object sender, EventArgs e)
         {
             update_pegawai(tbid.Text, tbnama.Text, tbpass.Text, comboBox1.SelectedValue.ToString(), Convert.ToInt32(idmanager.Text));
-            loaddgvpegawai();
-            tbid.Text = autogen_id_Pegawai();
-            tbnama.Text = "";
-            tbpass.Text = "";
-            idmanager.Text = "";
-        }
-
-        private void Button3_Click(object sender, EventArgs e)
-        {
-            delete_pegawai(tbid.Text);
             loaddgvpegawai();
             tbid.Text = autogen_id_Pegawai();
             tbnama.Text = "";

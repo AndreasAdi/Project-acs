@@ -49,6 +49,7 @@ create table Branch
 insert into Branch values('CAB001','PEG001','Jalan Dharmahusada Indah Blok A-27');
 insert into Branch values('CAB002','PEG002','Jalan Kertajaya Indah IV-K328');
 insert into Branch values('CAB003','PEG003','Jalan Sukomanunggal Timur 678');
+insert into Branch values('MASTER','0','0');
 
 create table Pegawai
 (
@@ -64,6 +65,7 @@ insert into Pegawai values('PEG003','Thomas Grant','thomastutututut','CAB003',1)
 insert into Pegawai values('PEG004','Kevin Karuniawan','jomblobahagiaTRUST!','CAB001',0);
 insert into Pegawai values('PEG005','Maximillian Eka','kopigularen','CAB002',0);
 insert into Pegawai values('PEG006','Eka Sanjaya','youresaipul','CAB002',0);
+insert into Pegawai values('PEG007','Giovani','MASTER','MASTER',0);
 
 create table Gudang
 (
@@ -109,6 +111,13 @@ insert into Stok values('BRG0002',250,to_date('16/11/2019','dd/mm/yyyy'));
 insert into Stok values('BRG0003',300,to_date('18/11/2019','dd/mm/yyyy'));
 insert into Stok values('BRG0006',500,to_date('21/11/2019','dd/mm/yyyy'));
 insert into Stok values('BRG0008',7000,to_date('25/11/2019','dd/mm/yyyy'));
+insert into Stok values('BRG0009',100,to_date('25/11/2019','dd/mm/yyyy'));
+insert into Stok values('BRG0010',100,to_date('25/11/2019','dd/mm/yyyy'));
+insert into Stok values('BRG0011',100,to_date('25/11/2019','dd/mm/yyyy'));
+insert into Stok values('BRG0012',100,to_date('25/11/2019','dd/mm/yyyy'));
+insert into Stok values('BRG0013',100,to_date('25/11/2019','dd/mm/yyyy'));
+insert into Stok values('BRG0014',100,to_date('25/11/2019','dd/mm/yyyy'));
+insert into Stok values('BRG0015',100,to_date('25/11/2019','dd/mm/yyyy'));
 
 
 create table Distributor
@@ -179,7 +188,7 @@ insert into Hak_Akses Values ('PEG004','HA004');
 insert into Hak_Akses Values ('PEG006','HA006');
 insert into Hak_Akses Values ('PEG002','HA007');
 insert into Hak_Akses Values ('PEG003','HA009');
-
+insert into Hak_Akses values('PEG007','HA006');
 create table Transaksi
 (
     Id_Barang           varchar2(8)     primary key,
