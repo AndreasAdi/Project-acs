@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using Oracle.DataAccess.Client;
 
 namespace Proyek_ACS
@@ -22,8 +23,10 @@ namespace Proyek_ACS
 
         // public static OracleConnection oc = new OracleConnection("User id = latihan ; password = latihan ; data source = Orcl");
         public static OracleConnection oc;
+        List<string> connstring = new List<string>();
         public static string idbranch;
         public static string idb;
+       public static string ip ="", dbname ="", userid ="", password="";
 //public static OracleConnection oc = new OracleConnection("User id = latihan ; password = latihan ; data source = xe");
 public Form1()
         {
@@ -32,14 +35,15 @@ public Form1()
         public static bool en = false;
         private void Form1_Load(object sender, EventArgs e)
         {
+            loadconnection();
             try
             {
                 oc = new OracleConnection("Data Source=" +
                     "(DESCRIPTION=" +
                     "(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)" +
-                    "(HOST=192.168.1.21)(PORT=1521)))" + //host ipnya ganti
-                    "(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=xe)));" +
-                    "user id=proyek;password=proyek");
+                    "(HOST = "+ip+")(PORT=1521)))" + //host ipnya ganti
+                    "(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME="+dbname+")));" +
+                    "user id="+userid+";password="+password+" ");
                 oc.Open();
                 oc.Close();
             }
@@ -161,6 +165,45 @@ public Form1()
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void Button1_Click_1(object sender, EventArgs e)
+        {
+            SettingConnection s = new SettingConnection();
+            s.Show();
+        }
+
+        void loadconnection() {
+          
+            try
+            {
+                // Create an instance of StreamReader to read from a file.
+                // The using statement also closes the StreamReader.
+                using (StreamReader sr = new StreamReader(Application.StartupPath + "//conn.txt"))
+                {
+                    string line;
+
+                    // Read and display lines from the file until 
+                    // the end of the file is reached. 
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        connstring.Add(line);
+                    }
+
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                // Let the user know what went wrong.
+                Console.WriteLine("The file could not be read:");
+                Console.WriteLine(ex.Message);
+            }
+
+            ip = connstring[0].Trim();
+            dbname= connstring[1].Trim();
+            userid = connstring[2].Trim();
+            password = connstring[3].Trim();
         }
     }
 }
