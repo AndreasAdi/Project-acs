@@ -90,7 +90,7 @@ namespace Proyek_ACS {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_Tanggal_Awal {
+        public CrystalDecisions.Shared.IParameterField Parameter_Tanggal_awal {
             get {
                 return this.DataDefinition.ParameterFields[0];
             }
@@ -98,7 +98,7 @@ namespace Proyek_ACS {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_Tanggal_Akhir {
+        public CrystalDecisions.Shared.IParameterField Parameter_Tanggal_akhir {
             get {
                 return this.DataDefinition.ParameterFields[1];
             }
