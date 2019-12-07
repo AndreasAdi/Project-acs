@@ -122,7 +122,7 @@ namespace Proyek_ACS
             conn.Open();
 
           
-            query = "Select ID_BARANG,NAMA_BARANG,JUMLAH_ORDER,HARGA,pajak from order_detail where id_order = '"+id_order+"'";
+            query = "Select ID_BARANG,NAMA_BARANG,JUMLAH_ORDER,HARGA,pajak,diskon,total_kotor,total_bersih from order_detail where id_order = '"+id_order+"'";
             cmd = new OracleCommand(query, conn);
             OracleDataAdapter adap = new OracleDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -169,7 +169,7 @@ namespace Proyek_ACS
 
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                query = "update order_header set subtotal = subtotal+" + dataGridView1.Rows[i].Cells[3].Value.ToString() + " * "+dataGridView1.Rows[i].Cells[2].Value.ToString()+ "*( 100 - "+dataGridView1.Rows[i].Cells[4].Value.ToString()+")/100 where id_order ='" + id_order + "'";
+                query = "update order_header set subtotal = subtotal+" + dataGridView1.Rows[i].Cells[3].Value.ToString() + " * "+dataGridView1.Rows[i].Cells[2].Value.ToString()+ "*( 100 + "+dataGridView1.Rows[i].Cells[4].Value.ToString()+")/100 where id_order ='" + id_order + "'";
                 cmd = new OracleCommand(query, conn);
                 cmd.ExecuteNonQuery();
             }
@@ -177,10 +177,34 @@ namespace Proyek_ACS
 
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                query = "update order_detail set pajak = " +dataGridView1.Rows[i].Cells[4].Value.ToString();
+                query = "update order_detail set pajak = " +dataGridView1.Rows[i].Cells[4].Value.ToString() + " where id_barang = '" + dataGridView1.Rows[i].Cells[0].Value.ToString() + "' and id_order ='" + id_order + "'";
                 cmd = new OracleCommand(query, conn);
                 cmd.ExecuteNonQuery();
             }
+
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                query = "update order_detail set diskon = " + dataGridView1.Rows[i].Cells[5].Value.ToString() + " where id_barang = '" + dataGridView1.Rows[i].Cells[0].Value.ToString() + "' and id_order ='" + id_order + "'";
+                cmd = new OracleCommand(query, conn);
+                cmd.ExecuteNonQuery();
+            }
+
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                query = "update order_detail set total_kotor =  " + dataGridView1.Rows[i].Cells[3].Value.ToString() + " * " + dataGridView1.Rows[i].Cells[2].Value.ToString() + " where id_order ='" + id_order + "' and id_barang = '"+dataGridView1.Rows[i].Cells[0].Value.ToString()+"' ";
+                cmd = new OracleCommand(query, conn);
+                cmd.ExecuteNonQuery();
+            }
+
+
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                query = "update order_detail set total_bersih = " + dataGridView1.Rows[i].Cells[3].Value.ToString() + " * " + dataGridView1.Rows[i].Cells[2].Value.ToString() + "*(( 100 + " + dataGridView1.Rows[i].Cells[4].Value.ToString() + ")/100)  - "+dataGridView1.Rows[i].Cells[5].Value.ToString()+"  where id_order ='" + id_order + "' and id_barang = '"+dataGridView1.Rows[i].Cells[0].Value.ToString()+"'";
+                cmd = new OracleCommand(query, conn);
+                cmd.ExecuteNonQuery();
+            }
+
+
             MessageBox.Show("Berhasil Update");
             load_barang();
             conn.Close();

@@ -86,5 +86,10 @@ namespace Proyek_ACS
             comboBox_filter.SelectedIndex = -1;
             load_dgv_vendor(loaddgv);
         }
+
+        private void Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

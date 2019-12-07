@@ -104,5 +104,13 @@ namespace Proyek_ACS
         {
 
         }
+
+        private void TambahUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Tambah_User tu = new Tambah_User();
+            Hide();
+            tu.ShowDialog();
+            Close();
+        }
     }
 }
