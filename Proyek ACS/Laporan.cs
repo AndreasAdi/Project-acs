@@ -25,9 +25,10 @@ namespace Proyek_ACS
             CrystalReport1 crpt = new CrystalReport1();
 
             crystalReportViewer1.ReportSource = crpt;
+            
             crpt.SetDatabaseLogon("proyek", "proyek");
             crpt.SetParameterValue("ID_ORDER", idorder);
-            crpt.SetDataSource("")
+            
             
         }
 

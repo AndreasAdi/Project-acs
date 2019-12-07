@@ -65,8 +65,9 @@ namespace Proyek_ACS
 
 
             crpt.SetParameterValue("Tanggal_Awal", dateTimePicker1.Value);
-            crpt.SetParameterValue("Tanggal_Akhir", dateTimePicker2.Value);
-            
+            crpt.SetParameterValue("Tanggal Akhir", dateTimePicker2.Value);
+            crpt.SetParameterValue("idcabang", );
+
 
 
         }

@@ -43,7 +43,7 @@ public Form1()
                     "(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)" +
                     "(HOST = "+ip+")(PORT=1521)))" + //host ipnya ganti
                     "(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME="+dbname+")));" +
-                    "user id="+userid+";password="+password+" ");
+                    "user id="+userid+";password="+password);
                 oc.Open();
                 oc.Close();
             }
