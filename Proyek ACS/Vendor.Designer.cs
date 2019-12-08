@@ -59,18 +59,18 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-<<<<<<< HEAD
+
             this.dataGridView1.Location = new System.Drawing.Point(19, 256);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(1162, 338);
-=======
+
             this.dataGridView1.Location = new System.Drawing.Point(13, 167);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(775, 347);
->>>>>>> 602f2cdfc7f048a733bb48729ae91c70357d76e3
+
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
             // 
@@ -81,45 +81,45 @@
             "Id_Distributor",
             "Nama_Distributor",
             "Alamat_Distributor"});
-<<<<<<< HEAD
+
             this.comboBox_filter.Location = new System.Drawing.Point(19, 205);
             this.comboBox_filter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox_filter.Name = "comboBox_filter";
             this.comboBox_filter.Size = new System.Drawing.Size(324, 28);
-=======
+
             this.comboBox_filter.Location = new System.Drawing.Point(13, 124);
             this.comboBox_filter.Name = "comboBox_filter";
             this.comboBox_filter.Size = new System.Drawing.Size(217, 21);
->>>>>>> 602f2cdfc7f048a733bb48729ae91c70357d76e3
+
             this.comboBox_filter.TabIndex = 1;
             // 
             // textBox1
             // 
-<<<<<<< HEAD
+
             this.textBox1.Location = new System.Drawing.Point(372, 206);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(579, 26);
-=======
+
             this.textBox1.Location = new System.Drawing.Point(248, 125);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(387, 20);
->>>>>>> 602f2cdfc7f048a733bb48729ae91c70357d76e3
+
             this.textBox1.TabIndex = 2;
             // 
             // button_search
             // 
             this.button_search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-<<<<<<< HEAD
+
             this.button_search.Location = new System.Drawing.Point(959, 206);
             this.button_search.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button_search.Name = "button_search";
             this.button_search.Size = new System.Drawing.Size(112, 27);
-=======
+
             this.button_search.Location = new System.Drawing.Point(641, 124);
             this.button_search.Name = "button_search";
             this.button_search.Size = new System.Drawing.Size(75, 21);
->>>>>>> 602f2cdfc7f048a733bb48729ae91c70357d76e3
+
             this.button_search.TabIndex = 4;
             this.button_search.Text = "Search";
             this.button_search.UseVisualStyleBackColor = true;
@@ -128,16 +128,16 @@
             // button_reset
             // 
             this.button_reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-<<<<<<< HEAD
+
             this.button_reset.Location = new System.Drawing.Point(1079, 205);
             this.button_reset.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button_reset.Name = "button_reset";
             this.button_reset.Size = new System.Drawing.Size(99, 28);
-=======
+
             this.button_reset.Location = new System.Drawing.Point(722, 124);
             this.button_reset.Name = "button_reset";
             this.button_reset.Size = new System.Drawing.Size(66, 21);
->>>>>>> 602f2cdfc7f048a733bb48729ae91c70357d76e3
+
             this.button_reset.TabIndex = 5;
             this.button_reset.Text = "Reset";
             this.button_reset.UseVisualStyleBackColor = true;
@@ -151,35 +151,34 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(173)))), ((int)(((byte)(239)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.ForeColor = System.Drawing.Color.White;
-<<<<<<< HEAD
             this.panel1.Location = new System.Drawing.Point(-19, -5);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1239, 168);
-=======
+
             this.panel1.Location = new System.Drawing.Point(-13, -3);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(826, 109);
->>>>>>> 602f2cdfc7f048a733bb48729ae91c70357d76e3
+
             this.panel1.TabIndex = 95;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
+          //  this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-<<<<<<< HEAD
+
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(47, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(228, 46);
-=======
+
             this.label1.Font = new System.Drawing.Font("Open Sans", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(32, 30);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(170, 37);
->>>>>>> 602f2cdfc7f048a733bb48729ae91c70357d76e3
+
             this.label1.TabIndex = 73;
             this.label1.Text = "List Kontak";
             // 
@@ -322,7 +321,7 @@
             // 
             // Vendor
             // 
-<<<<<<< HEAD
+
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
@@ -330,22 +329,21 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-=======
+
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 534);
->>>>>>> 602f2cdfc7f048a733bb48729ae91c70357d76e3
+
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button_reset);
             this.Controls.Add(this.button_search);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox_filter);
             this.Controls.Add(this.dataGridView1);
-<<<<<<< HEAD
+
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-=======
->>>>>>> 602f2cdfc7f048a733bb48729ae91c70357d76e3
+
             this.Name = "Vendor";
             this.Text = "Kontak Vendor";
             this.Load += new System.EventHandler(this.Vendor_Load);
