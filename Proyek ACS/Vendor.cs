@@ -77,7 +77,6 @@ namespace Proyek_ACS
             load_dgv_vendor(loaddgv);
         }
 
-<<<<<<< HEAD
         private void Button1_Click(object sender, EventArgs e)
         {
             try
@@ -157,11 +156,7 @@ namespace Proyek_ACS
             {
                 MessageBox.Show("Gagal Delete Karena Table Tereferensi Table Lain");
             }
-=======
-        private void Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
->>>>>>> 602f2cdfc7f048a733bb48729ae91c70357d76e3
         }
+        
     }
 }
