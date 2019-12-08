@@ -26,9 +26,11 @@ namespace Proyek_ACS
         List<string> connstring = new List<string>();
         public static string idbranch;
         public static string idb;
-       public static string ip = "10.11.238.40"
-, dbname ="xe", userid ="proyek", password="proyek";
-//public static OracleConnection oc = new OracleConnection("User id = latihan ; password = latihan ; data source = xe");
+        public static string ip = "230.130.196.6";
+        //public static string ip = "10.11.238.40";
+        public static string dbname ="Orcl", userid ="latihan", password="latihan";
+        //public static string dbname ="xe", userid ="proyek", password="proyek";
+        //public static OracleConnection oc = new OracleConnection("User id = latihan ; password = latihan ; data source = xe");
 public Form1()
         {
             InitializeComponent();            
