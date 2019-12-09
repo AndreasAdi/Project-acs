@@ -1,6 +1,6 @@
 
 ---login system dulu  
-conn sys as sysdba --- habis gitu masukkan password system 
+conn sys as 123 --- habis gitu masukkan password system 
 grant execute on dbms_crypto to public;
 
 ---conn ke user punya kalian yang buat ngerjakan project ini

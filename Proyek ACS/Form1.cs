@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using Oracle.DataAccess.Client;
 
 namespace Proyek_ACS
@@ -22,8 +23,11 @@ namespace Proyek_ACS
 
         // public static OracleConnection oc = new OracleConnection("User id = latihan ; password = latihan ; data source = Orcl");
         public static OracleConnection oc;
+        List<string> connstring = new List<string>();
         public static string idbranch;
         public static string idb;
+       public static string ip = "10.11.238.40"
+, dbname ="xe", userid ="proyek", password="proyek";
 //public static OracleConnection oc = new OracleConnection("User id = latihan ; password = latihan ; data source = xe");
 public Form1()
         {
@@ -32,102 +36,109 @@ public Form1()
         public static bool en = false;
         private void Form1_Load(object sender, EventArgs e)
         {
-            try
-            {
+            loadconnection();
                 oc = new OracleConnection("Data Source=" +
                     "(DESCRIPTION=" +
                     "(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)" +
-                    "(HOST=10.11.238.40)(PORT=1521)))" + //host ipnya ganti
-                    "(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=xe)));" +
-                    "user id=proyek;password=proyek");
-                oc.Open();
-                oc.Close();
-            }
-            catch (OracleException)
-            {
-                throw;
-            }
+                    "(HOST = "+ip+")(PORT=1521)))" + //host ipnya ganti
+                    "(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME="+dbname+")));" +
+                    "user id="+userid+";password="+password+" ");
 
         }
         public static string id_pegawai;
         private void Button1_Click(object sender, EventArgs e)
         {
-            oc.Close();
-            oc.Open();
-            Form_Main fm = new Form_Main();
-            id_pegawai   = textBox1.Text;
-
-            //string ceklog = "select count(id_pegawai) from pegawai where password='" + textBox2.Text + "' and id_pegawai='"+textBox1.Text+"'";
-            string ceklog = "select count(*) from Pegawai where pegawai.id_pegawai ='"+textBox1.Text+"' and(select my_decrypt(Password, 'aplikasi client server') from Pegawai where pegawai.id_pegawai ='"+textBox1.Text+"') = '"+textBox2.Text+"'";
-
-            OracleCommand cmd = new OracleCommand(ceklog, oc);
-            cmd.ExecuteNonQuery();
-            int cek = Convert.ToInt32(cmd.ExecuteScalar());
-            //MessageBox.Show(cek + "");
-            if (cek >= 1)
+            try
             {
-                this.Hide();
-                string cekakses = "select id_Hak_Akses from Hak_Akses where id_Pegawai='" + textBox1.Text + "'";
-                idbranch = "select id_branch from pegawai where id_Pegawai='" + textBox1.Text + "'";
-                OracleCommand cari_id_branch = new OracleCommand(idbranch, oc);
-                idb = cari_id_branch.ExecuteScalar().ToString();
-                OracleCommand cm = new OracleCommand(cekakses, oc);
-                OracleDataReader read = cm.ExecuteReader() ;
-               while (read.Read()) {
-                    string akses = read.GetString(0);
-                    if (akses == "HA001")
-                    {
-                        fm.lihatKontakToolStripMenuItem.Enabled = true;
-                    }
-                    else if (akses == "HA002")
-                    {
-                        fm.lihatKontakToolStripMenuItem.Enabled = true;
-                        en = true;
-                    }
-                    else if (akses == "HA003")
-                    {
-                        fm.lihatOrderToolStripMenuItem.Enabled = true;
-                    }
-                    else if (akses == "HA004")
-                    {
-                        fm.assignPrevilegeToolStripMenuItem.Enabled = true;
-                    }
-                    else if (akses == "HA005") {
-                        fm.lihatInventoryToolStripMenuItem.Enabled = true;
-                    }
-                    else if (akses == "HA006")
-                    {
-                        fm.lihatKontakToolStripMenuItem.Enabled = true;
-                        fm.lihatOrderToolStripMenuItem.Enabled = true;
-                        fm.tambahUserToolStripMenuItem.Enabled = true;
-                        fm.lihatInventoryToolStripMenuItem.Enabled = true;
-                        fm.assignPrevilegeToolStripMenuItem.Enabled = true;
-                        fm.laporanToolStripMenuItem.Enabled = true;
-                        en = true;
-                    }
-                    else if (akses == "HA007")
-                    {
-                        fm.laporanToolStripMenuItem.Enabled = true;
-                    }
-                    else if (akses == "HA008")
-                    {
-                        fm.lihatOrderToolStripMenuItem.Enabled = true;
-                    }
-                    else if (akses == "HA009")
-                    {
-                        fm.tambahUserToolStripMenuItem.Enabled = true;
-                    }
-                }
-                read.Close();
+                oc.Close();
+                oc.Open();
 
+                Form_Main fm = new Form_Main();
                 id_pegawai = textBox1.Text;
-                fm.ShowDialog();
-                this.Close();
+
+                //string ceklog = "select count(id_pegawai) from pegawai where password='" + textBox2.Text + "' and id_pegawai='"+textBox1.Text+"'";
+                string ceklog = "select count(*) from Pegawai where pegawai.id_pegawai ='" + textBox1.Text + "' and(select my_decrypt(Password, 'aplikasi client server') from Pegawai where pegawai.id_pegawai ='" + textBox1.Text + "') = '" + textBox2.Text + "'";
+
+                OracleCommand cmd = new OracleCommand(ceklog, oc);
+                cmd.ExecuteNonQuery();
+                int cek = Convert.ToInt32(cmd.ExecuteScalar());
+                //MessageBox.Show(cek + "");
+                if (cek >= 1)
+                {
+                    this.Hide();
+                    string cekakses = "select id_Hak_Akses from Hak_Akses where id_Pegawai='" + textBox1.Text + "'";
+                    idbranch = "select id_branch from pegawai where id_Pegawai='" + textBox1.Text + "'";
+                    OracleCommand cari_id_branch = new OracleCommand(idbranch, oc);
+                    idb = cari_id_branch.ExecuteScalar().ToString();
+                    OracleCommand cm = new OracleCommand(cekakses, oc);
+                    OracleDataReader read = cm.ExecuteReader();
+                    while (read.Read())
+                    {
+                        string akses = read.GetString(0);
+                        if (akses == "HA001")
+                        {
+                            fm.lihatKontakToolStripMenuItem.Enabled = true;
+                        }
+                        else if (akses == "HA002")
+                        {
+                            fm.lihatKontakToolStripMenuItem.Enabled = true;
+                            en = true;
+                        }
+                        else if (akses == "HA003")
+                        {
+                            fm.lihatOrderToolStripMenuItem.Enabled = true;
+                        }
+                        else if (akses == "HA004")
+                        {
+                            fm.assignPrevilegeToolStripMenuItem.Enabled = true;
+                        }
+                        else if (akses == "HA005")
+                        {
+                            fm.lihatInventoryToolStripMenuItem.Enabled = true;
+                        }
+                        else if (akses == "HA006")
+                        {
+                            fm.lihatKontakToolStripMenuItem.Enabled = true;
+                            fm.lihatOrderToolStripMenuItem.Enabled = true;
+                            fm.tambahUserToolStripMenuItem.Enabled = true;
+                            fm.lihatInventoryToolStripMenuItem.Enabled = true;
+                            fm.assignPrevilegeToolStripMenuItem.Enabled = true;
+                            fm.laporanToolStripMenuItem.Enabled = true;
+                            en = true;
+                        }
+                        else if (akses == "HA007")
+                        {
+                            fm.laporanToolStripMenuItem.Enabled = true;
+                        }
+                        else if (akses == "HA008")
+                        {
+                            fm.lihatOrderToolStripMenuItem.Enabled = true;
+                        }
+                        else if (akses == "HA009")
+                        {
+                            fm.tambahUserToolStripMenuItem.Enabled = true;
+                        }
+                    }
+                    read.Close();
+                    id_pegawai = textBox1.Text;
+                    fm.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Gagal Login password atau username salah");
+                }
+                oc.Close();
             }
-            else{
-                MessageBox.Show("Gagal Login password atau username salah");
+            catch (OracleException)
+            {
+                MessageBox.Show("error");
+                SettingConnection s = new SettingConnection();
+                s.Show();
+
             }
-            oc.Close();
+           
+           
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
@@ -162,6 +173,45 @@ public Form1()
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void Button1_Click_1(object sender, EventArgs e)
+        {
+            SettingConnection s = new SettingConnection();
+            s.Show();
+        }
+
+        void loadconnection() {
+          
+            try
+            {
+                // Create an instance of StreamReader to read from a file.
+                // The using statement also closes the StreamReader.
+                using (StreamReader sr = new StreamReader(Application.StartupPath + "//conn.txt"))
+                {
+                    string line;
+
+                    // Read and display lines from the file until 
+                    // the end of the file is reached. 
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        connstring.Add(line);
+                    }
+
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                // Let the user know what went wrong.
+                Console.WriteLine("The file could not be read:");
+                Console.WriteLine(ex.Message);
+            }
+
+            ip = connstring[0].Trim();
+            dbname = connstring[1].Trim();
+            userid = connstring[2].Trim();
+            password = connstring[3].Trim();
         }
     }
 }

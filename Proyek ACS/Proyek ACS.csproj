@@ -158,6 +158,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SettingConnection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingConnection.Designer.cs">
+      <DependentUpon>SettingConnection.cs</DependentUpon>
+    </Compile>
     <Compile Include="Statistics.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Draft.resx">
       <DependentUpon>Draft.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingConnection.resx">
+      <DependentUpon>SettingConnection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Statistics.resx">
       <DependentUpon>Statistics.cs</DependentUpon>
