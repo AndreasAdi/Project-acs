@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Security.Cryptography;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,9 +27,11 @@ namespace Proyek_ACS
         List<string> connstring = new List<string>();
         public static string idbranch;
         public static string idb;
-       public static string ip = "10.11.238.40"
-, dbname ="xe", userid ="proyek", password="proyek";
-//public static OracleConnection oc = new OracleConnection("User id = latihan ; password = latihan ; data source = xe");
+        public static string ip = "192.168.43.129";
+        //public static string ip = "10.11.238.40";
+        public static string dbname ="xe", userid ="proyek", password="proyek";
+        //public static string dbname ="xe", userid ="proyek", password="proyek";
+        //public static OracleConnection oc = new OracleConnection("User id = latihan ; password = latihan ; data source = xe");
 public Form1()
         {
             InitializeComponent();            
@@ -55,14 +58,15 @@ public Form1()
 
                 Form_Main fm = new Form_Main();
                 id_pegawai = textBox1.Text;
-
-                //string ceklog = "select count(id_pegawai) from pegawai where password='" + textBox2.Text + "' and id_pegawai='"+textBox1.Text+"'";
-                string ceklog = "select count(*) from Pegawai where pegawai.id_pegawai ='" + textBox1.Text + "' and(select my_decrypt(Password, 'aplikasi client server') from Pegawai where pegawai.id_pegawai ='" + textBox1.Text + "') = '" + textBox2.Text + "'";
-
+                //MessageBox.Show(id_pegawai);
+               // MessageBox.Show(textBox2.Text);
+                string ceklog = "select count(id_pegawai) from pegawai where password='"+SHA512(textBox2.Text) +"' and id_pegawai='"+textBox1.Text+"'";
+                //string ceklog = "select count(*) from Pegawai where pegawai.id_pegawai ='" + textBox1.Text + "' and(select my_decrypt(Password, 'aplikasi client server') from Pegawai where pegawai.id_pegawai ='" + textBox1.Text + "') = '" + textBox2.Text + "'";
                 OracleCommand cmd = new OracleCommand(ceklog, oc);
                 cmd.ExecuteNonQuery();
                 int cek = Convert.ToInt32(cmd.ExecuteScalar());
-                //MessageBox.Show(cek + "");
+
+              //  MessageBox.Show(cek + "");
                 if (cek >= 1)
                 {
                     this.Hide();
@@ -130,8 +134,9 @@ public Form1()
                 }
                 oc.Close();
             }
-            catch (OracleException)
+            catch (OracleException ex)
             {
+                MessageBox.Show(Convert.ToString(ex));
                 MessageBox.Show("error");
                 SettingConnection s = new SettingConnection();
                 s.Show();
@@ -212,6 +217,32 @@ public Form1()
             dbname = connstring[1].Trim();
             userid = connstring[2].Trim();
             password = connstring[3].Trim();
+        }
+
+        private static string GenerateHashString(HashAlgorithm algo, string text)
+        {
+            // Compute hash from text parameter
+            algo.ComputeHash(Encoding.UTF8.GetBytes(text));
+
+            // Get has value in array of bytes
+            var result = algo.Hash;
+
+            // Return as hexadecimal string
+            return string.Join(
+                string.Empty,
+                result.Select(x => x.ToString("x2")));
+        }
+
+        public static string SHA512(string text)
+        {
+            var result = default(string);
+
+            using (var algo = new SHA512Managed())
+            {
+                result = GenerateHashString(algo, text);
+            }
+
+            return result;
         }
     }
 }
