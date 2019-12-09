@@ -54,16 +54,24 @@ create table Pegawai
 (
     Id_Pegawai      varchar2(8)     primary key,
     Nama_Pegawai    varchar2(30)    not null,
-    Password        varchar2(25)    not null,
+    Password        varchar2(300)    not null,
     Id_Branch       varchar2(8)     references Branch(Id_Branch),
     Manager         number          check(manager = 0 or manager = 1)
 );
-insert into Pegawai values('PEG001','Joko Prasetyo','jokprast','CAB001',1);
-insert into Pegawai values('PEG002','Yohanes Setianto','musiceverywhere','CAB002',1);
-insert into Pegawai values('PEG003','Thomas Grant','thomastutututut','CAB003',1);
-insert into Pegawai values('PEG004','Kevin Karuniawan','jomblobahagiaTRUST!','CAB001',0);
-insert into Pegawai values('PEG005','Maximillian Eka','kopigularen','CAB002',0);
-insert into Pegawai values('PEG006','Eka Sanjaya','youresaipul','CAB002',0);
+-- insert into Pegawai values('PEG001','Joko Prasetyo','jokprast','CAB001',1);
+-- insert into Pegawai values('PEG002','Yohanes Setianto','musiceverywhere','CAB002',1);
+-- insert into Pegawai values('PEG003','Thomas Grant','thomastutututut','CAB003',1);
+-- insert into Pegawai values('PEG004','Kevin Karuniawan','jomblobahagiaTRUST!','CAB001',0);
+-- insert into Pegawai values('PEG005','Maximillian Eka','kopigularen','CAB002',0);
+-- insert into Pegawai values('PEG006','Eka Sanjaya','youresaipul','CAB002',0);
+
+insert into Pegawai values('PEG001','Joko Prasetyo','cf29264a1790382531f1e6f3516089dde0053d10c5d12abc79d60360bb57b9d917a20c09c26d37cae39eea2323b988355831a8861366e82c0f3aa2e464baa528','CAB001',1);
+insert into Pegawai values('PEG002','Yohanes Setianto','6e553654502c19baf676127b21e77ab5a62589addcd044516e57d2c17bb4e0a46e6a7b7599a70b794b2795e7d1049e9773a109c671dfa48d33fafc3af4313542','CAB002',1);
+insert into Pegawai values('PEG003','Thomas Grant','ff5c0b4558f342611269fd6181f24244592e15d3615112d4ef7519c9ca224361138c0364b5c31cba5e1a1f7fa1f64d44a46c58a3a0c578ba1e018103bec81555','CAB003',1);
+insert into Pegawai values('PEG004','Kevin Karuniawan','69b687f987008d53f55a64fa0b797f729e8d1fb39c18fff475dd9238bcd21f326b35a1c5cc41b017d15bb439e5736c4c33070b460c27b09d945b34f6651556de','CAB001',0);
+insert into Pegawai values('PEG005','Maximillian Eka','711da198125c0d16aa88cb7deb255d4752f43e267449560310f0a16f1bb7607647353daf32a9390ab631e94f990ddf24a1aa36d4fe6c4c3b6115d932ee175706','CAB002',0);
+insert into Pegawai values('PEG006','Eka Sanjaya','6bda933e937efa362200fb3fccc829abd0c82470e2aca7a5f8726861f7b1a4bc93f15a18672a3cc56002d927089eab33e037e682a706719b40afc64424335f9a','CAB002',0);
+
 
 create table Gudang
 (

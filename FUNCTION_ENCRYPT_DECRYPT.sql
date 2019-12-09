@@ -34,7 +34,7 @@ create table Pegawai
 (
     Id_Pegawai      varchar2(8)     primary key,
     Nama_Pegawai    varchar2(30)    not null,
-    Password        varchar2(25)    not null,
+    Password        varchar2(200)    not null,
     Id_Branch       varchar2(8)     references Branch(Id_Branch),
     Manager         number          check(manager = 0 or manager = 1)
 );
