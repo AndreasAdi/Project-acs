@@ -54,7 +54,7 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(28, 244);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -64,11 +64,11 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(559, 583);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(103, 30);
             this.button2.TabIndex = 71;
-            this.button2.Text = "APPROVE";
+            this.button2.Text = "Approve";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // label12
@@ -92,11 +92,11 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(677, 583);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(103, 30);
             this.button1.TabIndex = 68;
-            this.button1.Text = "DELETE";
+            this.button1.Text = "Delete";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // label10
@@ -192,7 +192,7 @@
             this.line.Enabled = false;
             this.line.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.line.Location = new System.Drawing.Point(4, 72);
-            this.line.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.line.Margin = new System.Windows.Forms.Padding(2);
             this.line.Multiline = true;
             this.line.Name = "line";
             this.line.Size = new System.Drawing.Size(792, 2);
@@ -232,11 +232,11 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(28, 582);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(103, 30);
             this.button3.TabIndex = 73;
-            this.button3.Text = "CETAK";
+            this.button3.Text = "Cetak";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 

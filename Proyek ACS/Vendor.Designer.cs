@@ -168,17 +168,18 @@
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(19, 614);
+            this.groupBox1.Location = new System.Drawing.Point(33, 561);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(806, 182);
+            this.groupBox1.Size = new System.Drawing.Size(775, 182);
             this.groupBox1.TabIndex = 98;
             this.groupBox1.TabStop = false;
             // 
             // button5
             // 
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Location = new System.Drawing.Point(281, 117);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(108, 42);
+            this.button5.Size = new System.Drawing.Size(108, 22);
             this.button5.TabIndex = 10;
             this.button5.Text = "Delete";
             this.button5.UseVisualStyleBackColor = true;
@@ -186,12 +187,14 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(668, 58);
+            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(650, 19);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(108, 42);
+            this.button4.Size = new System.Drawing.Size(61, 81);
             this.button4.TabIndex = 9;
             this.button4.Text = "Clear";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.Button4_Click);
             // 
             // label7
@@ -214,9 +217,10 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(461, 117);
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Location = new System.Drawing.Point(489, 154);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(222, 42);
+            this.button3.Size = new System.Drawing.Size(222, 22);
             this.button3.TabIndex = 6;
             this.button3.Text = "Lihat Kontak Vendor";
             this.button3.UseVisualStyleBackColor = true;
@@ -224,9 +228,10 @@
             // 
             // button2
             // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Location = new System.Drawing.Point(145, 117);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(108, 42);
+            this.button2.Size = new System.Drawing.Size(108, 22);
             this.button2.TabIndex = 5;
             this.button2.Text = "Update";
             this.button2.UseVisualStyleBackColor = true;
@@ -234,9 +239,10 @@
             // 
             // button1
             // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(17, 117);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 42);
+            this.button1.Size = new System.Drawing.Size(108, 22);
             this.button1.TabIndex = 4;
             this.button1.Text = "Insert";
             this.button1.UseVisualStyleBackColor = true;
@@ -246,7 +252,7 @@
             // 
             this.textBox3.Location = new System.Drawing.Point(173, 73);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(476, 20);
+            this.textBox3.Size = new System.Drawing.Size(462, 20);
             this.textBox3.TabIndex = 3;
             // 
             // textBox2
