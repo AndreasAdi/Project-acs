@@ -49,6 +49,7 @@ public Form1()
 
         }
         public static string id_pegawai;
+        public static string Cabang;
         private void Button1_Click(object sender, EventArgs e)
         {
             try
@@ -123,6 +124,9 @@ public Form1()
                             fm.tambahUserToolStripMenuItem.Enabled = true;
                         }
                     }
+                    string query = "Select id_branch from pegawai where id_pegawai = '" + id_pegawai + "'";
+                    cmd = new OracleCommand(query, oc);
+                    Cabang = cmd.ExecuteScalar().ToString();
                     read.Close();
                     id_pegawai = textBox1.Text;
                     fm.ShowDialog();
