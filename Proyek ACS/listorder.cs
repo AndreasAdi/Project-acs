@@ -87,7 +87,7 @@ namespace Proyek_ACS
             p.ShowDialog();
             this.Close();
         }
-
+      public static Approved_Draft A;
         private void DataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
@@ -97,7 +97,7 @@ namespace Proyek_ACS
                 namapegawai = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 date = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[5].Value).ToString("dd/MM/yyyy");
 
-                Approved_Draft A = new Approved_Draft();
+                A = new Approved_Draft();
                 A.status = status;
                 A.id_order = id_order;
                 A.author = namapegawai;

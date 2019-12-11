@@ -30,6 +30,7 @@ namespace Proyek_ACS
         public string date;
         public string payment_terms;
         public string payment_type;
+
         OracleCommand cmd;
         private void Approved_Draft_Load(object sender, EventArgs e)
         {
@@ -77,7 +78,10 @@ namespace Proyek_ACS
                     cmd = new OracleCommand(query, conn);
                     cmd.ExecuteNonQuery();
                     listorder lo = new listorder();
-                    lo.Show();
+                    Hide();
+                    lo.ShowDialog();
+                    Close();
+
                 }
                 else {
                     MessageBox.Show("Tidak Memiliki Akses");
@@ -95,8 +99,9 @@ namespace Proyek_ACS
                     cmd = new OracleCommand(query, conn);
                     cmd.ExecuteNonQuery();
                     listorder lo = new listorder();
-                    lo.Show();
-  
+                    Hide();
+                    lo.ShowDialog();
+                    Close();
 
                 conn.Close();
           
@@ -111,9 +116,9 @@ namespace Proyek_ACS
                 cmd = new OracleCommand(query, conn);
                 cmd.ExecuteNonQuery();
                 listorder lo = new listorder();
-                lo.Show();
-
-
+                Hide();
+                lo.ShowDialog();
+                Close();
                 conn.Close();
             }
         }
@@ -132,6 +137,9 @@ namespace Proyek_ACS
 
             //   Database ds = new Database(conn);
             //  dataGridView1.DataSource = ds.executeDataTable(query);
+            query = "Select sum (total_bersih) from order_detail where id_order = '" + id_order + "' ";
+            cmd = new OracleCommand(query, conn);
+            label13.Text = int.Parse(cmd.ExecuteScalar().ToString()).ToString("#,##0");
             conn.Close();
 
         }
@@ -207,7 +215,17 @@ namespace Proyek_ACS
 
             MessageBox.Show("Berhasil Update");
             load_barang();
+            query = "Select sum (total_bersih) from order_detail where id_order = '"+id_order+"' ";
+
+            conn.Open();
+            cmd = new OracleCommand(query,conn);
+            label13.Text = int.Parse(cmd.ExecuteScalar().ToString()).ToString("#,##0");
+
+
+
+
             conn.Close();
+
 
 
         }
@@ -215,6 +233,12 @@ namespace Proyek_ACS
         private void Label9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Approved_Draft_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            listorder l = new listorder();
+            l.Show();
         }
     }
 }

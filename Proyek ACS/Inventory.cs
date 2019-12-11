@@ -96,6 +96,8 @@ namespace Proyek_ACS
 
         }
         string autogen_id_barang() {
+            Form1.oc.Close();
+            Form1.oc.Open();
             string idfix = "BRG";
             string qidbarang = "select count(id_barang) from barang";
             OracleCommand cmd_id_barang = new OracleCommand(qidbarang, Form1.oc);
@@ -115,38 +117,54 @@ namespace Proyek_ACS
             else {
                 idfix = idfix + "000" + no_urut;
             }
+            Form1.oc.Close();
             return idfix;
+
         }
 
         private void Button1_Click_1(object sender, EventArgs e)
         {
+            Form1.oc.Close();
+            Form1.oc.Open();
             insert_barang(textBox2.Text,textBox3.Text,richTextBox1.Text);
             load_dgv_inventory(perintahinventory);
             textBox2.Text = autogen_id_barang();
             textBox3.Text = "";
             richTextBox1.Text = "";
+            Form1.oc.Close();
+        
         }
         void insert_barang(string idbarang, string nama, string deskripsi) {
+            Form1.oc.Close();
+            Form1.oc.Open();
             string insertbarang = "insert into barang values('" + idbarang + "','" + nama + "','" + deskripsi + "')";
             string insertstok = "insert into stok values('" + idbarang + "',0,to_date('"+DateTime.Now.ToString("dd/MM/yyyy")+"','DD/MM/yyyy'))";
             OracleCommand cmdbarang = new OracleCommand(insertbarang, Form1.oc);
             OracleCommand cmdstok = new OracleCommand(insertstok, Form1.oc);
             cmdbarang.ExecuteNonQuery();
             cmdstok.ExecuteNonQuery();
+
+            Form1.oc.Close();
         }
         void update_barang(string idbarang, string nama, string deskripsi) {
+            Form1.oc.Close();
+            Form1.oc.Open();
             string updatebarang = "update barang set nama_barang='" + textBox3.Text + "',detail_barang='" + deskripsi + "' where id_barang='"+idbarang+"'";
             OracleCommand cmdupdate = new OracleCommand(updatebarang, Form1.oc);
             cmdupdate.ExecuteNonQuery();
+            Form1.oc.Close();
         }
 
         private void Button2_Click_1(object sender, EventArgs e)
         {
+            Form1.oc.Close();
+            Form1.oc.Open();
             update_barang(textBox2.Text,textBox3.Text,richTextBox1.Text);
             load_dgv_inventory(perintahinventory);
             textBox2.Text = autogen_id_barang();
             textBox3.Text = "";
             richTextBox1.Text = "";
+            Form1.oc.Close();
         }
 
     }
