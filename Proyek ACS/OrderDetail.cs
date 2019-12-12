@@ -1,26 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Oracle.DataAccess.Client;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Oracle.DataAccess.Client;
 
 namespace Proyek_ACS
 {
-    
-    public partial class Approved_Draft : Form
+
+    public partial class OrderDetail : Form
     {
 
         OracleConnection conn = Form1.oc;
-        public Approved_Draft()
+        public OrderDetail()
         {
             InitializeComponent();
         }
-       
+
         public string status;
         public string query;
         public string id_order;
@@ -41,7 +35,7 @@ namespace Proyek_ACS
             label2.Text = distributor;
             label9.Text = payment_terms;
             label8.Text = payment_type;
-            if (status =="Draft")
+            if (status == "Draft")
             {
                 button2.Text = "Approve";
             }
@@ -49,7 +43,7 @@ namespace Proyek_ACS
             {
                 button2.Text = "Receive";
             }
-            if(status!="Draft")
+            if (status != "Draft")
             {
                 button5.Enabled = false;
                 button4.Enabled = false;
@@ -63,10 +57,10 @@ namespace Proyek_ACS
             {
                 conn.Close();
                 conn.Open();
-     
 
-                query = "select count(id_pegawai) from hak_akses where id_pegawai = '"+id_pegawai+"' and id_hak_akses = 'HA003'";
-                cmd = new OracleCommand(query,conn);
+
+                query = "select count(id_pegawai) from hak_akses where id_pegawai = '" + id_pegawai + "' and id_hak_akses = 'HA003'";
+                cmd = new OracleCommand(query, conn);
                 int bolehapprove = int.Parse(cmd.ExecuteScalar().ToString());
 
                 query = "select count(id_pegawai) from hak_akses where id_pegawai = '" + id_pegawai + "' and id_hak_akses = 'HA006'";
@@ -83,7 +77,8 @@ namespace Proyek_ACS
                     Close();
 
                 }
-                else {
+                else
+                {
                     MessageBox.Show("Tidak Memiliki Akses");
                 }
 
@@ -95,18 +90,18 @@ namespace Proyek_ACS
                 conn.Open();
 
 
-                    query = "Update order_header set status_order = 6  where id_order = '" + id_order + "' ";
-                    cmd = new OracleCommand(query, conn);
-                    cmd.ExecuteNonQuery();
-                    listorder lo = new listorder();
-                    Hide();
-                    lo.ShowDialog();
-                    Close();
+                query = "Update order_header set status_order = 6  where id_order = '" + id_order + "' ";
+                cmd = new OracleCommand(query, conn);
+                cmd.ExecuteNonQuery();
+                listorder lo = new listorder();
+                Hide();
+                lo.ShowDialog();
+                Close();
 
                 conn.Close();
-          
+
             }
-            else if (button2.Text== "Receive")
+            else if (button2.Text == "Receive")
             {
                 conn.Close();
                 conn.Open();
@@ -122,12 +117,13 @@ namespace Proyek_ACS
                 conn.Close();
             }
         }
-        void load_barang() {
+        void load_barang()
+        {
             conn.Close();
             conn.Open();
 
-          
-            query = "Select ID_BARANG,NAMA_BARANG,JUMLAH_ORDER,HARGA,pajak,diskon,total_kotor,total_bersih from order_detail where id_order = '"+id_order+"'";
+
+            query = "Select ID_BARANG,NAMA_BARANG,JUMLAH_ORDER,HARGA,pajak,diskon,total_kotor,total_bersih from order_detail where id_order = '" + id_order + "'";
             cmd = new OracleCommand(query, conn);
             OracleDataAdapter adap = new OracleDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -167,7 +163,7 @@ namespace Proyek_ACS
             conn.Open();
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                query = "update order_detail set harga = "+dataGridView1.Rows[i].Cells[3].Value.ToString()+" where id_barang = '"+dataGridView1.Rows[i].Cells[0].Value.ToString()+"' and id_order ='"+id_order+"'";
+                query = "update order_detail set harga = " + dataGridView1.Rows[i].Cells[3].Value.ToString() + " where id_barang = '" + dataGridView1.Rows[i].Cells[0].Value.ToString() + "' and id_order ='" + id_order + "'";
                 cmd = new OracleCommand(query, conn);
                 cmd.ExecuteNonQuery();
             }
@@ -177,7 +173,7 @@ namespace Proyek_ACS
 
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                query = "update order_header set subtotal = subtotal+" + dataGridView1.Rows[i].Cells[3].Value.ToString() + " * "+dataGridView1.Rows[i].Cells[2].Value.ToString()+ "*( 100 + "+dataGridView1.Rows[i].Cells[4].Value.ToString()+")/100 where id_order ='" + id_order + "'";
+                query = "update order_header set subtotal = subtotal+" + dataGridView1.Rows[i].Cells[3].Value.ToString() + " * " + dataGridView1.Rows[i].Cells[2].Value.ToString() + "*( 100 + " + dataGridView1.Rows[i].Cells[4].Value.ToString() + ")/100 where id_order ='" + id_order + "'";
                 cmd = new OracleCommand(query, conn);
                 cmd.ExecuteNonQuery();
             }
@@ -185,7 +181,7 @@ namespace Proyek_ACS
 
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                query = "update order_detail set pajak = " +dataGridView1.Rows[i].Cells[4].Value.ToString() + " where id_barang = '" + dataGridView1.Rows[i].Cells[0].Value.ToString() + "' and id_order ='" + id_order + "'";
+                query = "update order_detail set pajak = " + dataGridView1.Rows[i].Cells[4].Value.ToString() + " where id_barang = '" + dataGridView1.Rows[i].Cells[0].Value.ToString() + "' and id_order ='" + id_order + "'";
                 cmd = new OracleCommand(query, conn);
                 cmd.ExecuteNonQuery();
             }
@@ -199,7 +195,7 @@ namespace Proyek_ACS
 
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                query = "update order_detail set total_kotor =  " + dataGridView1.Rows[i].Cells[3].Value.ToString() + " * " + dataGridView1.Rows[i].Cells[2].Value.ToString() + " where id_order ='" + id_order + "' and id_barang = '"+dataGridView1.Rows[i].Cells[0].Value.ToString()+"' ";
+                query = "update order_detail set total_kotor =  " + dataGridView1.Rows[i].Cells[3].Value.ToString() + " * " + dataGridView1.Rows[i].Cells[2].Value.ToString() + " where id_order ='" + id_order + "' and id_barang = '" + dataGridView1.Rows[i].Cells[0].Value.ToString() + "' ";
                 cmd = new OracleCommand(query, conn);
                 cmd.ExecuteNonQuery();
             }
@@ -207,7 +203,7 @@ namespace Proyek_ACS
 
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                query = "update order_detail set total_bersih = " + dataGridView1.Rows[i].Cells[3].Value.ToString() + " * " + dataGridView1.Rows[i].Cells[2].Value.ToString() + "*(( 100 + " + dataGridView1.Rows[i].Cells[4].Value.ToString() + ")/100)  - "+dataGridView1.Rows[i].Cells[5].Value.ToString()+"  where id_order ='" + id_order + "' and id_barang = '"+dataGridView1.Rows[i].Cells[0].Value.ToString()+"'";
+                query = "update order_detail set total_bersih = " + dataGridView1.Rows[i].Cells[3].Value.ToString() + " * " + dataGridView1.Rows[i].Cells[2].Value.ToString() + "*(( 100 + " + dataGridView1.Rows[i].Cells[4].Value.ToString() + ")/100)  - " + dataGridView1.Rows[i].Cells[5].Value.ToString() + "  where id_order ='" + id_order + "' and id_barang = '" + dataGridView1.Rows[i].Cells[0].Value.ToString() + "'";
                 cmd = new OracleCommand(query, conn);
                 cmd.ExecuteNonQuery();
             }
@@ -215,10 +211,10 @@ namespace Proyek_ACS
 
             MessageBox.Show("Berhasil Update");
             load_barang();
-            query = "Select sum (total_bersih) from order_detail where id_order = '"+id_order+"' ";
+            query = "Select sum (total_bersih) from order_detail where id_order = '" + id_order + "' ";
 
             conn.Open();
-            cmd = new OracleCommand(query,conn);
+            cmd = new OracleCommand(query, conn);
             label13.Text = int.Parse(cmd.ExecuteScalar().ToString()).ToString("#,##0");
 
 

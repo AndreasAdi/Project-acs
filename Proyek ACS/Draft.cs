@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Oracle.DataAccess.Client;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Oracle.DataAccess.Client;
 
 namespace Proyek_ACS
 {
@@ -21,7 +15,7 @@ namespace Proyek_ACS
 
         private void Purchase_Order_Load(object sender, EventArgs e)
         {
-            load();  
+            load();
         }
 
         private void Label7_Click(object sender, EventArgs e)
@@ -37,11 +31,11 @@ namespace Proyek_ACS
             //Detail d = new Detail();
             //d.Show();
             string idpeg = Form1.id_pegawai;
-            OracleCommand id = new OracleCommand("select AUTOGEN_ID from dual",conn);
+            OracleCommand id = new OracleCommand("select AUTOGEN_ID from dual", conn);
             string idheader = id.ExecuteScalar().ToString();
             string idpayterm = comboBox2.SelectedValue.ToString();
             string idpaytype = comboBox1.SelectedValue.ToString();
-            OracleCommand cmd = new OracleCommand("insert into order_header values('"+idheader+"','"+comboBox4.SelectedValue.ToString()+ "',to_date('" + dateTimePicker1.Value.ToString("dd/MM/yyyy") + "','DD/MM/YYYY'),to_date('" + DateTime.Now.ToString("dd/MM/yyyy")+"','DD/MM/YYYY'),0,'0','"+idpeg+"','"+idpayterm+"','"+idpaytype+"','"+Form1.idb+"')",conn);
+            OracleCommand cmd = new OracleCommand("insert into order_header values('" + idheader + "','" + comboBox4.SelectedValue.ToString() + "',to_date('" + dateTimePicker1.Value.ToString("dd/MM/yyyy") + "','DD/MM/YYYY'),to_date('" + DateTime.Now.ToString("dd/MM/yyyy") + "','DD/MM/YYYY'),0,'0','" + idpeg + "','" + idpayterm + "','" + idpaytype + "','" + Form1.idb + "')", conn);
             cmd.ExecuteNonQuery();
             listorder l = new listorder();
             this.Hide();
@@ -50,7 +44,8 @@ namespace Proyek_ACS
             conn.Close();
         }
 
-        void load() {
+        void load()
+        {
             conn.Close();
             conn.Open();
             string query = "Select id_distributor , nama_distributor from distributor";

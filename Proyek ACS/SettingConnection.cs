@@ -1,15 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
-using System.IO;  
-using System.Runtime.Serialization;  
-using System.Runtime.Serialization.Formatters.Binary; 
 
 namespace Proyek_ACS
 {
@@ -55,18 +47,19 @@ namespace Proyek_ACS
         {
 
 
-            File.Create(Application.StartupPath+"//conn.txt").Close();
-            connstring = textBox1.Text + "\n" + textBox2.Text + "\n" + textBox3.Text + "\n"+ textBox4.Text + "\n";
+            File.Create(Application.StartupPath + "//conn.txt").Close();
+            connstring = textBox1.Text + "\n" + textBox2.Text + "\n" + textBox3.Text + "\n" + textBox4.Text + "\n";
 
             System.IO.File.WriteAllText(@"conn.txt", connstring);
 
             Form1 f = new Form1();
             f.Show();
-  
+
 
         }
 
-        void load() {
+        void load()
+        {
 
             List<string> connstring = new List<string>();
             try
@@ -101,5 +94,5 @@ namespace Proyek_ACS
         }
     }
 
-    
+
 }

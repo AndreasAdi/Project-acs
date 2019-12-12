@@ -69,7 +69,6 @@
             this.label1.Size = new System.Drawing.Size(393, 39);
             this.label1.TabIndex = 5;
             this.label1.Text = "List of purchase orders";
-            this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // dataGridView1
             // 
@@ -90,7 +89,7 @@
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentDoubleClick);
-            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellValueChanged);
+       
             // 
             // dateTimePicker1
             // 

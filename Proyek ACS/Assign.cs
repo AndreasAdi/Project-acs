@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Oracle.DataAccess.Client;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Oracle.DataAccess.Client;
 
 namespace Proyek_ACS
 {
     public partial class Assign : Form
     {
         DataTable dthakakses;
-        
+
         public Assign()
         {
             InitializeComponent();
@@ -30,12 +24,14 @@ namespace Proyek_ACS
                 groupBox1.Enabled = true;
                 groupBox2.Enabled = false;
             }
-            else if (radioButton2.Checked) {
+            else if (radioButton2.Checked)
+            {
                 groupBox1.Enabled = false;
                 groupBox2.Enabled = true;
             }
         }
-        void loaddgassign() {
+        void loaddgassign()
+        {
             string loaddgv = "Select id_Hak_Akses,Nama_akses from list_hak_akses";
             dgassign.DataSource = null;
             dthakakses = new DataTable();
@@ -43,9 +39,10 @@ namespace Proyek_ACS
             adapakses.Fill(dthakakses);
             dgassign.DataSource = dthakakses;
         }
-        void loadcb() {
+        void loadcb()
+        {
             string sql = "select Nama_pegawai,Id_pegawai from Pegawai";
-            DataTable dtcb=new DataTable();
+            DataTable dtcb = new DataTable();
             OracleDataAdapter adapcb = new OracleDataAdapter(sql, Form1.oc);
             adapcb.Fill(dtcb);
             comboBox1.DataSource = dtcb;
@@ -66,7 +63,7 @@ namespace Proyek_ACS
         int idx;
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void RadioButton1_CheckedChanged(object sender, EventArgs e)
@@ -100,17 +97,19 @@ namespace Proyek_ACS
                 db.executeNonQuery(assignakses);
                 MessageBox.Show("Sukses Memberi Hak Akses");
             }
-            else if (radioButton2.Checked) {
-                string revoke = "delete From Hak_akses Where id_pegawai='"+comboBox3.SelectedValue.ToString()+"' and id_Hak_Akses='"+comboBox2.SelectedValue.ToString()+"'";
+            else if (radioButton2.Checked)
+            {
+                string revoke = "delete From Hak_akses Where id_pegawai='" + comboBox3.SelectedValue.ToString() + "' and id_Hak_Akses='" + comboBox2.SelectedValue.ToString() + "'";
                 Database db = new Database(Form1.oc);
                 db.executeNonQuery(revoke);
                 MessageBox.Show("Sukses Revoke Hak Akses");
             }
             //Form1.oc.Close();
         }
-        void loadcbrevoke() {
+        void loadcbrevoke()
+        {
             comboBox2.DataSource = null;
-            string cbakses = "Select l.id_Hak_Akses,l.Nama_akses from list_hak_akses l,hak_akses h where h.id_pegawai='"+comboBox3.SelectedValue.ToString()+"' and h.id_hak_akses=l.id_hak_akses";
+            string cbakses = "Select l.id_Hak_Akses,l.Nama_akses from list_hak_akses l,hak_akses h where h.id_pegawai='" + comboBox3.SelectedValue.ToString() + "' and h.id_hak_akses=l.id_hak_akses";
             DataTable dtcb = new DataTable();
             OracleDataAdapter adapcb = new OracleDataAdapter(cbakses, Form1.oc);
             adapcb.Fill(dtcb);
@@ -132,9 +131,10 @@ namespace Proyek_ACS
 
         private void ComboBox3_MouseClick(object sender, MouseEventArgs e)
         {
-            
+
         }
-        void loadaksespegawai() {
+        void loadaksespegawai()
+        {
             comboBox4.DataSource = null;
             string cbakses = "Select l.id_Hak_Akses,l.Nama_akses from list_hak_akses l,hak_akses h where h.id_pegawai='" + comboBox1.SelectedValue.ToString() + "' and h.id_hak_akses=l.id_hak_akses";
             DataTable dtcb = new DataTable();

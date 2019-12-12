@@ -1,6 +1,6 @@
 ﻿namespace Proyek_ACS
 {
-    partial class Approved_Draft
+    partial class OrderDetail
     {
         /// <summary>
         /// Required designer variable.
@@ -200,7 +200,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(43, 44);
+            this.label1.Location = new System.Drawing.Point(43, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(195, 38);
             this.label1.TabIndex = 73;
@@ -277,7 +277,7 @@
             this.label13.TabIndex = 96;
             this.label13.Text = "Total :";
             // 
-            // Approved_Draft
+            // OrderDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -303,9 +303,9 @@
             this.Controls.Add(this.lblauthor);
             this.Controls.Add(this.label3);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Approved_Draft";
+            this.Name = "OrderDetail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Approved_Draft";
+            this.Text = "Order Detail";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Approved_Draft_FormClosed);
             this.Load += new System.EventHandler(this.Approved_Draft_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

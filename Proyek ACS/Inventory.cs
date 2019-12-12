@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Oracle.DataAccess.Client;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Oracle.DataAccess.Client;
 
 namespace Proyek_ACS
 {
@@ -29,7 +23,7 @@ namespace Proyek_ACS
         }
 
         private void load_dgv_inventory(String perintah)
-        {            
+        {
             dtinventory = new DataTable();
             OracleDataAdapter adapinventory = new OracleDataAdapter(perintah, Form1.oc);
             adapinventory.Fill(dtinventory);
@@ -56,8 +50,8 @@ namespace Proyek_ACS
             {
                 string filter = comboBox1.SelectedItem.ToString();
                 if (comboBox1.SelectedIndex == 0) filter = "barang.id_barang";
-                if (comboBox1.SelectedIndex == 2){filter = "detail_barang";}
-                search = perintahinventory + " and lower("+filter+") like '%"+keyword+"%'";
+                if (comboBox1.SelectedIndex == 2) { filter = "detail_barang"; }
+                search = perintahinventory + " and lower(" + filter + ") like '%" + keyword + "%'";
             }
             load_dgv_inventory(search);
         }
@@ -88,14 +82,15 @@ namespace Proyek_ACS
 
         private void DataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-           
+
         }
 
         private void TextBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
-        string autogen_id_barang() {
+        string autogen_id_barang()
+        {
             Form1.oc.Close();
             Form1.oc.Open();
             string idfix = "BRG";
@@ -114,7 +109,8 @@ namespace Proyek_ACS
             {
                 idfix = idfix + no_urut;
             }
-            else {
+            else
+            {
                 idfix = idfix + "000" + no_urut;
             }
             Form1.oc.Close();
@@ -126,19 +122,20 @@ namespace Proyek_ACS
         {
             Form1.oc.Close();
             Form1.oc.Open();
-            insert_barang(textBox2.Text,textBox3.Text,richTextBox1.Text);
+            insert_barang(textBox2.Text, textBox3.Text, richTextBox1.Text);
             load_dgv_inventory(perintahinventory);
             textBox2.Text = autogen_id_barang();
             textBox3.Text = "";
             richTextBox1.Text = "";
             Form1.oc.Close();
-        
+
         }
-        void insert_barang(string idbarang, string nama, string deskripsi) {
+        void insert_barang(string idbarang, string nama, string deskripsi)
+        {
             Form1.oc.Close();
             Form1.oc.Open();
             string insertbarang = "insert into barang values('" + idbarang + "','" + nama + "','" + deskripsi + "')";
-            string insertstok = "insert into stok values('" + idbarang + "',0,to_date('"+DateTime.Now.ToString("dd/MM/yyyy")+"','DD/MM/yyyy'))";
+            string insertstok = "insert into stok values('" + idbarang + "',0,to_date('" + DateTime.Now.ToString("dd/MM/yyyy") + "','DD/MM/yyyy'))";
             OracleCommand cmdbarang = new OracleCommand(insertbarang, Form1.oc);
             OracleCommand cmdstok = new OracleCommand(insertstok, Form1.oc);
             cmdbarang.ExecuteNonQuery();
@@ -146,10 +143,11 @@ namespace Proyek_ACS
 
             Form1.oc.Close();
         }
-        void update_barang(string idbarang, string nama, string deskripsi) {
+        void update_barang(string idbarang, string nama, string deskripsi)
+        {
             Form1.oc.Close();
             Form1.oc.Open();
-            string updatebarang = "update barang set nama_barang='" + textBox3.Text + "',detail_barang='" + deskripsi + "' where id_barang='"+idbarang+"'";
+            string updatebarang = "update barang set nama_barang='" + textBox3.Text + "',detail_barang='" + deskripsi + "' where id_barang='" + idbarang + "'";
             OracleCommand cmdupdate = new OracleCommand(updatebarang, Form1.oc);
             cmdupdate.ExecuteNonQuery();
             Form1.oc.Close();
@@ -159,7 +157,7 @@ namespace Proyek_ACS
         {
             Form1.oc.Close();
             Form1.oc.Open();
-            update_barang(textBox2.Text,textBox3.Text,richTextBox1.Text);
+            update_barang(textBox2.Text, textBox3.Text, richTextBox1.Text);
             load_dgv_inventory(perintahinventory);
             textBox2.Text = autogen_id_barang();
             textBox3.Text = "";
