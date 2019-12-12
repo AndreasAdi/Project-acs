@@ -117,9 +117,18 @@ create table Stok
 insert into Stok values('BRG0001',100,to_date('12/11/2019','dd/mm/yyyy'));
 insert into Stok values('BRG0002',250,to_date('16/11/2019','dd/mm/yyyy'));
 insert into Stok values('BRG0003',300,to_date('18/11/2019','dd/mm/yyyy'));
+insert into Stok values('BRG0004',7000,to_date('25/11/2019','dd/mm/yyyy'));
+insert into Stok values('BRG0005',7000,to_date('25/11/2019','dd/mm/yyyy'));
 insert into Stok values('BRG0006',500,to_date('21/11/2019','dd/mm/yyyy'));
+insert into Stok values('BRG0007',7000,to_date('25/11/2019','dd/mm/yyyy'));
 insert into Stok values('BRG0008',7000,to_date('25/11/2019','dd/mm/yyyy'));
-
+insert into Stok values('BRG0009',7000,to_date('25/11/2019','dd/mm/yyyy'));
+insert into Stok values('BRG0010',7000,to_date('25/11/2019','dd/mm/yyyy'));
+insert into Stok values('BRG0011',7000,to_date('25/11/2019','dd/mm/yyyy'));
+insert into Stok values('BRG0012',7000,to_date('25/11/2019','dd/mm/yyyy'));
+insert into Stok values('BRG0013',7000,to_date('25/11/2019','dd/mm/yyyy'));
+insert into Stok values('BRG0014',7000,to_date('25/11/2019','dd/mm/yyyy'));
+insert into Stok values('BRG0015',7000,to_date('25/11/2019','dd/mm/yyyy'));
 
 create table Distributor
 (
