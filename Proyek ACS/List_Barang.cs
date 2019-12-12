@@ -92,12 +92,20 @@ namespace Proyek_ACS
                 OracleCommand cmd = new OracleCommand(query,conn);
                 cmd.ExecuteNonQuery();
             }
-            listorder l = new listorder();
+           // listorder l = new listorder();
             Hide();
-            l.ShowDialog();
+            //l.ShowDialog();
+            listorder.A.ShowDialog();
             Close();
             
             conn.Close();
+        }
+
+        private void List_Barang_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Hide();
+            listorder.A.ShowDialog();
+            Close();
         }
     }
 }
