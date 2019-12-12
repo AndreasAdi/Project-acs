@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CrystalDecisions.Shared;
+using System;
 using System.Windows.Forms;
-using Oracle.DataAccess.Client;
-using CrystalDecisions.CrystalReports.Engine;
-using CrystalDecisions.Shared;
 
 namespace Proyek_ACS
 {
@@ -33,7 +24,7 @@ namespace Proyek_ACS
         private void button1_Click(object sender, EventArgs e)
         {
             CrystalReport2 crpt = new CrystalReport2();
-            
+
 
             try
             {
@@ -66,7 +57,7 @@ namespace Proyek_ACS
 
             crpt.SetParameterValue("Tanggal_Awal", dateTimePicker1.Value);
             crpt.SetParameterValue("Tanggal Akhir", dateTimePicker2.Value);
-        //    crpt.SetParameterValue("idcabang", );
+            //    crpt.SetParameterValue("idcabang", );
 
 
 

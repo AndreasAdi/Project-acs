@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Oracle.DataAccess.Client;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Oracle.DataAccess.Client;
 
 namespace Proyek_ACS
 {
@@ -23,7 +17,7 @@ namespace Proyek_ACS
         public List_Barang()
         {
             InitializeComponent();
-     
+
         }
 
         private void List_Barang_Load(object sender, EventArgs e)
@@ -41,9 +35,9 @@ namespace Proyek_ACS
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            int ctr =0;
-            int idx_sama =0;
-            if (numericUpDown1.Value>0)
+            int ctr = 0;
+            int idx_sama = 0;
+            if (numericUpDown1.Value > 0)
             {
                 string id_barang = dataGridView1.Rows[idx].Cells[0].Value.ToString();
                 string nama_barang = dataGridView1.Rows[idx].Cells[1].Value.ToString();
@@ -58,11 +52,11 @@ namespace Proyek_ACS
                         ctr++;
                     }
                 }
-                if (ctr ==0)
+                if (ctr == 0)
                 {
                     dataGridView2.Rows.Add(id_barang, nama_barang, detail_barang, JUMLAH);
                 }
-                else if (ctr>0)
+                else if (ctr > 0)
                 {
                     dataGridView2.Rows[idx_sama].Cells[3].Value = Convert.ToString(Convert.ToInt32(dataGridView2.Rows[idx_sama].Cells[3].Value.ToString()) + numericUpDown1.Value);
                 }
@@ -75,7 +69,7 @@ namespace Proyek_ACS
 
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex>-1)
+            if (e.RowIndex > -1)
             {
                 idx = e.RowIndex;
             }
@@ -87,17 +81,17 @@ namespace Proyek_ACS
             conn.Open();
             for (int i = 0; i < dataGridView2.Rows.Count; i++)
             {
-               string query = "insert into order_detail values('"+id_order+"', '"+dataGridView2.Rows[i].Cells[0].Value.ToString()+"', '"+dataGridView2.Rows[i].Cells[1].Value.ToString()+"', "+dataGridView2.Rows[i].Cells[3].Value.ToString()+" ,0, 0,0,0,0) ";
+                string query = "insert into order_detail values('" + id_order + "', '" + dataGridView2.Rows[i].Cells[0].Value.ToString() + "', '" + dataGridView2.Rows[i].Cells[1].Value.ToString() + "', " + dataGridView2.Rows[i].Cells[3].Value.ToString() + " ,0, 0,0,0,0) ";
 
-                OracleCommand cmd = new OracleCommand(query,conn);
+                OracleCommand cmd = new OracleCommand(query, conn);
                 cmd.ExecuteNonQuery();
             }
-           // listorder l = new listorder();
+            // listorder l = new listorder();
             Hide();
             //l.ShowDialog();
             listorder.A.ShowDialog();
             Close();
-            
+
             conn.Close();
         }
 

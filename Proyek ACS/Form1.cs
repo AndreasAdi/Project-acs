@@ -1,15 +1,12 @@
-﻿using System;
+﻿using Oracle.DataAccess.Client;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Security.Cryptography;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
-using Oracle.DataAccess.Client;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Windows.Forms;
 
 namespace Proyek_ACS
 {
@@ -29,23 +26,23 @@ namespace Proyek_ACS
         public static string idb;
         public static string ip = "192.168.43.129";
         //public static string ip = "10.11.238.40";
-        public static string dbname ="xe", userid ="proyek", password="proyek";
+        public static string dbname = "xe", userid = "proyek", password = "proyek";
         //public static string dbname ="xe", userid ="proyek", password="proyek";
         //public static OracleConnection oc = new OracleConnection("User id = latihan ; password = latihan ; data source = xe");
-public Form1()
+        public Form1()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
         public static bool en = false;
         private void Form1_Load(object sender, EventArgs e)
         {
             loadconnection();
-                oc = new OracleConnection("Data Source=" +
-                    "(DESCRIPTION=" +
-                    "(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)" +
-                    "(HOST = "+ip+")(PORT=1521)))" + //host ipnya ganti
-                    "(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME="+dbname+")));" +
-                    "user id="+userid+";password="+password+" ");
+            oc = new OracleConnection("Data Source=" +
+                "(DESCRIPTION=" +
+                "(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)" +
+                "(HOST = " + ip + ")(PORT=1521)))" + //host ipnya ganti
+                "(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=" + dbname + ")));" +
+                "user id=" + userid + ";password=" + password + " ");
 
         }
         public static string id_pegawai;
@@ -60,14 +57,14 @@ public Form1()
                 Form_Main fm = new Form_Main();
                 id_pegawai = textBox1.Text;
                 //MessageBox.Show(id_pegawai);
-               // MessageBox.Show(textBox2.Text);
-                string ceklog = "select count(id_pegawai) from pegawai where password='"+SHA512(textBox2.Text) +"' and id_pegawai='"+textBox1.Text+"'";
+                // MessageBox.Show(textBox2.Text);
+                string ceklog = "select count(id_pegawai) from pegawai where password='" + SHA512(textBox2.Text) + "' and id_pegawai='" + textBox1.Text + "'";
                 //string ceklog = "select count(*) from Pegawai where pegawai.id_pegawai ='" + textBox1.Text + "' and(select my_decrypt(Password, 'aplikasi client server') from Pegawai where pegawai.id_pegawai ='" + textBox1.Text + "') = '" + textBox2.Text + "'";
                 OracleCommand cmd = new OracleCommand(ceklog, oc);
                 cmd.ExecuteNonQuery();
                 int cek = Convert.ToInt32(cmd.ExecuteScalar());
 
-              //  MessageBox.Show(cek + "");
+                //  MessageBox.Show(cek + "");
                 if (cek >= 1)
                 {
                     this.Hide();
@@ -146,8 +143,8 @@ public Form1()
                 s.Show();
 
             }
-           
-           
+
+
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
@@ -190,8 +187,9 @@ public Form1()
             s.Show();
         }
 
-        void loadconnection() {
-          
+        void loadconnection()
+        {
+
             try
             {
                 // Create an instance of StreamReader to read from a file.
@@ -207,7 +205,7 @@ public Form1()
                         connstring.Add(line);
                     }
 
-                    
+
                 }
             }
             catch (Exception ex)

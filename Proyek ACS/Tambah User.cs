@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Oracle.DataAccess.Client;
+using System;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Security.Cryptography;
-using Oracle.DataAccess.Client;
+using System.Text;
+using System.Windows.Forms;
 
 namespace Proyek_ACS
 {
@@ -36,7 +32,8 @@ namespace Proyek_ACS
             load_cbBranch();
             tbid.Text = autogen_id_Pegawai();
         }
-        void loaddgvpegawai() {
+        void loaddgvpegawai()
+        {
             dt = new DataTable();
             dataGridView1.DataSource = null;
             string query = "select Id_Pegawai,nama_Pegawai,id_branch,manager from pegawai";
@@ -44,7 +41,8 @@ namespace Proyek_ACS
             adpt.Fill(dt);
             dataGridView1.DataSource = dt;
         }
-        void load_cbBranch() {
+        void load_cbBranch()
+        {
             Form1.oc.Close();
             Form1.oc.Open();
             string q = "select id_branch,alamat from branch";
@@ -57,15 +55,16 @@ namespace Proyek_ACS
             comboBox1.DisplayMember = "alamat";
             Form1.oc.Close();
         }
-        string autogen_id_Pegawai() {
+        string autogen_id_Pegawai()
+        {
             Form1.oc.Close();
             Form1.oc.Open();
-            string idpegawai="PEG";
+            string idpegawai = "PEG";
             string queryid = "select Count(id_pegawai) from pegawai";
             int nourut;
             OracleCommand cmdid = new OracleCommand(queryid, Form1.oc);
             cmdid.ExecuteNonQuery();
-            nourut =Convert.ToInt32(cmdid.ExecuteScalar())+1;
+            nourut = Convert.ToInt32(cmdid.ExecuteScalar()) + 1;
             if (nourut > 9)
             {
                 idpegawai = idpegawai + "0" + nourut;
@@ -74,13 +73,15 @@ namespace Proyek_ACS
             {
                 idpegawai = idpegawai + nourut;
             }
-            else {
+            else
+            {
                 idpegawai = idpegawai + "00" + nourut;
             }
             return idpegawai;
             Form1.oc.Close();
         }
-        void insert_pegawai(string id,string nama,string password,string idbranch,int idmanager) {
+        void insert_pegawai(string id, string nama, string password, string idbranch, int idmanager)
+        {
             Form1.oc.Close();
             Form1.oc.Open();
             MessageBox.Show(idbranch);
@@ -90,10 +91,11 @@ namespace Proyek_ACS
             Form1.oc.Close();
 
         }
-        void update_pegawai(string id, string nama, string password, string idbranch, int idmanager) {
+        void update_pegawai(string id, string nama, string password, string idbranch, int idmanager)
+        {
             Form1.oc.Close();
             Form1.oc.Open();
-            string qupdate = "update pegawai set set nama_pegawai='" + nama + "',password='"+password+"',id_branch='"+idbranch+"',manager="+idmanager+" where id_pegawai='"+id+"'";
+            string qupdate = "update pegawai set set nama_pegawai='" + nama + "',password='" + password + "',id_branch='" + idbranch + "',manager=" + idmanager + " where id_pegawai='" + id + "'";
             OracleCommand cmdupdate = new OracleCommand(qupdate, Form1.oc);
             cmdupdate.ExecuteNonQuery();
             Form1.oc.Close();
@@ -105,7 +107,7 @@ namespace Proyek_ACS
             Form1.oc.Open();
 
             string qdelete = "delete from pegawai where id_pegawai='" + id + "'";
-            OracleCommand cmddelete = new OracleCommand(qdelete,Form1.oc);
+            OracleCommand cmddelete = new OracleCommand(qdelete, Form1.oc);
             cmddelete.ExecuteNonQuery();
             Form1.oc.Close();
 
@@ -113,7 +115,7 @@ namespace Proyek_ACS
         }
         private void Button1_Click(object sender, EventArgs e)
         {
-            insert_pegawai(tbid.Text,tbnama.Text,SHA512(tbpass.Text),comboBox1.SelectedValue.ToString(),Convert.ToInt32(idmanager.Text));
+            insert_pegawai(tbid.Text, tbnama.Text, SHA512(tbpass.Text), comboBox1.SelectedValue.ToString(), Convert.ToInt32(idmanager.Text));
             loaddgvpegawai();
             tbid.Text = autogen_id_Pegawai();
             tbnama.Text = "";
