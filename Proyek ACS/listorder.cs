@@ -8,7 +8,8 @@ namespace Proyek_ACS
     public partial class listorder : Form
     {
         DataTable dtlistpo;
-        public string perintahlistpo = "select oh.Id_Order, p.Nama_Pegawai, d.Nama_Distributor, d.Alamat_Distributor, oh.Tanggal_Order, oh.Plan_Date_Delivery,oh.Subtotal,Payment_Terms.nama as Payment_Terms ,payment_type.nama as Payment_Type,Case when oh.Status_Order = '0' then 'Draft' when oh.Status_Order = '1' then 'Approved' when oh.Status_Order = '2' then 'Dibatalkan' when oh.Status_Order = '3' then 'Diterima Sebagian' when oh.Status_Order = '4' then 'Diterima Penuh' when oh.Status_Order = '5' then 'Order Closed' when oh.Status_Order = '6' then 'Ordered' end as Status from Order_Header oh, Distributor d, Pegawai p, Payment_Terms, payment_type where oh.id_distributor = d.id_distributor and oh.Id_Pegawai = p.Id_Pegawai and Payment_Terms.id_payment_term = oh.id_payment_term and Payment_Terms.id_payment_term = oh.id_payment_term and payment_type.id_payment_type = oh.id_payment_type and oh.id_branch ='" + Form1.Cabang + "' ";
+        public string perintahlistpo;
+       
         public listorder()
         {
             InitializeComponent();
@@ -16,6 +17,17 @@ namespace Proyek_ACS
 
         private void Listorder_Load(object sender, EventArgs e)
         {
+            if (Form1.Cabang == "MASTER")
+            {
+                perintahlistpo = "select oh.Id_Order, p.Nama_Pegawai, d.Nama_Distributor, d.Alamat_Distributor, oh.Tanggal_Order, oh.Plan_Date_Delivery,oh.Subtotal,Payment_Terms.nama as Payment_Terms ,payment_type.nama as Payment_Type,Case when oh.Status_Order = '0' then 'Draft' when oh.Status_Order = '1' then 'Approved' when oh.Status_Order = '2' then 'Dibatalkan' when oh.Status_Order = '3' then 'Diterima Sebagian' when oh.Status_Order = '4' then 'Diterima Penuh' when oh.Status_Order = '5' then 'Order Closed' when oh.Status_Order = '6' then 'Ordered' end as Status from Order_Header oh, Distributor d, Pegawai p, Payment_Terms, payment_type where oh.id_distributor = d.id_distributor and oh.Id_Pegawai = p.Id_Pegawai and Payment_Terms.id_payment_term = oh.id_payment_term and Payment_Terms.id_payment_term = oh.id_payment_term and payment_type.id_payment_type = oh.id_payment_type";
+
+
+            }
+            else {
+                perintahlistpo = "select oh.Id_Order, p.Nama_Pegawai, d.Nama_Distributor, d.Alamat_Distributor, oh.Tanggal_Order, oh.Plan_Date_Delivery,oh.Subtotal,Payment_Terms.nama as Payment_Terms ,payment_type.nama as Payment_Type,Case when oh.Status_Order = '0' then 'Draft' when oh.Status_Order = '1' then 'Approved' when oh.Status_Order = '2' then 'Dibatalkan' when oh.Status_Order = '3' then 'Diterima Sebagian' when oh.Status_Order = '4' then 'Diterima Penuh' when oh.Status_Order = '5' then 'Order Closed' when oh.Status_Order = '6' then 'Ordered' end as Status from Order_Header oh, Distributor d, Pegawai p, Payment_Terms, payment_type where oh.id_distributor = d.id_distributor and oh.Id_Pegawai = p.Id_Pegawai and Payment_Terms.id_payment_term = oh.id_payment_term and Payment_Terms.id_payment_term = oh.id_payment_term and payment_type.id_payment_type = oh.id_payment_type and oh.id_branch ='" + Form1.Cabang + "' ";
+
+            }
+
             Form1.oc.Close();
             Form1.oc.Open();
             load_dgv_listorder(perintahlistpo);

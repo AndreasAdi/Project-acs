@@ -49,6 +49,7 @@ create table Branch
 insert into Branch values('CAB001','PEG001','Jalan Dharmahusada Indah Blok A-27');
 insert into Branch values('CAB002','PEG002','Jalan Kertajaya Indah IV-K328');
 insert into Branch values('CAB003','PEG003','Jalan Sukomanunggal Timur 678');
+insert into Branch values('MASTER','-','MASTER');
 
 create table Pegawai
 (
@@ -71,6 +72,7 @@ insert into Pegawai values('PEG003','Thomas Grant','ff5c0b4558f342611269fd6181f2
 insert into Pegawai values('PEG004','Kevin Karuniawan','69b687f987008d53f55a64fa0b797f729e8d1fb39c18fff475dd9238bcd21f326b35a1c5cc41b017d15bb439e5736c4c33070b460c27b09d945b34f6651556de','CAB001',0);
 insert into Pegawai values('PEG005','Maximillian Eka','711da198125c0d16aa88cb7deb255d4752f43e267449560310f0a16f1bb7607647353daf32a9390ab631e94f990ddf24a1aa36d4fe6c4c3b6115d932ee175706','CAB002',0);
 insert into Pegawai values('PEG006','Eka Sanjaya','6bda933e937efa362200fb3fccc829abd0c82470e2aca7a5f8726861f7b1a4bc93f15a18672a3cc56002d927089eab33e037e682a706719b40afc64424335f9a','CAB002',0);
+insert into Pegawai values('PEG007','jojo','6bda933e937efa362200fb3fccc829abd0c82470e2aca7a5f8726861f7b1a4bc93f15a18672a3cc56002d927089eab33e037e682a706719b40afc64424335f9a','MASTER',0);
 
 
 create table Gudang
@@ -186,6 +188,7 @@ insert into Hak_Akses Values ('PEG002','HA002');
 insert into Hak_Akses Values ('PEG003','HA003');
 insert into Hak_Akses Values ('PEG004','HA004');
 insert into Hak_Akses Values ('PEG006','HA006');
+insert into Hak_Akses Values ('PEG007','HA006');
 insert into Hak_Akses Values ('PEG002','HA007');
 insert into Hak_Akses Values ('PEG003','HA009');
 
