@@ -36,7 +36,7 @@ namespace Proyek_ACS
         {
             dt = new DataTable();
             dataGridView1.DataSource = null;
-            string query = "select Id_Pegawai,nama_Pegawai,id_branch,manager from pegawai";
+            string query = "select Id_Pegawai,nama_Pegawai,id_branch from pegawai";
             OracleDataAdapter adpt = new OracleDataAdapter(query, Form1.oc);
             adpt.Fill(dt);
             dataGridView1.DataSource = dt;
@@ -84,7 +84,7 @@ namespace Proyek_ACS
         {
             Form1.oc.Close();
             Form1.oc.Open();
-            MessageBox.Show(idbranch);
+            //MessageBox.Show(idbranch);
             string qinsert = "insert into pegawai values('" + id + "','" + nama + "','" + password + "','" + idbranch + "'," + idmanager + ")";
             OracleCommand cmdinsert = new OracleCommand(qinsert, Form1.oc);
             cmdinsert.ExecuteNonQuery();
@@ -115,29 +115,30 @@ namespace Proyek_ACS
         }
         private void Button1_Click(object sender, EventArgs e)
         {
-            insert_pegawai(tbid.Text, tbnama.Text, SHA512(tbpass.Text), comboBox1.SelectedValue.ToString(), Convert.ToInt32(idmanager.Text));
+            insert_pegawai(tbid.Text, tbnama.Text, SHA512(tbpass.Text), comboBox1.SelectedValue.ToString(), 1);
             loaddgvpegawai();
             tbid.Text = autogen_id_Pegawai();
             tbnama.Text = "";
             tbpass.Text = "";
-            idmanager.Text = "";
+
         }
 
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             tbid.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             tbnama.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            idmanager.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            
+
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            update_pegawai(tbid.Text, tbnama.Text, tbpass.Text, comboBox1.SelectedValue.ToString(), Convert.ToInt32(idmanager.Text));
+            update_pegawai(tbid.Text, tbnama.Text, tbpass.Text, comboBox1.SelectedValue.ToString(), 1);
             loaddgvpegawai();
             tbid.Text = autogen_id_Pegawai();
             tbnama.Text = "";
             tbpass.Text = "";
-            idmanager.Text = "";
+
         }
 
         private void Button3_Click(object sender, EventArgs e)
@@ -147,7 +148,6 @@ namespace Proyek_ACS
             tbid.Text = autogen_id_Pegawai();
             tbnama.Text = "";
             tbpass.Text = "";
-            idmanager.Text = "";
         }
 
         private static string GenerateHashString(HashAlgorithm algo, string text)
