@@ -87,24 +87,29 @@ namespace Proyek_ACS
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            //Form1.oc.Open();
+            Form1.oc.Close();
+            Form1.oc.Open();
             if (radioButton1.Checked)
             {
                 string assignakses = "insert into Hak_Akses Values('" + textBox1.Text + "','" + dgassign.Rows[idx].Cells[0].Value.ToString() + "')";
-                //OracleCommand cmd = new OracleCommand(assignakses, Form1.oc);
-                //cmd.ExecuteNonQuery();
-                Database db = new Database(Form1.oc);
-                db.executeNonQuery(assignakses);
+                OracleCommand cmd = new OracleCommand(assignakses, Form1.oc);
+                cmd.ExecuteNonQuery();
+               // Database db = new Database(Form1.oc);
+              //  db.executeNonQuery(assignakses);
                 MessageBox.Show("Sukses Memberi Hak Akses");
             }
             else if (radioButton2.Checked)
             {
                 string revoke = "delete From Hak_akses Where id_pegawai='" + comboBox3.SelectedValue.ToString() + "' and id_Hak_Akses='" + comboBox2.SelectedValue.ToString() + "'";
-                Database db = new Database(Form1.oc);
-                db.executeNonQuery(revoke);
+                //Database db = new Database(Form1.oc);
+                OracleCommand cmd = new OracleCommand(revoke,Form1.oc);
+                cmd.ExecuteNonQuery();
+               // db.executeNonQuery(revoke);
                 MessageBox.Show("Sukses Revoke Hak Akses");
             }
-            //Form1.oc.Close();
+            loadaksespegawai();
+            loadcbrevoke();
+            Form1.oc.Close();
         }
         void loadcbrevoke()
         {

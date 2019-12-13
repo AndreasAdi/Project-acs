@@ -106,7 +106,7 @@ namespace Proyek_ACS
                 "and Distributor.Id_Distributor = '" + formvendor.label_parsing_id.Text + "'", Form1.oc);
             adapkontakdist.Fill(dtkontakdistributor);
             formvendor.dataGridView1.DataSource = dtkontakdistributor;
-            formvendor.dataGridView1.Columns[0].Visible = false;
+           // formvendor.dataGridView1.Columns[0].Visible = false;
             formvendor.ShowDialog();
         }
 

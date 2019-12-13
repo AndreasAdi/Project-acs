@@ -14,7 +14,7 @@ namespace Proyek_ACS
 
         private void Kotak_Vendor_Load(object sender, EventArgs e)
         {
-
+      
 
         }
 
@@ -40,6 +40,8 @@ namespace Proyek_ACS
 
         private void Button1_Click(object sender, EventArgs e)
         {
+            Form1.oc.Close();
+            Form1.oc.Open();
             try
             {
                 OracleCommand ocomautoin = new OracleCommand("select fautoinkontakvendor('abc') from dual", Form1.oc);
@@ -59,10 +61,13 @@ namespace Proyek_ACS
             {
                 MessageBox.Show("Eror  di : " + ex.Message);
             }
+            Form1.oc.Close();
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
+            Form1.oc.Close();
+            Form1.oc.Open();
             try
             {
                 OracleCommand ocomupdate = new OracleCommand("Update Kontak_Distributor set staff = :a , no_telp = :b , email = :c where Id_Kontak = '" + label8.Text + "' ", Form1.oc);
@@ -78,24 +83,27 @@ namespace Proyek_ACS
             {
                 MessageBox.Show("Gagal Update");
             }
+            Form1.oc.Close();
         }
 
         public void load_dgv_kontak_vendor()
         {
             DataTable dtkontakdistributorr = new DataTable();
-            OracleDataAdapter adapkontakdistt = new OracleDataAdapter("Select Kontak_Distributor.Staff,Kontak_Distributor.No_Telp, Kontak_Distributor.Email " +
-                "from Kontak_Distributor, Distributor " +
-                "where Distributor.Id_Distributor = Kontak_Distributor.Id_Distributor " +
-                "and Distributor.Id_Distributor = '" + label_parsing_id.Text + "'", Form1.oc);
+            OracleDataAdapter adapkontakdistt = new OracleDataAdapter("Select Kontak_Distributor.Id_Kontak, Kontak_Distributor.Staff,Kontak_Distributor.No_Telp, Kontak_Distributor.Email " +
+               "from Kontak_Distributor, Distributor " +
+               "where Distributor.Id_Distributor = Kontak_Distributor.Id_Distributor " +
+               "and Distributor.Id_Distributor = '" + label_parsing_id.Text + "'", Form1.oc);
             adapkontakdistt.Fill(dtkontakdistributorr);
             dataGridView1.DataSource = dtkontakdistributorr;
         }
 
         private void Button3_Click(object sender, EventArgs e)
         {
+            Form1.oc.Close();
+            Form1.oc.Open();
             try
             {
-                OracleCommand ocomdelete = new OracleCommand("Delete Kontak_Distributor where Kontak_Distributor.Id_Kontak = '" + label8.Text + "' ");
+                OracleCommand ocomdelete = new OracleCommand("Delete Kontak_Distributor where Kontak_Distributor.Id_Kontak = '" + label8.Text + "' ",Form1.oc);
                 ocomdelete.ExecuteNonQuery();
                 MessageBox.Show("Sukses Hapus Kontak atas nama " + textBox1.Text + "/" + textBox2.Text);
                 Button4_Click(sender, e);
@@ -105,6 +113,7 @@ namespace Proyek_ACS
             {
                 MessageBox.Show("Eror di : " + ex.Message);
             }
+            Form1.oc.Close();
         }
     }
 }
