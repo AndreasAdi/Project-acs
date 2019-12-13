@@ -8,7 +8,7 @@ namespace Proyek_ACS
     public partial class Inventory : Form
     {
         DataTable dtinventory;
-        string perintahinventory = "select stok.id_barang as ID_BARANG, barang.nama_barang as NAMA_BARANG, barang.detail_barang as Deskripsi, stok.tanggal_masuk as TANGGAL_MASUK " +
+        string perintahinventory = "select stok.id_barang as ID_BARANG, barang.nama_barang as NAMA_BARANG, barang.detail_barang as Deskripsi " +
                 "from stok, barang " +
                 "where stok.id_barang = barang.id_barang ";
         public Inventory()

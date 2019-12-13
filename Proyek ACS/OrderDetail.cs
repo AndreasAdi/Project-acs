@@ -135,7 +135,7 @@ namespace Proyek_ACS
             //  dataGridView1.DataSource = ds.executeDataTable(query);
             query = "Select sum (total_bersih) from order_detail where id_order = '" + id_order + "' ";
             cmd = new OracleCommand(query, conn);
-            label13.Text = int.Parse(cmd.ExecuteScalar().ToString()).ToString("#,##0");
+            label13.Text = cmd.ExecuteScalar().ToString();
             conn.Close();
 
         }
